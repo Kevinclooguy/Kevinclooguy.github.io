@@ -31,7 +31,7 @@ nav{position:sticky;top:0;z-index:999;background:rgba(250,247,242,.97);backdrop-
 .search-bar{display:flex;align-items:center;gap:8px;background:var(--cream2);border:1px solid var(--border);border-radius:8px;padding:7px 13px;}
 .search-bar input{background:none;border:none;color:var(--text);font-family:'Outfit',sans-serif;font-size:13px;width:140px;outline:none;}
 .search-bar input::placeholder{color:var(--text3);}
-.nav-login{background:none;border:1px solid var(--border);color:var(--text);font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;padding:8px 16px;border-radius:7px;cursor:pointer;transition:all .2s;letter-spacing:.02em;}
+.nav-login{background:none;border:1px solid var(--border);color:var(--text);font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;padding:8px 16px;border-radius:7px;cursor:pointer;transition:all .2s;letter-spacing:.02em;white-space:nowrap;}
 .nav-login:hover{background:var(--cream2);border-color:var(--gold);color:var(--gold);}
 .nav-subscribe{background:var(--dark);color:var(--cream4);font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;padding:8px 18px;border-radius:7px;border:none;cursor:pointer;transition:all .2s;letter-spacing:.04em;}
 .nav-subscribe:hover{background:var(--gold);transform:translateY(-1px);box-shadow:0 6px 20px rgba(155,123,58,.25);}
@@ -61,10 +61,10 @@ nav{position:sticky;top:0;z-index:999;background:rgba(250,247,242,.97);backdrop-
 .btn-gold:hover{background:var(--gold);transform:translateY(-2px);box-shadow:0 10px 30px rgba(155,123,58,.25);}
 .btn-out{background:none;color:var(--text);border:1px solid rgba(44,36,22,.25);padding:13px 28px;border-radius:7px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:all .25s;}
 .btn-out:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
-.hero-right{position:absolute;right:0;top:0;bottom:0;width:42%;overflow:hidden;background:var(--cream2);}
-.hero-frame{position:absolute;inset:0;}
-.hero-frame img{width:100%;height:100%;object-fit:cover;opacity:.85;}
-.hero-ring{display:none;}
+.hero-right{position:absolute;right:0;top:0;bottom:0;width:42%;overflow:hidden;}
+.hero-img-wrap{position:absolute;inset:40px 0 40px 40px;border-radius:120px 0 0 120px;overflow:hidden;background:var(--cream2);box-shadow:-12px 12px 48px rgba(44,36,22,.15);}
+.hero-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center;opacity:.9;}
+
 .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--cream4);}
 .sc{padding:32px 36px;border-right:1px solid var(--border);transition:background .25s;cursor:default;}
 .sc:last-child{border-right:none;}.sc:hover{background:var(--cream2);}
@@ -86,7 +86,9 @@ nav{position:sticky;top:0;z-index:999;background:rgba(250,247,242,.97);backdrop-
 .res-main{padding:56px 64px;max-width:860px;background:var(--cream4);}
 .rp{display:none;animation:fadeUp .3s ease;}.rp.active{display:block;}
 .r-eye{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:9px;}
-.sec-banner{width:100%;height:220px;object-fit:cover;border-radius:12px;margin-bottom:26px;display:block;filter:grayscale(15%);}
+.sec-banner{display:none;}
+.r-intro{display:grid;grid-template-columns:1fr 240px;gap:28px;align-items:start;margin-bottom:26px;}
+.r-intro-text{}.r-intro-img{width:240px;height:300px;object-fit:cover;object-position:top;border-radius:12px;filter:grayscale(10%);box-shadow:0 8px 28px rgba(44,36,22,.12);}
 .r-title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:var(--text);margin-bottom:26px;line-height:1.15;}
 .r-body{font-size:15px;line-height:1.9;color:var(--text2);margin-bottom:17px;font-weight:300;}
 .r-body strong{color:var(--gold);font-weight:600;}
@@ -165,6 +167,10 @@ nav{position:sticky;top:0;z-index:999;background:rgba(250,247,242,.97);backdrop-
 .itab:hover{color:var(--text);}.itab.active{color:var(--gold);}
 .itab.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--gold);}
 .ipanel{display:none;animation:fadeUp .3s ease;}.ipanel.active{display:block;}
+.int-instr{background:var(--cream2);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:28px;max-width:640px;}
+.int-instr-t{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;}
+.int-instr p{font-size:13px;color:var(--text2);line-height:1.75;}
+.int-instr strong{color:var(--text);font-weight:600;}
 /* QUIZ */
 .qwrap{max-width:640px;}
 .qpbar{height:3px;background:var(--cream2);border-radius:2px;margin-bottom:36px;}
@@ -219,9 +225,9 @@ nav{position:sticky;top:0;z-index:999;background:rgba(250,247,242,.97);backdrop-
 /* ABOUT */
 .about-page{padding:0 52px 76px;background:var(--cream4);}
 .about-card{max-width:700px;margin:0 auto;background:var(--white);border:1px solid var(--border);border-radius:20px;overflow:hidden;}
-.about-ban{height:148px;background:linear-gradient(135deg,var(--dark2),var(--dark));position:relative;overflow:hidden;}
+.about-ban{height:160px;background:linear-gradient(135deg,var(--dark2),var(--dark));position:relative;overflow:hidden;}
 .about-ban-p{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(196,163,90,.06) 0,rgba(196,163,90,.06) 1px,transparent 1px,transparent 50%);background-size:17px 17px;}
-.about-av{width:82px;height:82px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));border:4px solid var(--white);margin:-41px 0 0 42px;position:relative;z-index:1;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:var(--dark);}
+.about-av{width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));border:4px solid var(--white);margin:-55px 0 0 42px;position:relative;z-index:1;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:var(--dark);box-shadow:0 4px 18px rgba(44,36,22,.15);overflow:hidden;}
 .about-body{padding:16px 42px 42px;}
 .about-name{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--text);margin-bottom:3px;}
 .about-role{font-size:11px;color:var(--gold);font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px;}
@@ -232,12 +238,13 @@ nav{position:sticky;top:0;z-index:999;background:rgba(250,247,242,.97);backdrop-
 .src-i strong{color:var(--gold);}
 /* CITED */
 .cited-page{padding:0 52px 76px;background:var(--cream4);}
-.cited-wrap{max-width:780px;margin:0 auto;}
-.cited-item{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:21px 25px;margin-bottom:11px;transition:border-color .2s;}
-.cited-item:hover{border-color:var(--gold);}
-.cited-type{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--gold-dim);color:var(--gold);padding:3px 10px;border-radius:100px;margin-bottom:9px;}
-.cited-txt{font-size:14px;color:var(--text2);line-height:1.75;}
-.cited-txt em{color:var(--gold);}
+.cited-wrap{max-width:720px;margin:0 auto;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:42px 52px;}
+.cited-item{background:transparent;border:none;border-bottom:1px solid var(--border2);padding:0 0 20px 0;margin-bottom:20px;}
+.cited-item:last-child{border-bottom:none;}
+.cited-item:hover{background:transparent;}
+.cited-type{display:none;}
+.cited-txt{font-size:14.5px;color:var(--text2);line-height:1.85;font-family:'Georgia',serif;padding-left:2em;text-indent:-2em;}
+.cited-txt em{color:var(--text2);font-style:italic;}
 /* MODALS */
 .modal{position:fixed;inset:0;background:rgba(28,22,18,.7);z-index:9998;display:none;align-items:center;justify-content:center;}
 .modal.open{display:flex;}
@@ -275,7 +282,7 @@ footer{border-top:1px solid var(--border);padding:26px 52px;display:flex;justify
     <button class="nav-tab" onclick="goP('video',this)">Video</button>
     <button class="nav-tab" onclick="goP('interactive',this)">Interactive</button>
     <button class="nav-tab" onclick="goP('about',this)">About</button>
-    <button class="nav-tab" onclick="goP('cited',this)">Works Cited</button>
+    <button class="nav-tab" onclick="goP('cited',this)">Works Consulted</button>
   </div>
   <div class="nav-right">
     <div style="position:relative;">
@@ -294,19 +301,18 @@ footer{border-top:1px solid var(--border);padding:26px 52px;display:flex;justify
     <div class="hero-content">
       <div class="hero-badge">✦ Reform Research Project</div>
       <h1 class="hero-title"><span class="l1">Harriet</span><span class="l2">Tubman</span><span class="l3">1822 — 1913</span></h1>
-      <p class="hero-sub">Born into slavery. Escaped to freedom. Returned thirteen times to liberate others. A spy, a soldier, a suffragist, and the Moses of her people.</p>
+      <p class="hero-sub">Born into slavery. Escaped to freedom. Returned thirteen times to liberate others. A spy, a soldier, a suffragist — and the Moses of her people.</p>
       <div class="hero-cta">
         <button class="btn-gold" onclick="goP('research',document.querySelectorAll('.nav-tab')[1])">Explore Research</button>
         <button class="btn-out" onclick="goP('timeline',document.querySelectorAll('.nav-tab')[3])">View Timeline</button>
       </div>
     </div>
-    <div class="hero-right"><div class="hero-ring"></div><div class="hero-frame"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/800px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg" alt="Harriet Tubman"></div></div>
-  </div>
-  <div class="stat-strip">
-    <div class="sc"><span class="sc-n">~70</span><div class="sc-l">People freed by Underground Railroad missions</div></div>
-    <div class="sc"><span class="sc-n">700+</span><div class="sc-l">Liberated in the Combahee River Raid, 1863</div></div>
-    <div class="sc"><span class="sc-n">$40K</span><div class="sc-l">Bounty placed on her head by slaveholders</div></div>
-    <div class="sc"><span class="sc-n">13</span><div class="sc-l">Rescue missions conducted into the South</div></div>
+    <div class="hero-right">
+      <div class="hero-img-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/800px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg" alt="Harriet Tubman">
+
+      </div>
+    </div>
   </div>
 </div>
 </div>
@@ -319,84 +325,102 @@ footer{border-top:1px solid var(--border);padding:26px 52px;display:flex;justify
       <button class="rs-b active" onclick="goS('bio',this)">01 · Background & Biography</button>
       <button class="rs-b" onclick="goS('context',this)">02 · Historical Context</button>
       <button class="rs-b" onclick="goS('obstacles',this)">03 · Obstacles Faced</button>
-      <button class="rs-b" onclick="goS('strategies',this)">04 · Strategies for Change</button>
-      <button class="rs-b" onclick="goS('plan',this)">05 · Action Plan</button>
-      <button class="rs-b" onclick="goS('action',this)">06 · Take Action</button>
-      <button class="rs-b" onclick="goS('impact',this)">07 · Results &amp; Impact</button>
+      <button class="rs-b" onclick="goS('plan',this)">04 · Action Plan</button>
+      <button class="rs-b" onclick="goS('action',this)">05 · Take Action</button>
+      <button class="rs-b" onclick="goS('impact',this)">06 · Results &amp; Impact</button>
     </aside>
     <main class="res-main">
       <div id="sec-bio" class="rp active">
-        <img class="sec-banner" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/1200px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg" alt="Harriet Tubman portrait">
         <div class="r-eye">Section 01</div><h2 class="r-title">Background &amp; Biography</h2>
-        <p class="r-body">Harriet Tubman was born in <strong>March 1822</strong> in Dorchester County, Maryland, originally named <strong>Araminta Ross.</strong> She was one of eleven children born to enslaved parents, Harriet and Benjamin Ross.</p>
-        <p class="r-body">From age five, she was employed by her master — first as a nursemaid, then as a field hand, cook, and woodcutter. At around age twelve, an overseer threw an iron weight at another enslaved worker, striking Tubman instead and nearly crushing her skull. The injury caused <strong>seizures and sudden sleep episodes</strong> for the rest of her life, which she interpreted as spiritual experiences.</p>
-        <p class="r-body">In 1844, she married a free Black man known as <strong>John Tubman</strong> and took his last name. In 1849, fearing that she and others on the plantation would be sold, she fled north — but her husband refused to join her. She followed the North Star to Philadelphia, found work, and saved money to return and free others.</p>
-        <p class="r-body">After the Civil War, she permanently settled in <strong>Auburn, New York</strong>, where she had also brought her parents out of Maryland in 1857. She died of pneumonia on <strong>March 10, 1913</strong>, and was given a military funeral.</p>
+        <div class="r-intro">
+          <div class="r-intro-text">
+            <p class="r-body">Harriet Tubman was born on March, 1822, in Dorchester County, Maryland, originally named "Araminta Ross." She was one of eleven children born to enslaved parents, Harriet and Benjamin Ross.</p>
+            <p class="r-body">From age five, she was employed by her master and was first a nursemaid. She had multiple jobs as a field hand, cook, and woodcutter. At around age twelve, while many thoughts traveled through her head, a different worker threw an iron weight at another enslaved worker. This was Tubman, nearly crushing her skull. The injury caused seizures and caused her to fall asleep suddenly occasionally, which she interpreted as spiritual experiences.</p>
+            <p class="r-body">In 1844, she married a free Black man known as John Tubman and took his last name. In 1849, she feared that others, including her, on plantations would be sold. Thus, she fled north, but her husband refused to join her. She followed the North Star to Philadelphia, got a job, and saved money to return and free others.</p>
+            <p class="r-body">After the Civil War, she permanently settled in New York, where she also brought her parents out of Maryland in 1857. She died of pneumonia on March 10, 1913, and was given a military funeral.</p>
+          </div>
+          <img class="r-intro-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/800px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg" alt="Harriet Tubman portrait">
+        </div>
       </div>
       <div id="sec-context" class="rp">
-        <img class="sec-banner" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Harriet_Tubman_Underground_Railroad_NM_IMG_4657.jpg/1280px-Harriet_Tubman_Underground_Railroad_NM_IMG_4657.jpg" alt="Underground Railroad historical site">
         <div class="r-eye">Section 02</div><h2 class="r-title">Historical Context</h2>
-        <p class="r-body">Tubman's advocacy took place during one of the most unsettling periods in American history — the era of slavery. From <strong>1831 to 1861</strong>, tens of thousands of enslaved people escaped through a network of safe houses known as the <strong>Underground Railroad,</strong> a term from the public's fascination with railroads at the time.</p>
-        <p class="r-body">The network connected to the 1780s through Quaker activism, but its activity increased after the 1830s as the abolitionist movement grew. It was not a formal organization, but the routes were supported by conductors who helped others escape.</p>
-        <div class="ibox"><div class="ibox-t">The Fugitive Slave Law of 1850</div><p>A major turning point — this law required escaped enslaved people to be returned to their masters, even from free states. Anyone who helped them risked fines or imprisonment. This forced conductors like Tubman to guide freedom seekers all the way to Canada.</p></div>
+        <div class="r-intro">
+          <div class="r-intro-text">
+            <p class="r-body">Tubman's advocacy took place during one of the most unsettling periods in American history, the era of slavery. From 1831 to 1861, tens of thousands of enslaved people escaped through a network of safe houses that became known as the "Underground Railroad," which was a term from the public's fascination with railroads at the time.</p>
+            <p class="r-body">The network connected to the 1780s through Quaker activism, but its activity increased after the 1830s as the abolitionist movement grew. It was not much of an organization, but the routes were full of conductors to help others and to escape.</p>
+            <div class="ibox"><div class="ibox-t">The Fugitive Slave Law of 1850</div><p>A turning point was during the Fugitive Slave Law of 1850, which required escaped enslaved people to return to their masters, even from free states. There were many risks, such as fines or imprisonment, for anyone who helped them. This forced conductors like Tubman to help guide freedom seekers all the way to Canada.</p></div>
+          </div>
+          <img class="r-intro-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Harriet_Tubman_Underground_Railroad_NM_IMG_4657.jpg/1280px-Harriet_Tubman_Underground_Railroad_NM_IMG_4657.jpg" alt="Underground Railroad National Monument">
+        </div>
       </div>
       <div id="sec-obstacles" class="rp">
-        <img class="sec-banner" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Wanted_poster_for_Harriet_Tubman%2C_1849.jpg/1200px-Wanted_poster_for_Harriet_Tubman%2C_1849.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Harriet_Tubman_by_H.B._Lindsley%2C_1870s.jpg/800px-Harriet_Tubman_by_H.B._Lindsley%2C_1870s.jpg'" alt="Wanted poster">
         <div class="r-eye">Section 03</div><h2 class="r-title">Obstacles Faced</h2>
-        <div class="cg">
-          <div class="rc"><h4>$40,000 Bounty</h4><p>By the 1850s, Maryland slaveholders offered a $40,000 reward for her capture — a massive fortune at the time.</p></div>
-          <div class="rc"><h4>Fugitive Slave Act</h4><p>Made it illegal to help escaped slaves anywhere in the US, forcing missions to extend all the way to Canada.</p></div>
-          <div class="rc"><h4>Health Condition</h4><p>Her constant seizures and sudden sleep episodes from the head injury made traveling dangerous and unpredictable.</p></div>
-          <div class="rc"><h4>Illiteracy</h4><p>She could not read or write. When she heard men reading her wanted poster aloud, she pulled out a book and pretended to read to avoid being caught.</p></div>
-          <div class="rc"><h4>Passenger Resistance</h4><p>Some people seeking freedom became frightened and wanted to turn back, which would have made the mission far more dangerous.</p></div>
-          <div class="rc"><h4>Racism</h4><p>She faced discrimination as a Black woman even among allies when trying to provide safety for others.</p></div>
+        <div class="r-intro">
+          <div class="r-intro-text">
+            <div class="cg">
+              <div class="rc"><h4>Massive Bounty on Her Head</h4><p>By the 1850s, Maryland slaveowners offered a $40,000 reward if they could capture her.</p></div>
+              <div class="rc"><h4>The Fugitive Slave Act</h4><p>Made it illegal to help escaped slaves anywhere in the US, so it forced traveling all the way to Canada.</p></div>
+              <div class="rc"><h4>Health Condition</h4><p>Her constant seizures and constant sleeping spiritual experiences from her head injury made traveling dangerous and unpredictable.</p></div>
+              <div class="rc"><h4>Illiteracy</h4><p>She could not read or write. When she heard men reading her wanted poster, she pulled out a book and pretended to read to not get caught.</p></div>
+              <div class="rc"><h4>Resistance from Passengers</h4><p>Some people who wanted to seek freedom were frightened and wanted to turn back, which would have made the mission more horrific.</p></div>
+              <div class="rc"><h4>Racism</h4><p>She faced discrimination as a Black woman, even among allies, when she was trying to provide safety.</p></div>
+            </div>
+          </div>
+          <img class="r-intro-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Harriet_Tubman_by_H.B._Lindsley%2C_1870s.jpg/800px-Harriet_Tubman_by_H.B._Lindsley%2C_1870s.jpg" alt="Harriet Tubman 1870s">
         </div>
       </div>
-      <div id="sec-strategies" class="rp">
-        <img class="sec-banner" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Harriet_Tubman_1868-69.jpg/800px-Harriet_Tubman_1868-69.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Harriet_Tubman_1895.jpg/640px-Harriet_Tubman_1895.jpg'" alt="Harriet Tubman strategies">
-        <div class="r-eye">Section 04</div><h2 class="r-title">Strategies for Change</h2>
-        <div class="sl">
-          <div class="sr"><div class="sn">01</div><div class="sb"><h4>Underground Railroad Conducting</h4><p>Tubman personally led missions into the South, guiding enslaved people north through networks of safe houses.</p></div></div>
-          <div class="sr"><div class="sn">02</div><div class="sb"><h4>Tactical Innovation</h4><p>She escaped on Saturday nights so runaway notices couldn't be printed until Monday morning, used the master's horse and buggy for the first leg, and headed south to spot potential slave catchers.</p></div></div>
-          <div class="sr"><div class="sn">03</div><div class="sb"><h4>Armed Deterrence</h4><p>Tubman carried a pistol on every mission, telling hesitant passengers they would be free or die — ensuring no one could turn back and compromise the group.</p></div></div>
-          <div class="sr"><div class="sn">04</div><div class="sb"><h4>Public Speaking</h4><p>In the late 1850s, she began speaking at abolitionist meetings in the North, using her personal stories to build awareness and cause rallies of support.</p></div></div>
-          <div class="sr"><div class="sn">05</div><div class="sb"><h4>Published Biography</h4><p>She worked with Sarah Bradford to create <em>Scenes in the Life of Harriet Tubman,</em> spreading her story to wider audiences and generating funding for her continued work.</p></div></div>
-          <div class="sr"><div class="sn">06</div><div class="sb"><h4>Military Intelligence</h4><p>During the Civil War, she gathered information on Confederate positions, leading to key raids such as the Combahee River Raid in 1863.</p></div></div>
-          <div class="sr"><div class="sn">07</div><div class="sb"><h4>Coalition Building</h4><p>She formed alliances with William Still, Frederick Douglass, John Brown, and Levi Coffin, extending her reach far beyond what she could do alone.</p></div></div>
-          <div class="sr"><div class="sn">08</div><div class="sb"><h4>Postwar Advocacy</h4><p>After the war, she lobbied for educational opportunities for freed people, fought for her military pension, and advocated for women's suffrage at the NACW convention in 1896.</p></div></div>
-        </div>
-      </div>
+
       <div id="sec-plan" class="rp">
-        <img class="sec-banner" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Frederick_Douglass_by_Samuel_J_Miller%2C_1847-52.png/800px-Frederick_Douglass_by_Samuel_J_Miller%2C_1847-52.png" alt="Abolitionist movement">
-        <div class="r-eye">Section 05</div><h2 class="r-title">Action Plan</h2>
-        <div class="r-h2">Specific Goal</div>
-        <p class="r-body">Tubman's primary goal was to <strong>liberate as many enslaved people as possible</strong> and to accomplish the total abolition of slavery in the United States. This was driven by her pursuit of freedom, equality, and the prevention of racial segregation.</p>
-        <div class="r-h2">Target Audience</div>
-        <div class="ibox"><div class="ibox-t">Three Key Groups</div><p><strong>Enslaved people in the South</strong> — they would directly benefit from Tubman's missions.<br><br><strong>Northern abolitionists</strong> — they could provide safe housing, funding, and political force.<br><br><strong>The Union Army</strong> — she would later join as a spy and scout during the Civil War.</p></div>
-        <div class="r-h2">Planned Strategies</div>
-        <p class="r-body">Underground Railroad conducting, public speaking at abolitionist meetings, publishing her biography to spread awareness and raise funds, and using military intelligence during the Civil War to enable major raids and liberation events.</p>
+        <div class="r-eye">Section 04</div><h2 class="r-title">Action Plan</h2>
+        <div class="r-intro">
+          <div class="r-intro-text">
+            <div class="r-h2">Specific Goal</div>
+            <p class="r-body">Tubman's primary goal was to liberate as many enslaved people as possible and to accomplish the total abolition of slavery in the United States. This was for freedom, equality, and to prevent racial segregation.</p>
+            <div class="r-h2">Target Audience</div>
+            <div class="ibox"><div class="ibox-t">Three Key Groups</div><p><strong>Enslaved people in the South:</strong> They would directly benefit from Tubman's missions.<br><br><strong>Northern abolitionists:</strong> They could provide safe housing, funding, and political force.<br><br><strong>The Union Army:</strong> She would later join as a spy and scout during the Civil War.</p></div>
+            <div class="r-h2">Strategies</div>
+            <div class="sl">
+              <div class="sr"><div class="sn">01</div><div class="sb"><h4>Underground Railway Conducting</h4><p>Tubman personally led missions into the South, guiding enslaved people to the north through networks of safe houses.</p></div></div>
+              <div class="sr"><div class="sn">02</div><div class="sb"><h4>Public Speaking</h4><p>In the late 1850s, she began speaking at abolitionist meetings in the North, using her stories to build awareness and cause rallies to support her.</p></div></div>
+              <div class="sr"><div class="sn">03</div><div class="sb"><h4>Publish Biography</h4><p>She worked with Sarah Bradford to create the book <em>Scenes in the Life of Harriet Tubman,</em> spreading her story to audiences and gaining funding.</p></div></div>
+              <div class="sr"><div class="sn">04</div><div class="sb"><h4>Military Awareness and Tactics</h4><p>During the Civil War, she gathered the Confederates' positions, leading to impactful raids such as the Combahee River Raid.</p></div></div>
+            </div>
+          </div>
+          <img class="r-intro-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Frederick_Douglass_by_Samuel_J_Miller%2C_1847-52.png/800px-Frederick_Douglass_by_Samuel_J_Miller%2C_1847-52.png" alt="Frederick Douglass">
+        </div>
       </div>
       <div id="sec-action" class="rp">
-        <img class="sec-banner" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Harriet_Tubman_-_Macall_Civil_War.jpg/800px-Harriet_Tubman_-_Macall_Civil_War.jpg" alt="Harriet Tubman Civil War">
-        <div class="r-eye">Section 06</div><h2 class="r-title">Take Action — What She Did</h2>
-        <p class="r-body">Before the Civil War, Tubman led a total of <strong>13 missions into Maryland</strong>, guiding approximately <strong>70 people to freedom.</strong> This included her sister and her two children, her brother, and her elderly parents. She escaped on Saturday nights, used the master's horse and wagon for the first part of the journey, and headed south to minimize conflict and spot potential slave catchers when threatened.</p>
-        <p class="r-body">During the Civil War, Tubman supported the Union Army at <strong>Beaufort, South Carolina,</strong> working as a cook, nurse, laundress, scout, and spy. She built a network of formerly enslaved people to gather information on Confederate camps and supply routes.</p>
-        <p class="r-body">In <strong>1863</strong>, she led Colonel James Montgomery and approximately 150 Black soldiers on the <strong>Combahee River Raid,</strong> freeing over <strong>700 enslaved people</strong> — the largest emancipation event of the Civil War and the first military action led by a woman in American history.</p>
-        <p class="r-body">After the war, she transformed her Auburn home into the <strong>Home for Aged and Indigent Colored People,</strong> raised money for freedmen's schools, and in 1896 became a representative to the National Association of Colored Women's first convention. In 1903, she donated 25 acres of land to the <strong>African Methodist Episcopal Zion Church</strong> as a shelter for poor and homeless African Americans.</p>
-        <div class="ibox"><div class="ibox-t">Key Alliances</div><p><strong>William Still</strong> — Philadelphia's Underground Railroad stationmaster who documented escapes and turned them into a book.<br><br><strong>Frederick Douglass</strong> — An enslaved man who became a leader, writer, and speaker against slavery in the US.<br><br><strong>John Brown</strong> — White abolitionist who used direct action, including the raid on Harpers Ferry.<br><br><strong>Levi Coffin</strong> — Quaker abolitionist who helped thousands of enslaved people through the Underground Railroad.</p></div>
+        <div class="r-eye">Section 05</div><h2 class="r-title">Take Action</h2>
+        <div class="r-intro">
+          <div class="r-intro-text">
+            <div class="r-h2">Actions Taken</div>
+            <p class="r-body">Before the Civil War in 1861, Tubman guided around 70 people to freedom, during a total of 13 missions into Maryland. This included her sister and her two children, her brother, and her elderly parents.</p>
+            <p class="r-body">She used crucial tactics, causing her to escape on Saturday nights, using the master's horse and a wagon for the first part of the journey. Additionally, if there was any interference, she headed South to minimize conflict and spot potential slave catchers.</p>
+            <p class="r-body">During the Civil War, Tubman supported the Union Army at Beaufort, South Carolina. She was working as a cook, nurse, laundress, scout, and spy. She created a network of enslaved people to gather information on Confederate camps.</p>
+            <p class="r-body">In 1863, she led Colonel James Montgomery and approximately 150 Black soldiers on the Combahee River Raid. As a result, she freed over 700 enslaved people.</p>
+            <p class="r-body">After the war, she made her Auburn home into the Home for Aged and Indigent Colored People. This allowed her to raise money for schools and educational opportunities for enslaved people. In 1896, she became a representative to the National Association of Colored Women's first convention allowing the right to vote.</p>
+            <p class="r-body">In 1903, she donated 25 acres of land to the African Methodist Episcopal Zion Church, a shelter for poor and homeless African Americans.</p>
+            <div class="ibox"><div class="ibox-t">Alliances Formed</div><p><strong>William Still:</strong> Philadelphia's Underground Railroad stationmaster, who documented escapes and later turned them into a book.<br><br><strong>Frederick Douglass:</strong> An enslaved man who became a leader, writer, and speaker against slavery in the US.<br><br><strong>John Brown:</strong> White abolitionists who used violence, including the raid on Harpers Ferry.<br><br><strong>Levi Coffin:</strong> Quaker abolitionist, helping thousands of enslaved people through the Underground Railroad.</p></div>
+          </div>
+          <img class="r-intro-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Harriet_Tubman_-_Macall_Civil_War.jpg/800px-Harriet_Tubman_-_Macall_Civil_War.jpg" alt="Harriet Tubman Civil War">
+        </div>
       </div>
       <div id="sec-impact" class="rp">
-        <img class="sec-banner" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/13th_Amendment_Pg1of1_AC.jpg/1200px-13th_Amendment_Pg1of1_AC.jpg" alt="13th Amendment">
-        <div class="r-eye">Section 07</div><h2 class="r-title">Results &amp; Long-Term Impact</h2>
-        <div class="imp-row">
-          <div class="imp"><span class="n">~70</span><div class="l">Freed via Underground Railroad</div></div>
-          <div class="imp"><span class="n">700+</span><div class="l">Liberated at Combahee River</div></div>
-          <div class="imp"><span class="n">2024</span><div class="l">Awarded Brigadier General</div></div>
+        <div class="r-eye">Section 06</div><h2 class="r-title">Results &amp; Impact</h2>
+        <div class="r-intro">
+          <div class="r-intro-text">
+            <div class="imp-row">
+              <div class="imp"><span class="n">~70</span><div class="l">Freed via Underground Railroad</div></div>
+              <div class="imp"><span class="n">700+</span><div class="l">Liberated at Combahee River</div></div>
+              <div class="imp"><span class="n">2024</span><div class="l">Awarded Brigadier General</div></div>
+            </div>
+            <p class="r-body">Freed approximately 70 people through Underground Railroad missions and over 700 more through the Combahee River Raid.</p>
+            <p class="r-body">In 2013, President Barack Obama assigned portions of Maryland's Eastern Shore as the "Harriet Tubman Underground Railroad National Monument," which is the first national monument honoring a Black woman.</p>
+            <p class="r-body">On Veterans Day 2024, she was awarded the rank of Brigadier General in the Maryland National Guard to display her military service.</p>
+            <p class="r-body">Inspired the Civil Rights Movement of the 1950s to 1960s.</p>
+          </div>
+          <img class="r-intro-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/13th_Amendment_Pg1of1_AC.jpg/1200px-13th_Amendment_Pg1of1_AC.jpg" alt="13th Amendment">
         </div>
-        <p class="r-body">In <strong>2013</strong>, President Barack Obama designated portions of Maryland's Eastern Shore as the <strong>Harriet Tubman Underground Railroad National Monument</strong> — the first national monument honoring a Black woman.</p>
-        <p class="r-body">On Veterans Day <strong>2024</strong>, she was awarded the rank of <strong>Brigadier General</strong> in the Maryland National Guard, recognizing her military service during the Civil War over 100 years after her death.</p>
-        <p class="r-body">Tubman was originally chosen to appear on the front of the <strong>US $20 bill,</strong> which would have made her the first African American woman on US currency — however, this did not come to pass.</p>
-        <p class="r-body">Her courage and determination directly inspired the <strong>Civil Rights Movement of the 1950s and 1960s,</strong> proving that one person's moral conviction could challenge and ultimately change an entire system of oppression.</p>
       </div>
     </main>
   </div>
@@ -407,15 +431,15 @@ footer{border-top:1px solid var(--border);padding:26px 52px;display:flex;justify
   <div class="ff-page">
     <div class="pg-hdr"><div class="pg-eye">Did You Know?</div><h2 class="pg-ttl">Fun Facts</h2><p class="pg-sub">Surprising and little-known details about Harriet Tubman's extraordinary life.</p></div>
     <div class="ff-grid">
-      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Harriet_Tubman_and_the_Underground_Railroad.jpg/640px-Harriet_Tubman_and_the_Underground_Railroad.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/400px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg'" alt="Underground Railroad"><div class="fc-body"><span class="fc-icon">🚂</span><div class="fc-t">Never Lost a Single Passenger</div><div class="fc-d">In all 13 of her Underground Railroad missions, Tubman never lost a single person she was guiding to freedom.</div></div></div>
-      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Harriet_Tubman_by_H.B._Lindsley%2C_1870s.jpg/480px-Harriet_Tubman_by_H.B._Lindsley%2C_1870s.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Harriet_Tubman_1895.jpg/400px-Harriet_Tubman_1895.jpg'" alt="Tubman portrait"><div class="fc-body"><span class="fc-icon">💊</span><div class="fc-t">She Used Medicine to Quiet Babies</div><div class="fc-d">To prevent crying infants from revealing the group's location, she carried a small amount of opium to help babies fall asleep and avoid slave catchers.</div></div></div>
-      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Harriet_Tubman_1868-69.jpg/480px-Harriet_Tubman_1868-69.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/400px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg'" alt="Tubman armed"><div class="fc-body"><span class="fc-icon">🔫</span><div class="fc-t">She Carried a Gun on Every Mission</div><div class="fc-d">Tubman carried a pistol for defense on every mission. Anyone who wanted to turn back was told they would be free or die — no one could compromise the group.</div></div></div>
-      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Polaris_star.jpg/640px-Polaris_star.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/400px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg'" alt="North Star night sky"><div class="fc-body"><span class="fc-icon">🌙</span><div class="fc-t">Always Escaped on Saturday Night</div><div class="fc-d">Newspapers couldn't print runaway notices until Monday morning. This gave the group a full two-day head start before anyone could spread the news.</div></div></div>
-      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Harriet_Tubman_-_Macall_Civil_War.jpg/480px-Harriet_Tubman_-_Macall_Civil_War.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/400px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg'" alt="Tubman Civil War"><div class="fc-body"><span class="fc-icon">💰</span><div class="fc-t">Paid Almost Nothing for the War</div><div class="fc-d">After leading the Combahee River Raid, Tubman was paid so little by the Union Army that she had to sell her own baked goods to support herself.</div></div></div>
-      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/480px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg" alt="Harriet Tubman Moses"><div class="fc-body"><span class="fc-icon">✡️</span><div class="fc-t">Nicknamed "Moses" of Her People</div><div class="fc-d">She led enslaved people to freedom just as Moses led the Israelites out of slavery in Egypt — a comparison that stuck throughout her life.</div></div></div>
-      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tubman_Harvard.jpg/480px-Tubman_Harvard.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Harriet_Tubman_1895.jpg/400px-Harriet_Tubman_1895.jpg'" alt="Tubman military"><div class="fc-body"><span class="fc-icon">⚔️</span><div class="fc-t">First Woman to Lead a US Military Operation</div><div class="fc-d">Tubman led the Combahee River Raid in 1863 — the largest emancipation event of the Civil War — becoming the first woman to lead a US military operation.</div></div></div>
-      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/13th_Amendment_Pg1of1_AC.jpg/480px-13th_Amendment_Pg1of1_AC.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/400px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg'" alt="13th Amendment"><div class="fc-body"><span class="fc-icon">📜</span><div class="fc-t">Contributed to the 13th Amendment</div><div class="fc-d">Harriet supported the abolitionist cause that led to the 13th Amendment, which formally abolished slavery in the United States in 1865.</div></div></div>
-      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Harriet_Tubman_1895.jpg/480px-Harriet_Tubman_1895.jpg" alt="Tubman $20 bill"><div class="fc-body"><span class="fc-icon">💵</span><div class="fc-t">Chosen for the US $20 Bill</div><div class="fc-d">She was originally chosen to appear on the front of the US $20 bill — making her the first African American woman on US currency — but this never happened.</div></div></div>
+      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/480px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg" alt="Harriet Tubman"><div class="fc-body"><div class="fc-t">Never Lost a Single Passenger</div><div class="fc-d">In all 13 of her Underground Railroad missions, Tubman never lost a single person who was led to freedom.</div></div></div>
+      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Harriet_Tubman_by_H.B._Lindsley%2C_1870s.jpg/480px-Harriet_Tubman_by_H.B._Lindsley%2C_1870s.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Harriet_Tubman_1895.jpg/400px-Harriet_Tubman_1895.jpg'" alt="Tubman portrait"><div class="fc-body"><div class="fc-t">She Used Medicine to Quiet Babies</div><div class="fc-d">To prevent crying infants from revealing the group's location, she carried a small amount of opium. This would help the babies fall asleep and not get caught by slave catchers.</div></div></div>
+      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Harriet_Tubman_1868-69.jpg/480px-Harriet_Tubman_1868-69.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/400px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg'" alt="Tubman 1868"><div class="fc-body"><div class="fc-t">She Carried a Gun on Every Mission</div><div class="fc-d">Tubman told anyone who wanted to turn back that she carried a pistol for defense, ensuring safety and courage for people who wanted to back down.</div></div></div>
+      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Harriet_Tubman_1895.jpg/480px-Harriet_Tubman_1895.jpg" alt="Harriet Tubman 1895"><div class="fc-body"><div class="fc-t">Always Escaped on Saturday Night</div><div class="fc-d">Newspapers could not be printed for those who escaped until Monday morning. This gave the group two days to escape and prevent anyone from spreading the news about the escaping people.</div></div></div>
+      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Harriet_Tubman_-_Macall_Civil_War.jpg/480px-Harriet_Tubman_-_Macall_Civil_War.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/400px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg'" alt="Tubman Civil War"><div class="fc-body"><div class="fc-t">Paid Almost Nothing for the War</div><div class="fc-d">After leading the Combahee River Raid, Tubman was paid so little by the Union Army that she had to sell her own baked goods to support herself.</div></div></div>
+      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/480px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg" alt="Harriet Tubman Moses"><div class="fc-body"><div class="fc-t">Nicknamed "Moses" of Her People</div><div class="fc-d">Led enslaved people to freedom, similar to how Moses led Israelites out of slavery in Egypt.</div></div></div>
+      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tubman_Harvard.jpg/480px-Tubman_Harvard.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Harriet_Tubman_1895.jpg/400px-Harriet_Tubman_1895.jpg'" alt="Tubman military"><div class="fc-body"><div class="fc-t">First Woman to Lead a US Military Operation</div><div class="fc-d">Tubman led the largest emancipation event of the Civil War and became the first woman to lead the military.</div></div></div>
+      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/13th_Amendment_Pg1of1_AC.jpg/480px-13th_Amendment_Pg1of1_AC.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/400px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg'" alt="13th Amendment"><div class="fc-body"><div class="fc-t">Contributed to the 13th Amendment</div><div class="fc-d">Harriet supported the cause that led to the 13th Amendment, which abolished slavery in the US.</div></div></div>
+      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Harriet_Tubman_1895.jpg/480px-Harriet_Tubman_1895.jpg" alt="Harriet Tubman"><div class="fc-body"><div class="fc-t">Front of US $20</div><div class="fc-d">Originally chosen to appear on the front of the US $20 bill. This would make her the first African American woman, but this never happened due to security reasons.</div></div></div>
     </div>
   </div>
 </div>
@@ -425,19 +449,25 @@ footer{border-top:1px solid var(--border);padding:26px 52px;display:flex;justify
   <div class="tl-page">
     <div class="pg-hdr"><div class="pg-eye">A Life in History</div><h2 class="pg-ttl">Timeline of Key Events</h2><p class="pg-sub">The most important turning points of Harriet Tubman's extraordinary life.</p></div>
     <div class="tl-wrap" id="tlwrap">
-      <div class="tl-item"><div class="tl-left"><div class="tl-yr">1822</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">Born Araminta Ross</div><div class="tl-tx">Born into slavery in Dorchester County, Maryland. One of eleven children. Hired out from age five as a nursemaid, then field hand, cook, and woodcutter.</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-nm">Severe Head Injury</div><div class="tl-tx">An overseer's iron weight strikes her skull. She suffers seizures and sudden sleep episodes for the rest of her life, interpreting them as spiritual visions.</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-yr">1834</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-yr">1849</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">Escapes to Philadelphia</div><div class="tl-tx">Fears being sold and flees north alone, following the North Star. Her husband refuses to join her. She finds work and saves money to return for others.</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-nm">Fugitive Slave Act Passed</div><div class="tl-tx">New federal law requires escaped enslaved people to be returned even from free states. Tubman must now guide freedom seekers all the way to Canada.</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-yr">1850</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-yr">1850</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">First Rescue Mission</div><div class="tl-tx">Returns to Maryland and escorts her sister and her two children to freedom — the first of 13 missions over the next decade.</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-nm">Rescues Her Elderly Parents</div><div class="tl-tx">Hires a wagon and transports her elderly parents out of Maryland to safety in Auburn, New York.</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-yr">1857</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-yr">1862</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">Joins the Union Army</div><div class="tl-tx">Moves to Beaufort, South Carolina. Serves as cook, nurse, laundress, scout, and spy. Builds a spy network of formerly enslaved people.</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-nm">Combahee River Raid</div><div class="tl-tx">Guides Colonel Montgomery and ~150 Black soldiers on a gunboat raid. Frees over 700 enslaved people — the largest emancipation event of the Civil War and the first US military action led by a woman.</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-yr">1863</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-yr">1869</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">Biography Published</div><div class="tl-tx"><em>Scenes in the Life of Harriet Tubman</em> published with Sarah Bradford. Spreads her story and generates funding for her ongoing community work.</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-nm">Joins Suffrage Movement</div><div class="tl-tx">Becomes a representative at the National Association of Colored Women's first annual convention. Advocates for women's right to vote.</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-yr">1896</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-yr">1913</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">Passes Away in Auburn, NY</div><div class="tl-tx">Dies of pneumonia on March 10, 1913. Given a military funeral. Buried at Fort Hill Cemetery in Auburn, New York.</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-nm">National Monument Designated</div><div class="tl-tx">President Obama designates the Harriet Tubman Underground Railroad National Monument — the first national monument honoring a Black woman.</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-yr">2013</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-yr">2024</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">Awarded Brigadier General</div><div class="tl-tx">On Veterans Day, posthumously awarded the rank of Brigadier General in the Maryland National Guard for her Civil War military service.</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-yr">1822</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">Born Araminta Ross</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-nm">Severe Head Injury</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-yr">1834</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-yr">1844</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">Marries John Tubman</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-nm">Escapes to Philadelphia</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-yr">1849</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-yr">1850</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">First Rescue Mission</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-nm">Fugitive Slave Act Passed</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-yr">1850</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-yr">1857</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">Rescues Her Elderly Parents</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-nm">Meets John Brown</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-yr">1858</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-yr">1860</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">Last Underground Railroad Mission</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-nm">Joins the Union Army</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-yr">1862</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-yr">1863</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">Combahee River Raid</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-nm">Civil War Ends</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-yr">1865</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-yr">1869</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">Biography Published &amp; Remarries Nelson Davis</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-nm">Joins Suffrage Movement (NACW Convention)</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-yr">1896</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-yr">1903</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">Donates 25 Acres to AME Zion Church</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-nm">Enters Her Own Home for the Aged</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-yr">1911</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-yr">1913</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">Passes Away in Auburn, NY</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-nm">National Monument Designated</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-yr">2013</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-yr">2024</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">Awarded Brigadier General</div></div></div>
     </div>
   </div>
 </div>
@@ -481,6 +511,7 @@ footer{border-top:1px solid var(--border);padding:26px 52px;display:flex;justify
       <button class="itab" onclick="goIT('cw',this)">✏️ Crossword</button>
     </div>
     <div id="it-quiz" class="ipanel active">
+      <div class="int-instr"><div class="int-instr-t">How to Play</div><p>Read each question carefully and click on the answer you think is correct. You will instantly see whether you got it right or wrong, along with an explanation. Click <strong>Next</strong> to move to the next question. There are 8 questions in total. Your score is tracked at the bottom — try to get a perfect 8 out of 8!</p></div>
       <div class="qwrap">
         <div id="qzmain">
           <div class="qpbar"><div class="qpfill" id="qpf" style="width:12.5%"></div></div>
@@ -488,21 +519,22 @@ footer{border-top:1px solid var(--border);padding:26px 52px;display:flex;justify
           <div class="qtxt" id="qtxt"></div>
           <div class="qopts" id="qopts"></div>
           <div class="qfb" id="qfb"></div>
-          <div class="qnav"><div style="font-size:13px;color:var(--gray);">Score: <strong id="qsc" style="color:var(--gold)">0</strong></div><button class="bsm" id="qnxt" onclick="nextQ()" disabled>Next →</button></div>
+          <div class="qnav"><div style="font-size:13px;color:var(--text3);">Score: <strong id="qsc" style="color:var(--gold)">0</strong></div><button class="bsm" id="qnxt" onclick="nextQ()" disabled>Next →</button></div>
         </div>
         <div class="score-card" id="qres"><div class="sring"><div class="sbig" id="sfn">0</div><div class="sof">out of 8</div></div><div class="sttl" id="sttl"></div><div class="smsg" id="smsg"></div><button class="bsm" onclick="restartQ()">Try Again</button></div>
       </div>
     </div>
     <div id="it-ws" class="ipanel">
-      <p style="font-size:14px;color:rgba(255,255,255,.43);margin-bottom:16px;">Find all 8 words hidden in the grid. Click the first letter, then the last letter of each word.</p>
+      <div class="int-instr"><div class="int-instr-t">How to Play</div><p>Find all 8 hidden words in the letter grid below. The words can be hidden horizontally, vertically, or diagonally — and may go forwards or backwards. To select a word, <strong>click the first letter</strong> of the word, then <strong>click the last letter</strong>. If correct, the word will highlight green and be crossed off the list. Use the word list on the right as your guide. Click <strong>New Puzzle</strong> to shuffle and try again!</p></div>
       <div class="wsgr" id="wsgr"></div>
       <div class="wswords" id="wswords"></div>
-      <div style="margin-top:16px;display:flex;gap:11px;align-items:center;"><button class="bsm" onclick="buildWS()">New Puzzle</button><span id="wsstat" style="font-size:13px;color:var(--gray);"></span></div>
+      <div style="margin-top:16px;display:flex;gap:11px;align-items:center;"><button class="bsm" onclick="buildWS()">New Puzzle</button><span id="wsstat" style="font-size:13px;color:var(--text3);"></span></div>
     </div>
     <div id="it-cw" class="ipanel">
+      <div class="int-instr"><div class="int-instr-t">How to Play</div><p>Use the clues below the grid to fill in the crossword. <strong>Click any white square</strong> and type a letter — one letter per box. Numbers in the corner of a square match the clue numbers listed under Across and Down. When you are done, click <strong>Check Answers</strong> to see how many letters are correct. Click <strong>Reveal All</strong> if you want to see the completed puzzle.</p></div>
       <div style="max-width:840px;">
         <div class="cwlayout">
-          <div><div class="cwboard"><div class="cwgrid" id="cwgrid"></div></div><div style="margin-top:13px;display:flex;gap:9px;"><button class="bsm" onclick="checkCW()">Check Answers</button><button class="bsm" style="background:var(--black3);color:var(--white);border:1px solid var(--border);" onclick="revealCW()">Reveal All</button></div><div id="cwmsg" style="margin-top:11px;font-size:14px;display:none;"></div></div>
+          <div><div class="cwboard"><div class="cwgrid" id="cwgrid"></div></div><div style="margin-top:13px;display:flex;gap:9px;"><button class="bsm" onclick="checkCW()">Check Answers</button><button class="bsm" style="background:var(--cream2);color:var(--text);border:1px solid var(--border);" onclick="revealCW()">Reveal All</button></div><div id="cwmsg" style="margin-top:11px;font-size:14px;display:none;"></div></div>
           <div class="cwclues">
             <div><div class="cwch">Across</div><div class="cwcl"><strong>1A.</strong> Tubman's birth last name</div><div class="cwcl"><strong>4A.</strong> Secret network of safe houses</div><div class="cwcl"><strong>6A.</strong> NY city where Tubman settled</div></div>
             <div><div class="cwch">Down</div><div class="cwcl"><strong>1D.</strong> Tubman's nickname: Moses of her ___</div><div class="cwcl"><strong>2D.</strong> Abolitionist ally (last name)</div><div class="cwcl"><strong>3D.</strong> The ___ Star guided freedom seekers north</div></div>
@@ -520,14 +552,14 @@ footer{border-top:1px solid var(--border);padding:26px 52px;display:flex;justify
     <div class="about-card">
       <div class="about-ban"><div class="about-ban-p"></div></div>
       <div class="about-body">
-        <div class="about-av">KL</div>
+        <div class="about-av"><img id="av-img" src="" alt="" style="width:100%;height:100%;object-fit:cover;display:none;" onerror="this.style.display='none';document.getElementById('av-init').style.display='flex';"><span id="av-init" style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;">KL</span></div>
         <div style="height:16px;"></div>
         <div class="about-name">Kevin Lee</div>
         <div class="about-role">10th Grade · US History I Honors · Shrewsbury High School · 2026</div>
         <p class="about-bio">Kevin Lee is a 15-year-old Sophomore at Shrewsbury High School. He was born in Texas and has adapted to many hobbies and wants to pursue many professions. He loves technology, spends time with his friends, and likes learning new stuff. Additionally, he is diligent and awaits the future.</p>
         <div class="adiv"></div>
         <div class="ash">About This Project</div>
-        <p style="font-size:14px;color:rgba(255,255,255,.43);line-height:1.75;margin-bottom:18px;">This website was created as a Reform Research Project exploring Harriet Tubman's role in 19th-century reform. It explores her biography, the historical context before and during the Civil War, obstacles she faced, and actions she took to create an impact on society with her extraordinary life.</p>
+        <p style="font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:18px;">This website was created as a Reform Research Project exploring Harriet Tubman's role in 19th-century reform. It explores her biography, the historical context before and during the Civil War, obstacles she faced, and actions she took to create an impact on society with her extraordinary life.</p>
         <div class="adiv"></div>
         <div class="ash">Sources Used</div>
         <div class="src-i"><strong>Book / Primary Source:</strong> The Underground Railroad: A Primary Source History of the Journey to Freedom</div>
@@ -543,13 +575,23 @@ footer{border-top:1px solid var(--border);padding:26px 52px;display:flex;justify
 <!-- WORKS CITED -->
 <div id="page-cited" class="page">
   <div class="cited-page">
-    <div class="pg-hdr"><div class="pg-eye">Bibliography</div><h2 class="pg-ttl">Works Cited</h2><p class="pg-sub">All academic sources used in this research project.</p></div>
+    <div class="pg-hdr"><div class="pg-eye">Bibliography</div><h2 class="pg-ttl">Works Consulted</h2><p class="pg-sub">All academic sources used in this research project.</p></div>
     <div class="cited-wrap">
-      <div class="cited-item"><div class="cited-type">Book / Primary Source</div><p class="cited-txt"><em>The Underground Railroad: A Primary Source History of the Journey to Freedom.</em> Primary Sources in American History series.</p></div>
-      <div class="cited-item"><div class="cited-type">Reference Database</div><p class="cited-txt">McGuire, William, and Leslie Wheeler. "Harriet Tubman." <em>American History,</em> ABC-CLIO, 2026, americanhistory.abc-clio.com/Search/Display/248042. Accessed 1 Mar. 2026.</p></div>
-      <div class="cited-item"><div class="cited-type">General Encyclopedia</div><p class="cited-txt">"Harriet Tubman." <em>Britannica School,</em> Encyclopædia Britannica, 11 Feb. 2025. libraries.state.ma.us. Accessed 1 Mar. 2026.</p></div>
-      <div class="cited-item"><div class="cited-type">Database</div><p class="cited-txt">"Harriet Tubman and the Underground Railroad." <em>Spotlights,</em> Infobase, 2020. <em>Issues and Controversies in History,</em> ich.infobase.com. Accessed 1 Mar. 2026.</p></div>
-      <div class="cited-item"><div class="cited-type">Web Resource</div><p class="cited-txt">"Harriet Tubman." <em>Social Welfare History Project,</em> Virginia Commonwealth University Library, socialwelfare.library.vcu.edu/eras/antebellum/tubman-harriett/. Accessed 1 Mar. 2026.</p></div>
+      <div class="cited-item">
+        <p class="cited-txt">"Harriet Tubman and the Underground Railroad." <em>Spotlights,</em> Infobase, 2020. <em>Issues and Controversies in History,</em> ich.infobase.com/Auth/Index?aid=15676&amp;itemid=WE58&amp;articleId=591370. Accessed 5 Mar. 2026.</p>
+      </div>
+      <div class="cited-item">
+        <p class="cited-txt">"Harriet Tubman." <em>Britannica School,</em> Encyclopædia Britannica, 11 Feb. 2025. libraries.state.ma.us/login?eburl=https%3A%2F%2Fschool.eb.com&amp;ebtarget=%2Flevels%2Fhigh%2Farticle%2FHarriet-Tubman%2F73673&amp;ebboatid=9265928. Accessed 5 Mar. 2026.</p>
+      </div>
+      <div class="cited-item">
+        <p class="cited-txt">McGuire, William, and Leslie Wheeler. "Harriet Tubman." <em>American History,</em> ABC-CLIO, 2026, americanhistory.abc-clio.com/Search/Display/248042. Accessed 5 Mar. 2026.</p>
+      </div>
+      <div class="cited-item">
+        <p class="cited-txt">"Tubman, Harriet." <em>Social Welfare History Project,</em> 27 Feb. 2018, socialwelfare.library.vcu.edu/eras/antebellum/tubman-harriett/. Accessed 5 Mar. 2026.</p>
+      </div>
+      <div class="cited-item">
+        <p class="cited-txt">Wolny, Philip. <em>The Underground Railroad: A Primary Source History of the Journey to Freedom.</em> 1st ed., Rosen Young Adult, 2003, p. 64.</p>
+      </div>
     </div>
   </div>
 </div>
@@ -576,8 +618,7 @@ const SD=[
   {t:'Background & Biography',d:'Born 1822, escaped 1849, died 1913',p:'research',s:'bio'},
   {t:'Historical Context',d:'Underground Railroad, Fugitive Slave Act',p:'research',s:'context'},
   {t:'Obstacles Faced',d:'$40K bounty, seizures, illiteracy, racism',p:'research',s:'obstacles'},
-  {t:'Strategies for Change',d:'Missions, public speaking, military intelligence',p:'research',s:'strategies'},
-  {t:'Action Plan',d:'Goals, target audience, planned strategies',p:'research',s:'plan'},
+  {t:'Action Plan',d:'Goals, target audience, strategies',p:'research',s:'plan'},
   {t:'Take Action',d:'13 missions, Combahee Raid, Union Army',p:'research',s:'action'},
   {t:'Results & Impact',d:'National Monument, Brigadier General, Civil Rights',p:'research',s:'impact'},
   {t:'Fun Facts',d:'Never lost a passenger, Saturday escapes, $20 bill',p:'funfacts',s:null},
@@ -586,11 +627,11 @@ const SD=[
   {t:'Interactive Quiz',d:'8 questions about Harriet Tubman',p:'interactive',s:null},
   {t:'Word Search',d:'Find hidden words about Tubman',p:'interactive',s:null},
   {t:'About Kevin Lee',d:'10th grade, Shrewsbury High School',p:'about',s:null},
-  {t:'Works Cited',d:'All 5 academic sources',p:'cited',s:null},
+  {t:'Works Consulted',d:'All 5 academic sources',p:'cited',s:null},
 ];
 function doSearch(){const q=document.getElementById('srch').value.toLowerCase().trim();const drop=document.getElementById('sdrop');if(!q){drop.classList.remove('show');return;}const res=SD.filter(d=>d.t.toLowerCase().includes(q)||d.d.toLowerCase().includes(q)).slice(0,5);if(!res.length){drop.innerHTML='<div class="si"><div class="si-d">No results found.</div></div>';drop.classList.add('show');return;}drop.innerHTML=res.map(r=>`<div class="si" onclick="srchGo('${r.p}','${r.s||''}')"><div class="si-t">${r.t}</div><div class="si-d">${r.d}</div></div>`).join('');drop.classList.add('show');}
 function closeSearch(){document.getElementById('sdrop').classList.remove('show');}
-function srchGo(page,sec){const tabs=document.querySelectorAll('.nav-tab');const po=['home','research','funfacts','timeline','gallery','video','interactive','about','cited'];goP(page,tabs[po.indexOf(page)]);if(sec){setTimeout(()=>{const btns=document.querySelectorAll('.rs-b');const so=['bio','context','obstacles','strategies','plan','action','impact'];const si=so.indexOf(sec);if(si>=0)goS(sec,btns[si]);},100);}document.getElementById('srch').value='';closeSearch();}
+function srchGo(page,sec){const tabs=document.querySelectorAll('.nav-tab');const po=['home','research','funfacts','timeline','gallery','video','interactive','about','cited'];goP(page,tabs[po.indexOf(page)]);if(sec){setTimeout(()=>{const btns=document.querySelectorAll('.rs-b');const so=['bio','context','obstacles','plan','action','impact'];const si=so.indexOf(sec);if(si>=0)goS(sec,btns[si]);},100);}document.getElementById('srch').value='';closeSearch();}
 const QS=[
   {q:"What was Harriet Tubman's birth name?",opts:["Harriet Ross","Araminta Ross","Harriet Tubman","Araminta Tubman"],a:1,e:"She was born Araminta Ross in March 1822 in Dorchester County, Maryland."},
   {q:"What caused Tubman's lifelong seizures?",opts:["A childhood illness","An iron weight thrown by an overseer struck her head","A fall from a horse","Malnutrition"],a:1,e:"Around age twelve, an overseer threw an iron weight at another worker — it struck Tubman, nearly crushing her skull."},
