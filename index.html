@@ -6,1449 +6,625 @@
 <title>Harriet Tubman — Moses of Her People</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --black: #0A0A0A;
-  --black2: #111111;
-  --black3: #1A1A1A;
-  --black4: #222222;
-  --gold: #C9963A;
-  --gold2: #E8B96A;
-  --gold3: #F5D68A;
-  --gold-dim: rgba(201,150,58,0.15);
-  --white: #FFFFFF;
-  --off-white: #F8F5EE;
-  --gray: #888888;
-  --gray2: #555555;
-  --border: rgba(201,150,58,0.2);
-  --border2: rgba(255,255,255,0.08);
+:root{
+  --cream:#F5F0E8;--cream2:#EDE6D6;--cream3:#E0D8C4;--cream4:#FAF7F2;
+  --dark:#1C1612;--dark2:#2A2218;--dark3:#3A3020;
+  --gold:#9B7B3A;--gold2:#C4A35A;--gold3:#D4B87A;
+  --gold-dim:rgba(155,123,58,0.1);
+  --text:#2C2416;--text2:#5C4F38;--text3:#8C7A5A;
+  --border:rgba(155,123,58,0.2);--border2:rgba(155,123,58,0.08);
+  --white:#FFFFFF;--gray:#8C7A5A;
+  --black:var(--dark);--black2:var(--dark2);--black3:var(--dark3);
 }
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:'Outfit',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;}
-
-/* SCROLLBAR */
-::-webkit-scrollbar{width:6px;}
-::-webkit-scrollbar-track{background:var(--black2);}
-::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
-
-/* ── TOP BAR (fake login/subscribe) ── */
-.top-bar{
-  background:var(--gold);color:var(--black);
-  padding:8px 40px;font-size:12px;font-weight:600;
-  display:flex;justify-content:space-between;align-items:center;
-  letter-spacing:0.05em;
-}
-.top-bar-links{display:flex;gap:20px;}
-.top-bar-links a{color:var(--black);text-decoration:none;font-weight:700;transition:opacity 0.2s;}
-.top-bar-links a:hover{opacity:0.6;}
-.top-bar-btn{
-  background:var(--black);color:var(--gold);
-  border:none;padding:5px 16px;border-radius:4px;
-  font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;
-  cursor:pointer;letter-spacing:0.08em;transition:all 0.2s;
-}
-.top-bar-btn:hover{background:var(--black3);}
-
-/* ── NAV ── */
-nav{
-  position:sticky;top:0;z-index:999;
-  background:rgba(10,10,10,0.97);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);
-  padding:0 40px;
-  display:flex;align-items:center;justify-content:space-between;
-  height:68px;
-}
-.nav-logo{
-  font-family:'Cormorant Garamond',serif;
-  font-size:22px;font-weight:700;color:var(--gold);
-  letter-spacing:0.04em;
-}
-.nav-logo span{color:var(--white);}
-.nav-tabs{display:flex;gap:2px;}
-.nav-tab{
-  background:none;border:none;cursor:pointer;
-  font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;
-  color:var(--gray);padding:10px 16px;border-radius:6px;
-  transition:all 0.2s;letter-spacing:0.02em;
-  position:relative;
-}
-.nav-tab:hover{color:var(--white);background:var(--black3);}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--cream4);color:var(--text);overflow-x:hidden;}
+::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--cream2);}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
+nav{position:sticky;top:0;z-index:999;background:rgba(250,247,242,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:700;color:var(--gold);}
+.nav-logo span{color:var(--text);font-style:italic;}
+.nav-tabs{display:flex;gap:1px;}
+.nav-tab{background:none;border:none;cursor:pointer;font-family:'Outfit',sans-serif;font-size:12px;font-weight:500;color:var(--text2);padding:9px 13px;border-radius:6px;transition:all .2s;position:relative;letter-spacing:.02em;}
+.nav-tab:hover{color:var(--text);background:var(--cream2);}
 .nav-tab.active{color:var(--gold);}
-.nav-tab.active::after{
-  content:'';position:absolute;bottom:-1px;left:16px;right:16px;
-  height:2px;background:var(--gold);border-radius:2px 2px 0 0;
-}
-.nav-right{display:flex;gap:10px;align-items:center;}
-.search-bar{
-  display:flex;align-items:center;gap:8px;
-  background:var(--black3);border:1px solid var(--border);
-  border-radius:8px;padding:7px 14px;
-  font-family:'Outfit',sans-serif;font-size:13px;
-}
-.search-bar input{
-  background:none;border:none;color:var(--white);
-  font-family:'Outfit',sans-serif;font-size:13px;width:180px;outline:none;
-}
-.search-bar input::placeholder{color:var(--gray);}
-.search-icon{color:var(--gray);font-size:14px;}
-.search-results-dropdown{
-  position:absolute;top:68px;right:40px;width:320px;
-  background:var(--black2);border:1px solid var(--border);
-  border-radius:10px;z-index:1000;overflow:hidden;
-  display:none;box-shadow:0 20px 60px rgba(0,0,0,0.6);
-}
-.search-results-dropdown.show{display:block;}
-.search-result-item{
-  padding:12px 18px;border-bottom:1px solid var(--border2);
-  cursor:pointer;transition:background 0.15s;
-}
-.search-result-item:last-child{border-bottom:none;}
-.search-result-item:hover{background:var(--black3);}
-.search-result-title{font-size:13px;font-weight:600;color:var(--gold2);margin-bottom:3px;}
-.search-result-desc{font-size:11px;color:var(--gray);}
-
-/* ── PAGES ── */
-.page{display:none;min-height:calc(100vh - 108px);animation:fadeUp 0.4s ease;}
+.nav-tab.active::after{content:'';position:absolute;bottom:-1px;left:13px;right:13px;height:2px;background:var(--gold);border-radius:2px 2px 0 0;}
+.nav-right{display:flex;align-items:center;gap:10px;position:relative;}
+.search-bar{display:flex;align-items:center;gap:8px;background:var(--cream2);border:1px solid var(--border);border-radius:8px;padding:7px 13px;}
+.search-bar input{background:none;border:none;color:var(--text);font-family:'Outfit',sans-serif;font-size:13px;width:140px;outline:none;}
+.search-bar input::placeholder{color:var(--text3);}
+.nav-login{background:none;border:1px solid var(--border);color:var(--text);font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;padding:8px 16px;border-radius:7px;cursor:pointer;transition:all .2s;letter-spacing:.02em;}
+.nav-login:hover{background:var(--cream2);border-color:var(--gold);color:var(--gold);}
+.nav-subscribe{background:var(--dark);color:var(--cream4);font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;padding:8px 18px;border-radius:7px;border:none;cursor:pointer;transition:all .2s;letter-spacing:.04em;}
+.nav-subscribe:hover{background:var(--gold);transform:translateY(-1px);box-shadow:0 6px 20px rgba(155,123,58,.25);}
+.srch-drop{position:absolute;top:48px;right:0;width:290px;background:var(--cream4);border:1px solid var(--border);border-radius:10px;z-index:1000;overflow:hidden;display:none;box-shadow:0 16px 40px rgba(28,22,18,.12);}
+.srch-drop.show{display:block;}
+.si{padding:11px 15px;border-bottom:1px solid var(--border2);cursor:pointer;transition:background .15s;}
+.si:last-child{border-bottom:none;}.si:hover{background:var(--cream2);}
+.si-t{font-size:13px;font-weight:600;color:var(--gold);margin-bottom:2px;}.si-d{font-size:11px;color:var(--text3);}
+.page{display:none;min-height:calc(100vh - 68px);animation:fadeUp .4s ease;}
 .page.active{display:block;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
-
-/* ══════ HOME PAGE ══════ */
-.hero{
-  position:relative;overflow:hidden;
-  min-height:92vh;display:flex;align-items:center;
-  padding:0 80px;
-}
-.hero-bg{
-  position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 60% 80% at 70% 50%, rgba(201,150,58,0.07) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,150,58,0.04) 0%, transparent 50%),
-    var(--black);
-}
-.hero-grid-lines{
-  position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(201,150,58,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201,150,58,0.04) 1px, transparent 1px);
-  background-size:60px 60px;
-}
-.hero-content{position:relative;z-index:2;max-width:700px;}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  border:1px solid var(--border);background:var(--gold-dim);
-  padding:6px 16px;border-radius:100px;
-  font-size:11px;font-weight:600;color:var(--gold2);
-  letter-spacing:0.12em;text-transform:uppercase;margin-bottom:28px;
-}
-.hero-badge::before{content:'★';font-size:10px;}
-.hero-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(60px,8vw,110px);font-weight:700;
-  line-height:0.92;margin-bottom:28px;
-}
-.hero-title .line1{display:block;color:var(--white);}
-.hero-title .line2{display:block;color:var(--gold);font-style:italic;}
-.hero-title .line3{display:block;color:var(--white);}
-.hero-sub{
-  font-size:16px;line-height:1.75;color:rgba(255,255,255,0.6);
-  max-width:500px;margin-bottom:44px;font-weight:300;
-}
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap;}
-.btn-gold{
-  background:var(--gold);color:var(--black);
-  border:none;padding:14px 32px;border-radius:8px;
-  font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;
-  cursor:pointer;transition:all 0.25s;letter-spacing:0.04em;
-}
-.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 12px 40px rgba(201,150,58,0.3);}
-.btn-outline{
-  background:none;color:var(--white);
-  border:1px solid rgba(255,255,255,0.2);padding:14px 32px;border-radius:8px;
-  font-family:'Outfit',sans-serif;font-size:14px;font-weight:500;
-  cursor:pointer;transition:all 0.25s;
-}
-.btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
-
-.hero-right{
-  position:absolute;right:0;top:0;bottom:0;width:42%;
-  overflow:hidden;
-}
-.hero-image-frame{
-  position:absolute;inset:40px;
-  background:linear-gradient(135deg,#2A2018 0%,#1A140E 50%,#0D0A06 100%);
-  border-radius:0 0 0 120px;
-  display:flex;align-items:center;justify-content:center;
-  overflow:hidden;
-}
-.hero-image-frame img{
-  width:100%;height:100%;object-fit:cover;opacity:0.7;
-  filter:sepia(30%) contrast(110%);
-}
-.hero-ornament{
-  position:absolute;right:60px;top:60px;
-  width:160px;height:160px;
-  border:1px solid rgba(201,150,58,0.2);
-  border-radius:50%;
-}
-.hero-ornament::after{
-  content:'';position:absolute;inset:12px;
-  border:1px solid rgba(201,150,58,0.1);
-  border-radius:50%;
-}
-.hero-stat-strip{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-}
-.stat-item{
-  padding:36px 40px;
-  border-right:1px solid var(--border);
-  position:relative;overflow:hidden;
-  transition:background 0.3s;
-}
-.stat-item:hover{background:var(--gold-dim);}
-.stat-item:last-child{border-right:none;}
-.stat-num{
-  font-family:'Cormorant Garamond',serif;
-  font-size:48px;font-weight:700;color:var(--gold);
-  line-height:1;display:block;margin-bottom:6px;
-}
-.stat-label{font-size:12px;color:var(--gray);font-weight:500;line-height:1.4;letter-spacing:0.02em;}
-
-.home-intro{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:1px;}
-.intro-block{background:var(--black);padding:60px;}
-.intro-block:hover{background:var(--black2);}
-.intro-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
-.intro-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--white);margin-bottom:16px;line-height:1.2;}
-.intro-text{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.8;font-weight:300;}
-
-/* ══════ RESEARCH PAGE ══════ */
-.research-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 108px);}
-.r-sidebar{
-  border-right:1px solid var(--border);
-  background:var(--black2);
-  padding:40px 0;
-  position:sticky;top:68px;height:calc(100vh - 68px);overflow-y:auto;
-}
-.r-sidebar-head{
-  font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;
-  color:var(--gray);padding:0 24px;margin-bottom:10px;
-}
-.r-btn{
-  display:block;width:100%;background:none;border:none;cursor:pointer;
-  text-align:left;padding:11px 24px;
-  font-family:'Outfit',sans-serif;font-size:13px;font-weight:400;
-  color:rgba(255,255,255,0.5);transition:all 0.15s;
-  border-left:2px solid transparent;
-}
-.r-btn:hover{color:var(--white);background:rgba(255,255,255,0.03);}
-.r-btn.active{color:var(--gold2);font-weight:600;border-left-color:var(--gold);background:var(--gold-dim);}
-.r-divider{height:1px;background:var(--border);margin:20px 0;}
-
-.r-main{padding:60px 72px;max-width:900px;}
-.r-panel{display:none;animation:fadeUp 0.3s ease;}
-.r-panel.active{display:block;}
-.r-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
-.r-title{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--white);margin-bottom:32px;line-height:1.15;}
-.r-body{font-size:15px;line-height:1.9;color:rgba(255,255,255,0.7);margin-bottom:18px;font-weight:300;}
-.r-body strong{color:var(--gold2);font-weight:600;}
-.r-divider-line{height:1px;background:var(--border);margin:32px 0;}
-.r-h2{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--white);margin:28px 0 14px;}
-
-.info-box{
-  background:var(--black3);border:1px solid var(--border);
-  border-left:3px solid var(--gold);
-  border-radius:0 10px 10px 0;padding:20px 24px;margin:20px 0;
-}
-.info-box-title{font-size:12px;font-weight:700;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;}
-.info-box p{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;}
-
-.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0;}
-.r-card{
-  background:var(--black3);border:1px solid var(--border);
-  border-radius:10px;padding:20px;transition:all 0.2s;
-}
-.r-card:hover{border-color:var(--gold);background:rgba(201,150,58,0.05);}
-.r-card h4{font-size:13px;font-weight:700;color:var(--gold2);margin-bottom:6px;}
-.r-card p{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.6;}
-
-.strat-item{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--border2);}
-.strat-item:last-child{border-bottom:none;}
-.strat-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--gold);min-width:36px;line-height:1;}
-.strat-body h4{font-size:14px;font-weight:600;color:var(--white);margin-bottom:5px;}
-.strat-body p{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.65;}
-
-.impact-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0;}
-.impact-card{
-  background:var(--gold);border-radius:12px;padding:28px 20px;text-align:center;
-}
-.impact-card .n{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--black);display:block;line-height:1;}
-.impact-card .l{font-size:11px;color:rgba(0,0,0,0.6);font-weight:600;margin-top:4px;}
-
-/* ══════ FUN FACTS ══════ */
-.facts-page{padding:60px 60px 80px;}
-.facts-header{text-align:center;margin-bottom:60px;}
-.facts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto;}
-.fact-card{
-  background:var(--black2);border:1px solid var(--border);
-  border-radius:14px;padding:32px 28px;
-  transition:all 0.3s;position:relative;overflow:hidden;
-  cursor:default;
-}
-.fact-card::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at top left,rgba(201,150,58,0.08),transparent 60%);
-  opacity:0;transition:opacity 0.3s;
-}
-.fact-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,0.4);}
-.fact-card:hover::before{opacity:1;}
-.fact-icon{font-size:32px;margin-bottom:16px;display:block;}
-.fact-num{
-  font-family:'Cormorant Garamond',serif;
-  font-size:44px;font-weight:700;color:var(--gold);
-  display:block;line-height:1;margin-bottom:8px;
-}
-.fact-title{font-size:14px;font-weight:700;color:var(--white);margin-bottom:8px;}
-.fact-desc{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.65;}
-
-/* ══════ TIMELINE ══════ */
-.timeline-page{padding:60px 0 80px;}
-.tl-wrap{max-width:900px;margin:0 auto;padding:0 60px;position:relative;}
-.tl-wrap::before{
-  content:'';position:absolute;left:50%;transform:translateX(-50%);
-  top:0;bottom:0;width:1px;background:var(--border);
-}
-.tl-item{
-  display:grid;grid-template-columns:1fr 40px 1fr;gap:0;
-  margin-bottom:52px;opacity:0;transform:translateY(24px);
-  transition:all 0.5s ease;
-}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+.pg-hdr{text-align:center;padding:60px 40px 48px;}
+.pg-eye{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.pg-ttl{font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:700;color:var(--text);margin-bottom:12px;}
+.pg-sub{font-size:15px;color:var(--text3);font-weight:300;}
+/* HOME */
+.hero{position:relative;overflow:hidden;min-height:88vh;display:flex;align-items:center;padding:0 72px;background:var(--cream4);}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 68% 50%,rgba(155,123,58,.06),transparent 60%),var(--cream4);}
+.hero-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(155,123,58,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(155,123,58,.04) 1px,transparent 1px);background-size:54px 54px;}
+.hero-content{position:relative;z-index:2;max-width:660px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);background:var(--gold-dim);padding:6px 16px;border-radius:100px;font-size:11px;font-weight:600;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:26px;}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(56px,7vw,102px);font-weight:700;line-height:.93;margin-bottom:26px;}
+.l1{display:block;color:var(--text);}.l2{display:block;color:var(--gold);font-style:italic;}.l3{display:block;color:var(--text3);font-size:.43em;font-weight:400;font-style:normal;letter-spacing:.08em;margin-top:10px;}
+.hero-sub{font-size:16px;line-height:1.75;color:var(--text2);max-width:480px;margin-bottom:40px;font-weight:300;}
+.hero-cta{display:flex;gap:12px;}
+.btn-gold{background:var(--dark);color:var(--cream4);border:none;padding:13px 28px;border-radius:7px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all .25s;letter-spacing:.03em;}
+.btn-gold:hover{background:var(--gold);transform:translateY(-2px);box-shadow:0 10px 30px rgba(155,123,58,.25);}
+.btn-out{background:none;color:var(--text);border:1px solid rgba(44,36,22,.25);padding:13px 28px;border-radius:7px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:all .25s;}
+.btn-out:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+.hero-right{position:absolute;right:0;top:0;bottom:0;width:42%;overflow:hidden;background:var(--cream2);}
+.hero-frame{position:absolute;inset:0;}
+.hero-frame img{width:100%;height:100%;object-fit:cover;opacity:.85;}
+.hero-ring{display:none;}
+.stat-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--cream4);}
+.sc{padding:32px 36px;border-right:1px solid var(--border);transition:background .25s;cursor:default;}
+.sc:last-child{border-right:none;}.sc:hover{background:var(--cream2);}
+.sc-n{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:700;color:var(--gold);line-height:1;display:block;margin-bottom:5px;}
+.sc-l{font-size:12px;color:var(--text3);font-weight:500;line-height:1.4;}
+.home-blocks{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
+.hb{background:var(--black);padding:52px;transition:background .2s;}.hb:hover{background:var(--black2);}
+.hb-eye{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:11px;}
+.hb-t{font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:600;color:var(--white);margin-bottom:13px;line-height:1.2;}
+.hb-p{font-size:14px;color:rgba(255,255,255,.48);line-height:1.8;font-weight:300;}
+/* RESEARCH */
+.res-layout{display:grid;grid-template-columns:248px 1fr;min-height:calc(100vh - 68px);}
+.res-side{border-right:1px solid var(--border);background:var(--cream2);padding:38px 0;position:sticky;top:68px;height:calc(100vh - 68px);overflow-y:auto;}
+.rs-h{font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--text3);padding:0 20px;margin-bottom:7px;}
+.rs-b{display:block;width:100%;background:none;border:none;cursor:pointer;text-align:left;padding:10px 20px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:400;color:var(--text2);transition:all .15s;border-left:2px solid transparent;}
+.rs-b:hover{color:var(--text);background:rgba(155,123,58,.06);}
+.rs-b.active{color:var(--gold);font-weight:600;border-left-color:var(--gold);background:var(--gold-dim);}
+.rs-div{height:1px;background:var(--border);margin:16px 0;}
+.res-main{padding:56px 64px;max-width:860px;background:var(--cream4);}
+.rp{display:none;animation:fadeUp .3s ease;}.rp.active{display:block;}
+.r-eye{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:9px;}
+.sec-banner{width:100%;height:220px;object-fit:cover;border-radius:12px;margin-bottom:26px;display:block;filter:grayscale(15%);}
+.r-title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:var(--text);margin-bottom:26px;line-height:1.15;}
+.r-body{font-size:15px;line-height:1.9;color:var(--text2);margin-bottom:17px;font-weight:300;}
+.r-body strong{color:var(--gold);font-weight:600;}
+.r-h2{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--text);margin:24px 0 11px;}
+.ibox{background:var(--cream2);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:17px 21px;margin:16px 0;}
+.ibox-t{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px;}
+.ibox p{font-size:13px;color:var(--text2);line-height:1.7;}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:15px 0;}
+.rc{background:var(--cream2);border:1px solid var(--border);border-radius:10px;padding:17px;transition:all .2s;}
+.rc:hover{border-color:var(--gold);background:var(--gold-dim);}
+.rc h4{font-size:13px;font-weight:700;color:var(--gold);margin-bottom:5px;}
+.rc p{font-size:12px;color:var(--text2);line-height:1.6;}
+.sl{margin-top:5px;}
+.sr{display:flex;gap:15px;padding:15px 0;border-bottom:1px solid var(--border2);}
+.sr:last-child{border-bottom:none;}
+.sn{font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:700;color:var(--gold);min-width:30px;line-height:1;}
+.sb h4{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px;}.sb p{font-size:13px;color:var(--text2);line-height:1.6;}
+.imp-row{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:20px 0;}
+.imp{background:var(--dark);border-radius:12px;padding:24px 16px;text-align:center;}
+.imp .n{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:var(--gold3);display:block;line-height:1;}
+.imp .l{font-size:11px;color:rgba(250,247,242,.55);font-weight:600;margin-top:4px;}
+/* FUN FACTS */
+.ff-page{padding:0 52px 76px;background:var(--cream4);}
+.ff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;max-width:1080px;margin:0 auto;}
+.fc{background:var(--white);border:1px solid var(--border);border-radius:13px;overflow:hidden;transition:all .3s;position:relative;cursor:default;}
+.fc:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 18px 48px rgba(44,36,22,.1);}
+.fc-img{width:100%;height:160px;object-fit:cover;display:block;filter:grayscale(20%);transition:filter .3s;}
+.fc:hover .fc-img{filter:grayscale(0%);}
+.fc-body{padding:18px 20px;}
+.fc-icon{font-size:22px;margin-bottom:9px;display:block;}
+.fc-t{font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px;}
+.fc-d{font-size:12.5px;color:var(--text2);line-height:1.65;}
+/* TIMELINE */
+.tl-page{padding:0 0 76px;background:var(--cream4);}
+.tl-wrap{max-width:840px;margin:0 auto;padding:0 52px;position:relative;}
+.tl-wrap::before{content:'';position:absolute;left:50%;transform:translateX(-50%);top:0;bottom:0;width:1px;background:var(--border);}
+.tl-item{display:grid;grid-template-columns:1fr 38px 1fr;gap:0;margin-bottom:44px;opacity:0;transform:translateY(20px);transition:all .5s ease;}
 .tl-item.vis{opacity:1;transform:translateY(0);}
-.tl-left{text-align:right;padding-right:36px;}
-.tl-right{padding-left:36px;}
+.tl-left{text-align:right;padding-right:30px;}.tl-right{padding-left:30px;}
 .tl-center{display:flex;flex-direction:column;align-items:center;padding-top:4px;}
-.tl-dot{
-  width:14px;height:14px;border-radius:50%;
-  background:var(--gold);border:3px solid var(--black);
-  box-shadow:0 0 0 2px var(--gold);
-  flex-shrink:0;position:relative;z-index:1;
-}
-.tl-year{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--gold);line-height:1;}
-.tl-event-name{font-size:14px;font-weight:700;color:var(--white);margin:6px 0 6px;}
-.tl-event-text{font-size:12px;color:rgba(255,255,255,0.45);line-height:1.65;}
-.tl-src{font-size:10px;color:var(--gray);margin-top:6px;font-style:italic;}
-.tl-item:nth-child(even) .tl-left{order:3;text-align:left;padding-left:36px;padding-right:0;}
+.tl-dot{width:13px;height:13px;border-radius:50%;background:var(--gold);border:3px solid var(--cream4);box-shadow:0 0 0 2px var(--gold);flex-shrink:0;position:relative;z-index:1;}
+.tl-yr{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:700;color:var(--gold);line-height:1;}
+.tl-nm{font-size:14px;font-weight:700;color:var(--text);margin:5px 0 4px;}
+.tl-tx{font-size:12px;color:var(--text2);line-height:1.65;}
+.tl-item:nth-child(even) .tl-left{order:3;text-align:left;padding-left:30px;padding-right:0;}
 .tl-item:nth-child(even) .tl-center{order:2;}
-.tl-item:nth-child(even) .tl-right{order:1;text-align:right;padding-right:36px;padding-left:0;}
-
-/* ══════ GALLERY ══════ */
-.gallery-page{padding:60px;}
-.gallery-intro{max-width:700px;margin:0 auto 48px;text-align:center;}
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
-.g-item{
-  position:relative;overflow:hidden;aspect-ratio:4/3;cursor:pointer;
-  background:var(--black3);
-}
-.g-item.tall{grid-row:span 2;aspect-ratio:auto;}
-.g-item.wide{grid-column:span 2;}
-.g-item img{width:100%;height:100%;object-fit:cover;transition:all 0.5s;filter:grayscale(20%);}
-.g-item:hover img{transform:scale(1.05);filter:grayscale(0%);}
-.g-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,transparent 50%);
-  opacity:0;transition:opacity 0.3s;
-  display:flex;align-items:flex-end;padding:20px;
-}
-.g-item:hover .g-overlay{opacity:1;}
-.g-caption{font-size:13px;font-weight:600;color:var(--white);line-height:1.4;}
-.g-sub{font-size:11px;color:var(--gold2);margin-top:4px;}
-
-/* LIGHTBOX */
-.lightbox{
-  position:fixed;inset:0;background:rgba(0,0,0,0.95);
-  z-index:9999;display:none;align-items:center;justify-content:center;flex-direction:column;
-}
-.lightbox.open{display:flex;}
-.lightbox img{max-width:80vw;max-height:70vh;object-fit:contain;border-radius:4px;}
-.lightbox-caption{color:var(--white);font-size:15px;margin-top:16px;text-align:center;}
-.lightbox-close{
-  position:absolute;top:24px;right:32px;background:none;border:none;
-  color:var(--white);font-size:28px;cursor:pointer;opacity:0.7;transition:opacity 0.2s;
-}
-.lightbox-close:hover{opacity:1;}
-
-/* ══════ VIDEO ══════ */
-.video-page{padding:60px;}
-.video-wrap{max-width:900px;margin:0 auto;}
-.video-placeholder{
-  background:var(--black3);border:2px dashed var(--border);
-  border-radius:16px;aspect-ratio:16/9;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
-}
-.play-btn{
-  width:80px;height:80px;border-radius:50%;
-  background:var(--gold);display:flex;align-items:center;justify-content:center;
-  font-size:28px;cursor:pointer;transition:all 0.2s;
-}
-.play-btn:hover{transform:scale(1.1);box-shadow:0 0 40px rgba(201,150,58,0.4);}
-.video-placeholder-text{color:rgba(255,255,255,0.4);font-size:15px;}
-.video-placeholder-sub{color:var(--gray);font-size:12px;}
-
-/* ══════ INTERACTIVE (quiz/games) ══════ */
-.interactive-page{padding:60px;}
-.interactive-tabs{display:flex;gap:8px;margin-bottom:40px;border-bottom:1px solid var(--border);padding-bottom:0;}
-.int-tab{
-  background:none;border:none;cursor:pointer;
-  font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;
-  color:var(--gray);padding:12px 24px;
-  position:relative;transition:all 0.2s;
-}
-.int-tab:hover{color:var(--white);}
-.int-tab.active{color:var(--gold);}
-.int-tab.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--gold);}
-.int-panel{display:none;animation:fadeUp 0.3s ease;}
-.int-panel.active{display:block;}
-
+.tl-item:nth-child(even) .tl-right{order:1;text-align:right;padding-right:30px;padding-left:0;}
+/* GALLERY */
+.gal-page{padding:0 52px 76px;background:var(--cream4);}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;max-width:1080px;margin:0 auto;}
+.gi{position:relative;overflow:hidden;aspect-ratio:4/3;cursor:pointer;background:var(--cream2);}
+.gi.tall{grid-row:span 2;aspect-ratio:auto;}.gi.wide{grid-column:span 2;}
+.gi img{width:100%;height:100%;object-fit:cover;transition:all .5s;filter:grayscale(15%);}
+.gi:hover img{transform:scale(1.05);filter:grayscale(0%);}
+.gi-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(28,22,18,.85),transparent 55%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:16px;}
+.gi:hover .gi-ov{opacity:1;}
+.gi-cap{font-size:13px;font-weight:600;color:var(--cream4);line-height:1.4;}
+.gi-sub{font-size:11px;color:var(--gold3);margin-top:3px;}
+.lb{position:fixed;inset:0;background:rgba(28,22,18,.96);z-index:9999;display:none;align-items:center;justify-content:center;flex-direction:column;}
+.lb.open{display:flex;}
+.lb img{max-width:82vw;max-height:70vh;object-fit:contain;border-radius:4px;}
+.lb-cap{color:var(--cream4);font-size:14px;margin-top:14px;text-align:center;max-width:580px;line-height:1.5;}
+.lb-x{position:absolute;top:20px;right:28px;background:none;border:none;color:var(--cream4);font-size:25px;cursor:pointer;opacity:.6;}
+.lb-x:hover{opacity:1;}
+/* VIDEO */
+.vid-page{padding:0 52px 76px;background:var(--cream4);}
+.vid-wrap{max-width:860px;margin:0 auto;}
+.vid-ph{background:var(--black3);border:2px dashed var(--border);border-radius:16px;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;}
+.play-btn{width:72px;height:72px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer;transition:all .2s;}
+.play-btn:hover{transform:scale(1.1);box-shadow:0 0 34px rgba(201,150,58,.4);}
+.vid-how{margin-top:26px;background:var(--black2);border:1px solid var(--border);border-radius:12px;padding:24px 28px;}
+/* INTERACTIVE */
+.int-page{padding:0 52px 76px;background:var(--cream4);}
+.int-tabs{display:flex;gap:5px;margin-bottom:34px;border-bottom:1px solid var(--border);}
+.itab{background:none;border:none;cursor:pointer;font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;color:var(--text2);padding:11px 20px;position:relative;transition:all .2s;}
+.itab:hover{color:var(--text);}.itab.active{color:var(--gold);}
+.itab.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--gold);}
+.ipanel{display:none;animation:fadeUp .3s ease;}.ipanel.active{display:block;}
 /* QUIZ */
-.quiz-wrap{max-width:680px;}
-.q-progress{height:3px;background:var(--black3);border-radius:2px;margin-bottom:40px;}
-.q-fill{height:100%;background:var(--gold);border-radius:2px;transition:width 0.4s ease;}
-.q-num{font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
-.q-text{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--white);line-height:1.35;margin-bottom:32px;}
-.q-opts{display:flex;flex-direction:column;gap:10px;}
-.q-opt{
-  background:var(--black2);border:1.5px solid var(--border);
-  border-radius:10px;padding:15px 20px;cursor:pointer;
-  font-family:'Outfit',sans-serif;font-size:14px;color:var(--white);
-  text-align:left;transition:all 0.2s;display:flex;align-items:center;gap:12px;
-}
-.q-opt:hover{border-color:var(--gold);background:var(--gold-dim);}
-.q-opt.correct{border-color:#4ADE80;background:rgba(74,222,128,0.08);color:#4ADE80;}
-.q-opt.wrong{border-color:#F87171;background:rgba(248,113,113,0.08);color:#F87171;}
-.q-opt.disabled{pointer-events:none;}
-.opt-letter{
-  width:28px;height:28px;border-radius:50%;
-  background:var(--black3);display:flex;align-items:center;justify-content:center;
-  font-size:11px;font-weight:700;flex-shrink:0;color:var(--gray);
-}
-.q-opt.correct .opt-letter{background:#4ADE80;color:var(--black);}
-.q-opt.wrong .opt-letter{background:#F87171;color:var(--black);}
-.q-fb{
-  margin-top:20px;padding:16px 20px;border-radius:10px;
-  font-size:13px;line-height:1.6;display:none;
-}
-.q-fb.show{display:block;}
-.q-fb.correct{background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.3);color:#86EFAC;}
-.q-fb.wrong{background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.3);color:#FCA5A5;}
-.q-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;}
-
-.score-card{
-  background:var(--black2);border:1px solid var(--border);
-  border-radius:16px;padding:60px;text-align:center;display:none;max-width:480px;
-}
+.qwrap{max-width:640px;}
+.qpbar{height:3px;background:var(--cream2);border-radius:2px;margin-bottom:36px;}
+.qpfill{height:100%;background:var(--gold);border-radius:2px;transition:width .4s;}
+.qnum{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:9px;}
+.qtxt{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--text);line-height:1.35;margin-bottom:28px;}
+.qopts{display:flex;flex-direction:column;gap:9px;}
+.qopt{background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:13px 17px;cursor:pointer;font-family:'Outfit',sans-serif;font-size:14px;color:var(--text);text-align:left;transition:all .2s;display:flex;align-items:center;gap:11px;}
+.qopt:hover{border-color:var(--gold);background:var(--gold-dim);}
+.qopt.correct{border-color:#2D7A4F;background:rgba(45,122,79,.07);color:#2D7A4F;}
+.qopt.wrong{border-color:#C0392B;background:rgba(192,57,43,.06);color:#C0392B;}
+.qopt.disabled{pointer-events:none;}
+.ol{width:26px;height:26px;border-radius:50%;background:var(--cream2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;color:var(--text3);}
+.qopt.correct .ol{background:#2D7A4F;color:#fff;}.qopt.wrong .ol{background:#C0392B;color:#fff;}
+.qfb{margin-top:17px;padding:13px 17px;border-radius:10px;font-size:13px;line-height:1.6;display:none;}
+.qfb.show{display:block;}
+.qfb.correct{background:rgba(45,122,79,.07);border:1px solid rgba(45,122,79,.25);color:#2D7A4F;}
+.qfb.wrong{background:rgba(192,57,43,.06);border:1px solid rgba(192,57,43,.2);color:#C0392B;}
+.qnav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;}
+.bsm{background:var(--dark);color:var(--cream4);border:none;padding:10px 20px;border-radius:7px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;}
+.bsm:hover{background:var(--gold);}.bsm:disabled{opacity:.35;cursor:not-allowed;}
+.score-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:52px;text-align:center;display:none;max-width:440px;}
 .score-card.show{display:block;}
-.score-ring{
-  width:120px;height:120px;border-radius:50%;
-  border:3px solid var(--gold);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  margin:0 auto 24px;
-}
-.score-big{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--gold);line-height:1;}
-.score-of{font-size:12px;color:var(--gray);}
-.score-title{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--white);margin-bottom:10px;}
-.score-msg{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:28px;}
-
+.sring{width:106px;height:106px;border-radius:50%;border:3px solid var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px;}
+.sbig{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:var(--gold);line-height:1;}
+.sof{font-size:11px;color:var(--text3);}
+.sttl{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--text);margin-bottom:9px;}
+.smsg{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:24px;}
 /* WORD SEARCH */
-.ws-wrap{max-width:800px;}
-.ws-grid{
-  display:inline-grid;
-  font-family:'Outfit',sans-serif;
-  font-size:16px;font-weight:500;
-  background:var(--black2);border:1px solid var(--border);
-  border-radius:12px;padding:20px;user-select:none;
-  gap:2px;
-}
-.ws-cell{
-  width:34px;height:34px;display:flex;align-items:center;justify-content:center;
-  border-radius:6px;cursor:pointer;transition:all 0.15s;
-  color:rgba(255,255,255,0.7);text-transform:uppercase;
-  border:1px solid transparent;
-}
-.ws-cell:hover{background:var(--gold-dim);border-color:var(--border);}
-.ws-cell.selected{background:var(--gold-dim);border-color:var(--gold);color:var(--gold);}
-.ws-cell.found{background:rgba(74,222,128,0.15);border-color:#4ADE80;color:#4ADE80;}
-.ws-words{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
-.ws-word{
-  padding:6px 14px;border-radius:6px;
-  background:var(--black2);border:1px solid var(--border);
-  font-size:13px;font-weight:600;color:var(--gray);
-  letter-spacing:0.05em;transition:all 0.3s;text-transform:uppercase;
-}
-.ws-word.found{background:rgba(74,222,128,0.1);border-color:#4ADE80;color:#4ADE80;text-decoration:line-through;}
-
+.wsgr{display:inline-grid;font-family:'Outfit',sans-serif;font-size:14px;font-weight:500;background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px;user-select:none;gap:2px;}
+.wsc{width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:5px;cursor:pointer;transition:all .15s;color:var(--text2);text-transform:uppercase;border:1px solid transparent;}
+.wsc:hover{background:var(--gold-dim);border-color:var(--border);}
+.wsc.selected{background:var(--gold-dim);border-color:var(--gold);color:var(--gold);}
+.wsc.found{background:rgba(45,122,79,.08);border-color:#2D7A4F;color:#2D7A4F;}
+.wswords{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px;}
+.wsw{padding:5px 11px;border-radius:6px;background:var(--white);border:1px solid var(--border);font-size:12px;font-weight:600;color:var(--text2);letter-spacing:.05em;transition:all .3s;text-transform:uppercase;}
+.wsw.found{background:rgba(45,122,79,.07);border-color:#2D7A4F;color:#2D7A4F;text-decoration:line-through;}
 /* CROSSWORD */
-.cw-wrap{max-width:900px;}
-.cw-layout{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:start;}
-.cw-grid-wrap{background:var(--black2);border:1px solid var(--border);border-radius:12px;padding:20px;display:inline-block;}
-.cw-grid{display:grid;gap:2px;}
-.cw-cell-wrap{position:relative;}
-.cw-cell{
-  width:36px;height:36px;background:var(--black3);border:1px solid var(--border);
-  border-radius:4px;text-align:center;
-  font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;
-  color:var(--white);text-transform:uppercase;outline:none;
-  transition:all 0.15s;
-  caret-color:var(--gold);
-}
-.cw-cell:focus{border-color:var(--gold);background:var(--gold-dim);}
-.cw-cell.black{background:var(--black);border-color:var(--black);pointer-events:none;}
-.cw-cell.correct-cell{border-color:#4ADE80;background:rgba(74,222,128,0.1);}
-.cw-num{
-  position:absolute;top:2px;left:3px;
-  font-size:8px;font-weight:700;color:var(--gold2);
-  pointer-events:none;
-}
-.cw-clues{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-.cw-clue-group h4{font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
-.cw-clue{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:8px;line-height:1.5;}
-.cw-clue strong{color:var(--white);}
-
-/* ══════ ABOUT ══════ */
-.about-page{padding:60px;}
-.about-card{
-  max-width:740px;margin:0 auto;
-  background:var(--black2);border:1px solid var(--border);border-radius:20px;overflow:hidden;
-}
-.about-banner{
-  height:160px;
-  background:linear-gradient(135deg,var(--black3) 0%,#1A1200 50%,#0A0A0A 100%);
-  position:relative;overflow:hidden;
-}
-.about-banner-pattern{
-  position:absolute;inset:0;
-  background-image:repeating-linear-gradient(45deg,rgba(201,150,58,0.03) 0,rgba(201,150,58,0.03) 1px,transparent 1px,transparent 50%);
-  background-size:20px 20px;
-}
-.about-avatar{
-  width:90px;height:90px;border-radius:50%;
-  background:linear-gradient(135deg,var(--gold) 0%,var(--gold2) 100%);
-  border:4px solid var(--black2);
-  margin:-45px 0 0 48px;position:relative;z-index:1;
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--black);
-}
-.about-body{padding:20px 48px 48px;}
-.about-name{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--white);margin-bottom:4px;}
-.about-role{font-size:12px;color:var(--gold);font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:24px;}
-.about-bio{font-size:15px;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:28px;font-weight:300;}
-.about-divider{height:1px;background:var(--border);margin:28px 0;}
-
-/* ══════ WORKS CITED ══════ */
-.cited-page{padding:60px;}
-.cited-wrap{max-width:820px;margin:0 auto;}
-.cited-item{
-  background:var(--black2);border:1px solid var(--border);
-  border-radius:12px;padding:24px 28px;margin-bottom:14px;
-  transition:border-color 0.2s;
-}
+.cwlayout{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:start;}
+.cwboard{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px;display:inline-block;}
+.cwgrid{display:grid;gap:2px;}
+.cwcw{position:relative;width:36px;height:36px;}
+.cwcell{width:36px;height:36px;background:var(--cream2);border:1px solid var(--border);border-radius:4px;text-align:center;font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;color:var(--text);text-transform:uppercase;outline:none;transition:all .15s;caret-color:var(--gold);}
+.cwcell:focus{border-color:var(--gold);background:var(--gold-dim);}
+.cwcell.blk{background:var(--cream3);border-color:var(--cream3);pointer-events:none;}
+.cwcell.ok{border-color:#2D7A4F;background:rgba(45,122,79,.08);}
+.cwnum{position:absolute;top:2px;left:3px;font-size:8px;font-weight:700;color:var(--gold);pointer-events:none;z-index:1;}
+.cwclues{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.cwch{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.cwcl{font-size:12px;color:var(--text2);margin-bottom:7px;line-height:1.55;}
+.cwcl strong{color:var(--text);}
+/* ABOUT */
+.about-page{padding:0 52px 76px;background:var(--cream4);}
+.about-card{max-width:700px;margin:0 auto;background:var(--white);border:1px solid var(--border);border-radius:20px;overflow:hidden;}
+.about-ban{height:148px;background:linear-gradient(135deg,var(--dark2),var(--dark));position:relative;overflow:hidden;}
+.about-ban-p{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(196,163,90,.06) 0,rgba(196,163,90,.06) 1px,transparent 1px,transparent 50%);background-size:17px 17px;}
+.about-av{width:82px;height:82px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));border:4px solid var(--white);margin:-41px 0 0 42px;position:relative;z-index:1;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:var(--dark);}
+.about-body{padding:16px 42px 42px;}
+.about-name{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--text);margin-bottom:3px;}
+.about-role{font-size:11px;color:var(--gold);font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px;}
+.about-bio{font-size:15px;color:var(--text2);line-height:1.85;font-weight:300;margin-bottom:20px;}
+.adiv{height:1px;background:var(--border);margin:20px 0;}
+.ash{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:9px;}
+.src-i{background:var(--cream2);border-radius:8px;padding:9px 13px;font-size:12px;color:var(--text2);margin-bottom:7px;line-height:1.5;}
+.src-i strong{color:var(--gold);}
+/* CITED */
+.cited-page{padding:0 52px 76px;background:var(--cream4);}
+.cited-wrap{max-width:780px;margin:0 auto;}
+.cited-item{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:21px 25px;margin-bottom:11px;transition:border-color .2s;}
 .cited-item:hover{border-color:var(--gold);}
-.cited-type{
-  display:inline-block;font-size:10px;font-weight:700;
-  letter-spacing:0.12em;text-transform:uppercase;
-  background:var(--gold-dim);color:var(--gold2);
-  padding:3px 10px;border-radius:100px;margin-bottom:10px;
-}
-.cited-text{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.75;}
-.cited-text em{color:var(--gold2);}
-
-/* ══════ SHARED PAGE HEADER ══════ */
-.page-hdr{text-align:center;padding:0 40px 52px;}
-.page-eye{font-size:10px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
-.page-ttl{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;color:var(--white);margin-bottom:12px;}
-.page-sub{font-size:15px;color:rgba(255,255,255,0.4);font-weight:300;}
-
-/* BUTTONS */
-.btn-sm{
-  background:var(--gold);color:var(--black);
-  border:none;padding:10px 24px;border-radius:7px;
-  font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;
-  cursor:pointer;transition:all 0.2s;
-}
-.btn-sm:hover{background:var(--gold2);}
-.btn-sm:disabled{opacity:0.35;cursor:not-allowed;}
-
-/* FOOTER */
-footer{
-  border-top:1px solid var(--border);
-  padding:32px 60px;
-  display:flex;justify-content:space-between;align-items:center;
-  background:var(--black2);
-}
-.footer-logo{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--gold);}
-.footer-text{font-size:12px;color:var(--gray);}
-
-/* MODAL */
-.modal{
-  position:fixed;inset:0;background:rgba(0,0,0,0.85);
-  z-index:9998;display:none;align-items:center;justify-content:center;
-}
+.cited-type{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--gold-dim);color:var(--gold);padding:3px 10px;border-radius:100px;margin-bottom:9px;}
+.cited-txt{font-size:14px;color:var(--text2);line-height:1.75;}
+.cited-txt em{color:var(--gold);}
+/* MODALS */
+.modal{position:fixed;inset:0;background:rgba(28,22,18,.7);z-index:9998;display:none;align-items:center;justify-content:center;}
 .modal.open{display:flex;}
-.modal-box{
-  background:var(--black2);border:1px solid var(--border);
-  border-radius:16px;padding:48px;width:400px;text-align:center;
-}
-.modal-title{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--white);margin-bottom:8px;}
-.modal-sub{font-size:13px;color:var(--gray);margin-bottom:28px;}
-.modal-input{
-  width:100%;background:var(--black3);border:1px solid var(--border);
-  border-radius:8px;padding:12px 16px;color:var(--white);
-  font-family:'Outfit',sans-serif;font-size:14px;margin-bottom:12px;outline:none;
-}
-.modal-input:focus{border-color:var(--gold);}
-.modal-close{
-  position:absolute;top:16px;right:20px;background:none;border:none;
-  color:var(--gray);font-size:22px;cursor:pointer;
-}
-.modal-note{font-size:11px;color:var(--gray);margin-top:12px;line-height:1.5;}
-
+.mbox{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:42px;width:370px;text-align:center;position:relative;}
+.mx{position:absolute;top:13px;right:17px;background:none;border:none;color:var(--text3);font-size:19px;cursor:pointer;}
+.mi{font-size:27px;margin-bottom:7px;}
+.mt{font-family:'Cormorant Garamond',serif;font-size:25px;color:var(--text);margin-bottom:6px;}
+.ms{font-size:13px;color:var(--text3);margin-bottom:22px;}
+.minp{width:100%;background:var(--cream2);border:1px solid var(--border);border-radius:8px;padding:11px 13px;color:var(--white);font-family:'Outfit',sans-serif;font-size:14px;margin-bottom:9px;outline:none;color:var(--text);}
+.minp:focus{border-color:var(--gold);}
+.mnote{font-size:11px;color:var(--text3);margin-top:9px;line-height:1.5;}
+.mnote a{color:var(--gold);}
+footer{border-top:1px solid var(--border);padding:26px 52px;display:flex;justify-content:space-between;align-items:center;background:var(--cream2);}
+.flogo{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--gold);}
+.ftxt{font-size:12px;color:var(--text3);}
 @media(max-width:900px){
-  .research-layout{grid-template-columns:1fr;}
-  .r-sidebar{position:static;height:auto;overflow:visible;display:flex;flex-wrap:wrap;padding:16px 0;}
-  .gallery-grid{grid-template-columns:1fr 1fr;}
-  .facts-grid{grid-template-columns:1fr 1fr;}
-  .tl-wrap::before{left:20px;}
-  .tl-item{grid-template-columns:40px 1fr;}
-  .tl-left{display:none;}
-  .tl-item:nth-child(even) .tl-left{display:none;}
-  .tl-item:nth-child(even) .tl-center{order:1;}
-  .tl-item:nth-child(even) .tl-right{order:2;padding-left:24px;padding-right:0;text-align:left;}
+  .res-layout{grid-template-columns:1fr;}.res-side{position:static;height:auto;overflow:visible;display:flex;flex-wrap:wrap;padding:10px 0;}
+  .gal-grid,.ff-grid{grid-template-columns:1fr 1fr;}
+  .tl-wrap::before{left:19px;}.tl-item{grid-template-columns:36px 1fr;}.tl-left{display:none;}
+  .tl-item:nth-child(even) .tl-left{display:none;}.tl-item:nth-child(even) .tl-center{order:1;}.tl-item:nth-child(even) .tl-right{order:2;padding-left:20px;padding-right:0;text-align:left;}
+  .hero{padding:0 28px;}.hero-right{display:none;}.stat-strip{grid-template-columns:1fr 1fr;}.home-blocks{grid-template-columns:1fr;}
+  .cwlayout{grid-template-columns:1fr;}.imp-row{grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
-
-<!-- TOP BAR -->
-<div class="top-bar">
-  <span>✦ Reform Research Project · Harriet Tubman · 2026</span>
-  <div class="top-bar-links">
-    <a href="#" onclick="openModal('login')">Log In</a>
-    <a href="#" onclick="openModal('subscribe')">Subscribe</a>
-  </div>
-  <button class="top-bar-btn" onclick="openModal('subscribe')">★ SUBSCRIBE</button>
-</div>
-
-<!-- NAV -->
 <nav>
   <div class="nav-logo">Harriet<span> Tubman</span></div>
   <div class="nav-tabs">
-    <button class="nav-tab active" onclick="goPage('home',this)">Home</button>
-    <button class="nav-tab" onclick="goPage('research',this)">Research</button>
-    <button class="nav-tab" onclick="goPage('funfacts',this)">Fun Facts</button>
-    <button class="nav-tab" onclick="goPage('timeline',this)">Timeline</button>
-    <button class="nav-tab" onclick="goPage('gallery',this)">Gallery</button>
-    <button class="nav-tab" onclick="goPage('video',this)">Video</button>
-    <button class="nav-tab" onclick="goPage('interactive',this)">Interactive</button>
-    <button class="nav-tab" onclick="goPage('about',this)">About</button>
-    <button class="nav-tab" onclick="goPage('cited',this)">Works Cited</button>
+    <button class="nav-tab active" onclick="goP('home',this)">Home</button>
+    <button class="nav-tab" onclick="goP('research',this)">Research</button>
+    <button class="nav-tab" onclick="goP('funfacts',this)">Fun Facts</button>
+    <button class="nav-tab" onclick="goP('timeline',this)">Timeline</button>
+    <button class="nav-tab" onclick="goP('gallery',this)">Gallery</button>
+    <button class="nav-tab" onclick="goP('video',this)">Video</button>
+    <button class="nav-tab" onclick="goP('interactive',this)">Interactive</button>
+    <button class="nav-tab" onclick="goP('about',this)">About</button>
+    <button class="nav-tab" onclick="goP('cited',this)">Works Cited</button>
   </div>
-  <div class="nav-right" style="position:relative;">
-    <div class="search-bar">
-      <span class="search-icon">🔍</span>
-      <input type="text" id="search-input" placeholder="Search this site..." oninput="doSearch()" onblur="setTimeout(()=>closeSearch(),200)">
+  <div class="nav-right">
+    <div style="position:relative;">
+      <div class="search-bar"><span style="color:var(--text3);font-size:13px;">🔍</span><input type="text" id="srch" placeholder="Search..." oninput="doSearch()" onblur="setTimeout(closeSearch,200)"></div>
+      <div class="srch-drop" id="sdrop"></div>
     </div>
-    <div class="search-results-dropdown" id="search-drop"></div>
+    <button class="nav-login" onclick="openM('login')">Log In</button>
+    <button class="nav-subscribe" onclick="openM('sub')">Subscribe</button>
   </div>
 </nav>
 
-<!-- ════════════════ HOME ════════════════ -->
+<!-- HOME -->
 <div id="page-home" class="page active">
   <div class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grid-lines"></div>
+    <div class="hero-bg"></div><div class="hero-lines"></div>
     <div class="hero-content">
-      <div class="hero-badge">Reform Research Project</div>
-      <h1 class="hero-title">
-        <span class="line1">Harriet</span>
-        <span class="line2">Tubman</span>
-        <span class="line3">1820 – 1913</span>
-      </h1>
-      <p class="hero-sub">Born into slavery. Escaped to freedom. Returned thirteen times to liberate others. A spy, a soldier, a suffragist — and the Moses of her people.</p>
+      <div class="hero-badge">✦ Reform Research Project</div>
+      <h1 class="hero-title"><span class="l1">Harriet</span><span class="l2">Tubman</span><span class="l3">1822 — 1913</span></h1>
+      <p class="hero-sub">Born into slavery. Escaped to freedom. Returned thirteen times to liberate others. A spy, a soldier, a suffragist, and the Moses of her people.</p>
       <div class="hero-cta">
-        <button class="btn-gold" onclick="goPage('research',document.querySelectorAll('.nav-tab')[1])">Explore Research</button>
-        <button class="btn-outline" onclick="goPage('timeline',document.querySelectorAll('.nav-tab')[3])">View Timeline</button>
+        <button class="btn-gold" onclick="goP('research',document.querySelectorAll('.nav-tab')[1])">Explore Research</button>
+        <button class="btn-out" onclick="goP('timeline',document.querySelectorAll('.nav-tab')[3])">View Timeline</button>
       </div>
     </div>
-    <div class="hero-right">
-      <div class="hero-ornament"></div>
-      <div class="hero-image-frame">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/800px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg" alt="Harriet Tubman portrait" onerror="this.style.display='none'">
-      </div>
-    </div>
+    <div class="hero-right"><div class="hero-ring"></div><div class="hero-frame"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/800px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg" alt="Harriet Tubman"></div></div>
   </div>
-
-  <div class="hero-stat-strip">
-    <div class="stat-item"><span class="stat-num">~70</span><div class="stat-label">People freed via Underground Railroad</div></div>
-    <div class="stat-item"><span class="stat-num">700+</span><div class="stat-label">Liberated in the Combahee River Raid</div></div>
-    <div class="stat-item"><span class="stat-num">$40K</span><div class="stat-label">Bounty placed on her head by slaveholders</div></div>
-    <div class="stat-item"><span class="stat-num">13</span><div class="stat-label">Rescue missions conducted into the South</div></div>
-  </div>
-
-  <div class="home-intro">
-    <div class="intro-block">
-      <div class="intro-eyebrow">Who She Was</div>
-      <div class="intro-title">From Enslaved Child to Freedom Fighter</div>
-      <p class="intro-text">Born Araminta Ross around 1820 in Maryland, Harriet Tubman endured brutal conditions from childhood — including a near-fatal head injury at age twelve. In 1849 she escaped north alone, then dedicated her life to returning for others. She never lost a single passenger.</p>
-    </div>
-    <div class="intro-block">
-      <div class="intro-eyebrow">Why She Matters</div>
-      <div class="intro-title">A Legacy That Still Resonates</div>
-      <p class="intro-text">From the Underground Railroad to Civil War spy to women's suffrage advocate, Tubman's activism spanned decades. In 2024 she was posthumously awarded the rank of Brigadier General — over a century after her death, her story still commands recognition.</p>
-    </div>
+  <div class="stat-strip">
+    <div class="sc"><span class="sc-n">~70</span><div class="sc-l">People freed by Underground Railroad missions</div></div>
+    <div class="sc"><span class="sc-n">700+</span><div class="sc-l">Liberated in the Combahee River Raid, 1863</div></div>
+    <div class="sc"><span class="sc-n">$40K</span><div class="sc-l">Bounty placed on her head by slaveholders</div></div>
+    <div class="sc"><span class="sc-n">13</span><div class="sc-l">Rescue missions conducted into the South</div></div>
   </div>
 </div>
+</div>
 
-<!-- ════════════════ RESEARCH ════════════════ -->
+<!-- RESEARCH -->
 <div id="page-research" class="page">
-  <div class="research-layout">
-    <aside class="r-sidebar">
-      <div class="r-sidebar-head">Sections</div>
-      <button class="r-btn active" onclick="goSection('bio',this)">01 · Background & Biography</button>
-      <button class="r-btn" onclick="goSection('context',this)">02 · Historical Context</button>
-      <button class="r-btn" onclick="goSection('obstacles',this)">03 · Obstacles Faced</button>
-      <button class="r-btn" onclick="goSection('strategies',this)">04 · Strategies for Change</button>
-      <button class="r-btn" onclick="goSection('plan',this)">05 · Action Plan</button>
-      <button class="r-btn" onclick="goSection('action',this)">06 · Take Action</button>
-      <button class="r-btn" onclick="goSection('impact',this)">07 · Results & Impact</button>
-      <div class="r-divider"></div>
-      <div class="r-sidebar-head">Source Key</div>
-      <div style="padding:0 24px;font-size:11px;color:var(--gray);line-height:2.2;">
-        <b style="color:var(--gold2)">[Book]</b> Primary Source History<br>
-        <b style="color:var(--gold2)">[Ref DB]</b> ABC-CLIO, 2026<br>
-        <b style="color:var(--gold2)">[Enc]</b> Britannica School<br>
-        <b style="color:var(--gold2)">[DB]</b> Infobase, 2020<br>
-        <b style="color:var(--gold2)">[Web]</b> VCU Social Welfare
-      </div>
+  <div class="res-layout">
+    <aside class="res-side">
+      <div class="rs-h">Sections</div>
+      <button class="rs-b active" onclick="goS('bio',this)">01 · Background & Biography</button>
+      <button class="rs-b" onclick="goS('context',this)">02 · Historical Context</button>
+      <button class="rs-b" onclick="goS('obstacles',this)">03 · Obstacles Faced</button>
+      <button class="rs-b" onclick="goS('strategies',this)">04 · Strategies for Change</button>
+      <button class="rs-b" onclick="goS('plan',this)">05 · Action Plan</button>
+      <button class="rs-b" onclick="goS('action',this)">06 · Take Action</button>
+      <button class="rs-b" onclick="goS('impact',this)">07 · Results &amp; Impact</button>
     </aside>
-    <main class="r-main">
-      <!-- BIO -->
-      <div id="sec-bio" class="r-panel active">
-        <div class="r-eyebrow">Section 01</div>
-        <h2 class="r-title">Background & Biography</h2>
-        <p class="r-body">Harriet Tubman was born <strong>Araminta Ross</strong> around 1820 in Dorchester County, Maryland, one of eleven children born to enslaved parents Harriet and Benjamin Ross. From age five she was hired out by her master — first as a nursemaid, then as a field hand, cook, and woodcutter. [Web]</p>
-        <p class="r-body">At around age twelve, an overseer threw an iron weight at another enslaved worker; it struck Tubman instead, nearly crushing her skull. The injury caused <strong>seizures and sudden sleep episodes</strong> for the rest of her life, which she interpreted as divine visions. [Enc]</p>
-        <p class="r-body">In 1844, she married <strong>John Tubman</strong>, a free Black man, taking his last name. In 1849, fearing she and others on the plantation would be sold, she fled north — her husband refused to join her. She followed the North Star to Philadelphia, found work, and saved money to return and free others. [Web]</p>
-        <p class="r-body">After the Civil War, she settled permanently in <strong>Auburn, New York</strong>, where she had placed her parents after bringing them out of Maryland in 1857. She died of pneumonia on <strong>March 10, 1913</strong>, and was given a full military funeral. [Web]</p>
+    <main class="res-main">
+      <div id="sec-bio" class="rp active">
+        <img class="sec-banner" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/1200px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg" alt="Harriet Tubman portrait">
+        <div class="r-eye">Section 01</div><h2 class="r-title">Background &amp; Biography</h2>
+        <p class="r-body">Harriet Tubman was born in <strong>March 1822</strong> in Dorchester County, Maryland, originally named <strong>Araminta Ross.</strong> She was one of eleven children born to enslaved parents, Harriet and Benjamin Ross.</p>
+        <p class="r-body">From age five, she was employed by her master — first as a nursemaid, then as a field hand, cook, and woodcutter. At around age twelve, an overseer threw an iron weight at another enslaved worker, striking Tubman instead and nearly crushing her skull. The injury caused <strong>seizures and sudden sleep episodes</strong> for the rest of her life, which she interpreted as spiritual experiences.</p>
+        <p class="r-body">In 1844, she married a free Black man known as <strong>John Tubman</strong> and took his last name. In 1849, fearing that she and others on the plantation would be sold, she fled north — but her husband refused to join her. She followed the North Star to Philadelphia, found work, and saved money to return and free others.</p>
+        <p class="r-body">After the Civil War, she permanently settled in <strong>Auburn, New York</strong>, where she had also brought her parents out of Maryland in 1857. She died of pneumonia on <strong>March 10, 1913</strong>, and was given a military funeral.</p>
       </div>
-      <!-- CONTEXT -->
-      <div id="sec-context" class="r-panel">
-        <div class="r-eyebrow">Section 02</div>
-        <h2 class="r-title">Historical Context</h2>
-        <p class="r-body">Tubman's activism took place during one of the most volatile periods in American history. From roughly <strong>1831 to 1861</strong>, tens of thousands of enslaved people escaped through a network of safe houses known as the <strong>Underground Railroad</strong> — a term adopted from the public's fascination with railroads at the time. [DB]</p>
-        <div class="info-box"><div class="info-box-title">The Fugitive Slave Law of 1850</div><p>Required the return of escaped enslaved people to their masters even from free Northern states, and imposed fines or imprisonment on anyone who aided them. This forced conductors like Tubman to guide freedom seekers all the way to Canada. [DB]</p></div>
-        <p class="r-body">The network had roots in Quaker activism of the 1780s but reached peak activity after the 1830s as the abolitionist movement grew. Routes were treacherous for both escapees and helpers alike. [DB]</p>
-        <p class="r-body">The country was heading toward civil war, deeply divided between slave states in the South and free states in the North. Enslaved people had <strong>no legal rights</strong> and were considered property under U.S. law — making Tubman's defiance all the more extraordinary. [Ref DB]</p>
+      <div id="sec-context" class="rp">
+        <img class="sec-banner" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Harriet_Tubman_Underground_Railroad_NM_IMG_4657.jpg/1280px-Harriet_Tubman_Underground_Railroad_NM_IMG_4657.jpg" alt="Underground Railroad historical site">
+        <div class="r-eye">Section 02</div><h2 class="r-title">Historical Context</h2>
+        <p class="r-body">Tubman's advocacy took place during one of the most unsettling periods in American history — the era of slavery. From <strong>1831 to 1861</strong>, tens of thousands of enslaved people escaped through a network of safe houses known as the <strong>Underground Railroad,</strong> a term from the public's fascination with railroads at the time.</p>
+        <p class="r-body">The network connected to the 1780s through Quaker activism, but its activity increased after the 1830s as the abolitionist movement grew. It was not a formal organization, but the routes were supported by conductors who helped others escape.</p>
+        <div class="ibox"><div class="ibox-t">The Fugitive Slave Law of 1850</div><p>A major turning point — this law required escaped enslaved people to be returned to their masters, even from free states. Anyone who helped them risked fines or imprisonment. This forced conductors like Tubman to guide freedom seekers all the way to Canada.</p></div>
       </div>
-      <!-- OBSTACLES -->
-      <div id="sec-obstacles" class="r-panel">
-        <div class="r-eyebrow">Section 03</div>
-        <h2 class="r-title">Obstacles Faced</h2>
-        <div class="card-grid">
-          <div class="r-card"><h4>$40,000 Bounty</h4><p>By the mid-1850s, Maryland slaveholders offered a fortune for her capture — a sum worth over $1 million today. [Enc]</p></div>
-          <div class="r-card"><h4>Fugitive Slave Act</h4><p>Made it illegal to assist escaped slaves anywhere in the U.S., forcing missions to extend all the way to Canada. [DB]</p></div>
-          <div class="r-card"><h4>Chronic Health Condition</h4><p>Her seizures and sudden sleep episodes from the head injury made travel unpredictable and dangerous. [Web]</p></div>
-          <div class="r-card"><h4>Illiteracy</h4><p>She could not read or write — once pretending to read a book to fool men reading her wanted poster aloud. [Web]</p></div>
-          <div class="r-card"><h4>Passenger Resistance</h4><p>Some freedom seekers grew frightened and wanted to turn back, endangering the entire mission. [Enc]</p></div>
-          <div class="r-card"><h4>Racism & Sexism</h4><p>Even among allies, she faced discrimination as a Black woman operating in a deeply unequal society. [Ref DB]</p></div>
+      <div id="sec-obstacles" class="rp">
+        <img class="sec-banner" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Wanted_poster_for_Harriet_Tubman%2C_1849.jpg/1200px-Wanted_poster_for_Harriet_Tubman%2C_1849.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Harriet_Tubman_by_H.B._Lindsley%2C_1870s.jpg/800px-Harriet_Tubman_by_H.B._Lindsley%2C_1870s.jpg'" alt="Wanted poster">
+        <div class="r-eye">Section 03</div><h2 class="r-title">Obstacles Faced</h2>
+        <div class="cg">
+          <div class="rc"><h4>$40,000 Bounty</h4><p>By the 1850s, Maryland slaveholders offered a $40,000 reward for her capture — a massive fortune at the time.</p></div>
+          <div class="rc"><h4>Fugitive Slave Act</h4><p>Made it illegal to help escaped slaves anywhere in the US, forcing missions to extend all the way to Canada.</p></div>
+          <div class="rc"><h4>Health Condition</h4><p>Her constant seizures and sudden sleep episodes from the head injury made traveling dangerous and unpredictable.</p></div>
+          <div class="rc"><h4>Illiteracy</h4><p>She could not read or write. When she heard men reading her wanted poster aloud, she pulled out a book and pretended to read to avoid being caught.</p></div>
+          <div class="rc"><h4>Passenger Resistance</h4><p>Some people seeking freedom became frightened and wanted to turn back, which would have made the mission far more dangerous.</p></div>
+          <div class="rc"><h4>Racism</h4><p>She faced discrimination as a Black woman even among allies when trying to provide safety for others.</p></div>
         </div>
       </div>
-      <!-- STRATEGIES -->
-      <div id="sec-strategies" class="r-panel">
-        <div class="r-eyebrow">Section 04</div>
-        <h2 class="r-title">Strategies for Change</h2>
-        <div style="margin-top:8px;">
-          <div class="strat-item"><div class="strat-num">01</div><div class="strat-body"><h4>Underground Railroad Conducting</h4><p>Personally led missions into the South, guiding freedom seekers north through a secret network of safe houses. [Book]</p></div></div>
-          <div class="strat-item"><div class="strat-num">02</div><div class="strat-body"><h4>Tactical Innovation</h4><p>Escaped on Saturday nights so runaway notices couldn't appear until Monday, used the master's buggy for the first leg, and carried a drug to quiet crying infants. [Web]</p></div></div>
-          <div class="strat-item"><div class="strat-num">03</div><div class="strat-body"><h4>Armed Deterrence</h4><p>Carried a gun and told hesitant passengers "You'll be free or die," ensuring no one could turn back and compromise the group. [Enc]</p></div></div>
-          <div class="strat-item"><div class="strat-num">04</div><div class="strat-body"><h4>Public Speaking</h4><p>In the late 1850s, began speaking at abolitionist meetings across the North, using her story to rally awareness and support. [Ref DB]</p></div></div>
-          <div class="strat-item"><div class="strat-num">05</div><div class="strat-body"><h4>Published Autobiography</h4><p>Worked with Sarah Bradford to produce two biographies (1869 & 1886), spreading her story widely and funding her ongoing work. [Ref DB]</p></div></div>
-          <div class="strat-item"><div class="strat-num">06</div><div class="strat-body"><h4>Military Intelligence</h4><p>Recruited formerly enslaved people to gather intelligence on Confederate positions, enabling key raids like the Combahee River Raid. [Web]</p></div></div>
-          <div class="strat-item"><div class="strat-num">07</div><div class="strat-body"><h4>Coalition Building</h4><p>Formed alliances with Douglass, Brown, Still, and Coffin, amplifying her reach far beyond what she could accomplish alone. [Book]</p></div></div>
-          <div class="strat-item"><div class="strat-num">08</div><div class="strat-body"><h4>Postwar Lobbying & Advocacy</h4><p>After the war, lobbied for freedmen's education, fought for her military pension, and advocated for women's suffrage at the NACW convention. [Web]</p></div></div>
+      <div id="sec-strategies" class="rp">
+        <img class="sec-banner" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Harriet_Tubman_1868-69.jpg/800px-Harriet_Tubman_1868-69.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Harriet_Tubman_1895.jpg/640px-Harriet_Tubman_1895.jpg'" alt="Harriet Tubman strategies">
+        <div class="r-eye">Section 04</div><h2 class="r-title">Strategies for Change</h2>
+        <div class="sl">
+          <div class="sr"><div class="sn">01</div><div class="sb"><h4>Underground Railroad Conducting</h4><p>Tubman personally led missions into the South, guiding enslaved people north through networks of safe houses.</p></div></div>
+          <div class="sr"><div class="sn">02</div><div class="sb"><h4>Tactical Innovation</h4><p>She escaped on Saturday nights so runaway notices couldn't be printed until Monday morning, used the master's horse and buggy for the first leg, and headed south to spot potential slave catchers.</p></div></div>
+          <div class="sr"><div class="sn">03</div><div class="sb"><h4>Armed Deterrence</h4><p>Tubman carried a pistol on every mission, telling hesitant passengers they would be free or die — ensuring no one could turn back and compromise the group.</p></div></div>
+          <div class="sr"><div class="sn">04</div><div class="sb"><h4>Public Speaking</h4><p>In the late 1850s, she began speaking at abolitionist meetings in the North, using her personal stories to build awareness and cause rallies of support.</p></div></div>
+          <div class="sr"><div class="sn">05</div><div class="sb"><h4>Published Biography</h4><p>She worked with Sarah Bradford to create <em>Scenes in the Life of Harriet Tubman,</em> spreading her story to wider audiences and generating funding for her continued work.</p></div></div>
+          <div class="sr"><div class="sn">06</div><div class="sb"><h4>Military Intelligence</h4><p>During the Civil War, she gathered information on Confederate positions, leading to key raids such as the Combahee River Raid in 1863.</p></div></div>
+          <div class="sr"><div class="sn">07</div><div class="sb"><h4>Coalition Building</h4><p>She formed alliances with William Still, Frederick Douglass, John Brown, and Levi Coffin, extending her reach far beyond what she could do alone.</p></div></div>
+          <div class="sr"><div class="sn">08</div><div class="sb"><h4>Postwar Advocacy</h4><p>After the war, she lobbied for educational opportunities for freed people, fought for her military pension, and advocated for women's suffrage at the NACW convention in 1896.</p></div></div>
         </div>
       </div>
-      <!-- PLAN -->
-      <div id="sec-plan" class="r-panel">
-        <div class="r-eyebrow">Section 05</div>
-        <h2 class="r-title">Action Plan</h2>
+      <div id="sec-plan" class="rp">
+        <img class="sec-banner" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Frederick_Douglass_by_Samuel_J_Miller%2C_1847-52.png/800px-Frederick_Douglass_by_Samuel_J_Miller%2C_1847-52.png" alt="Abolitionist movement">
+        <div class="r-eye">Section 05</div><h2 class="r-title">Action Plan</h2>
         <div class="r-h2">Specific Goal</div>
-        <p class="r-body">The complete liberation of as many enslaved people as possible and the total abolition of slavery. She believed this was a divine mission — she once told an interviewer: <em>"the Lord who told me to take care of my people meant me to do it just so long as I live."</em> [Web]</p>
+        <p class="r-body">Tubman's primary goal was to <strong>liberate as many enslaved people as possible</strong> and to accomplish the total abolition of slavery in the United States. This was driven by her pursuit of freedom, equality, and the prevention of racial segregation.</p>
         <div class="r-h2">Target Audience</div>
-        <p class="r-body"><strong>Enslaved people in the South</strong> — direct beneficiaries of her rescue missions. <strong>Northern abolitionists</strong> — who provided safe houses, funding, and political pressure. <strong>The Union Army</strong> — who she would later join as a spy and scout during the Civil War. [Ref DB / Enc]</p>
+        <div class="ibox"><div class="ibox-t">Three Key Groups</div><p><strong>Enslaved people in the South</strong> — they would directly benefit from Tubman's missions.<br><br><strong>Northern abolitionists</strong> — they could provide safe housing, funding, and political force.<br><br><strong>The Union Army</strong> — she would later join as a spy and scout during the Civil War.</p></div>
         <div class="r-h2">Planned Strategies</div>
-        <p class="r-body">Underground Railroad missions, alliance-building with abolitionist networks, public speaking to raise awareness, and using her knowledge of Southern terrain for military intelligence during the Civil War. [Book / Web]</p>
+        <p class="r-body">Underground Railroad conducting, public speaking at abolitionist meetings, publishing her biography to spread awareness and raise funds, and using military intelligence during the Civil War to enable major raids and liberation events.</p>
       </div>
-      <!-- ACTION -->
-      <div id="sec-action" class="r-panel">
-        <div class="r-eyebrow">Section 06</div>
-        <h2 class="r-title">Take Action — What She Did</h2>
-        <p class="r-body">Over the decade before the Civil War, Tubman conducted approximately <strong>13 missions</strong> into Maryland, guiding around <strong>70 enslaved people to freedom</strong> — including her sister, her brother, and her elderly parents. She never lost a single person. [Enc]</p>
-        <p class="r-body">During the Civil War, she served the Union Army at Beaufort, South Carolina from 1862, working as a <strong>cook, nurse, laundress, scout, and spy</strong>. In 1863, she guided Colonel James Montgomery and ~150 Black soldiers on the <strong>Combahee River Raid</strong>, freeing over 700 enslaved people — the first American military action led by a woman. [Web]</p>
-        <p class="r-body">After the war, she transformed her Auburn home into the <strong>Home for Aged and Indigent Colored People</strong>, raised money for freedmen's schools, and in 1896 became a delegate to the National Association of Colored Women's first convention, taking up the suffragist cause. [Web]</p>
-        <div class="info-box"><div class="info-box-title">Key Alliances</div><p><strong>William Still</strong> (Philadelphia stationmaster) · <strong>Frederick Douglass</strong> (fellow abolitionist) · <strong>John Brown</strong> (called her "General Tubman") · <strong>Col. James Montgomery</strong> (Combahee Raid) · <strong>Sarah Bradford</strong> (biographer) · <strong>Levi Coffin</strong> (Quaker network president) [Book / Web / Enc]</p></div>
-        <div class="info-box" style="margin-top:12px;"><div class="info-box-title">Legislation & Advocacy</div><p>Supported the <strong>13th Amendment</strong> (1865) · Fought for her military pension (granted ~30 years later) · Advocated for <strong>women's suffrage</strong> · Donated 25 acres for a shelter via the AME Zion Church [Enc / Web]</p></div>
+      <div id="sec-action" class="rp">
+        <img class="sec-banner" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Harriet_Tubman_-_Macall_Civil_War.jpg/800px-Harriet_Tubman_-_Macall_Civil_War.jpg" alt="Harriet Tubman Civil War">
+        <div class="r-eye">Section 06</div><h2 class="r-title">Take Action — What She Did</h2>
+        <p class="r-body">Before the Civil War, Tubman led a total of <strong>13 missions into Maryland</strong>, guiding approximately <strong>70 people to freedom.</strong> This included her sister and her two children, her brother, and her elderly parents. She escaped on Saturday nights, used the master's horse and wagon for the first part of the journey, and headed south to minimize conflict and spot potential slave catchers when threatened.</p>
+        <p class="r-body">During the Civil War, Tubman supported the Union Army at <strong>Beaufort, South Carolina,</strong> working as a cook, nurse, laundress, scout, and spy. She built a network of formerly enslaved people to gather information on Confederate camps and supply routes.</p>
+        <p class="r-body">In <strong>1863</strong>, she led Colonel James Montgomery and approximately 150 Black soldiers on the <strong>Combahee River Raid,</strong> freeing over <strong>700 enslaved people</strong> — the largest emancipation event of the Civil War and the first military action led by a woman in American history.</p>
+        <p class="r-body">After the war, she transformed her Auburn home into the <strong>Home for Aged and Indigent Colored People,</strong> raised money for freedmen's schools, and in 1896 became a representative to the National Association of Colored Women's first convention. In 1903, she donated 25 acres of land to the <strong>African Methodist Episcopal Zion Church</strong> as a shelter for poor and homeless African Americans.</p>
+        <div class="ibox"><div class="ibox-t">Key Alliances</div><p><strong>William Still</strong> — Philadelphia's Underground Railroad stationmaster who documented escapes and turned them into a book.<br><br><strong>Frederick Douglass</strong> — An enslaved man who became a leader, writer, and speaker against slavery in the US.<br><br><strong>John Brown</strong> — White abolitionist who used direct action, including the raid on Harpers Ferry.<br><br><strong>Levi Coffin</strong> — Quaker abolitionist who helped thousands of enslaved people through the Underground Railroad.</p></div>
       </div>
-      <!-- IMPACT -->
-      <div id="sec-impact" class="r-panel">
-        <div class="r-eyebrow">Section 07</div>
-        <h2 class="r-title">Results & Long-Term Impact</h2>
-        <div class="impact-row">
-          <div class="impact-card"><span class="n">~70</span><div class="l">Freed via Underground Railroad</div></div>
-          <div class="impact-card"><span class="n">700+</span><div class="l">Liberated at Combahee River</div></div>
-          <div class="impact-card"><span class="n">2024</span><div class="l">Awarded Brigadier General rank</div></div>
+      <div id="sec-impact" class="rp">
+        <img class="sec-banner" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/13th_Amendment_Pg1of1_AC.jpg/1200px-13th_Amendment_Pg1of1_AC.jpg" alt="13th Amendment">
+        <div class="r-eye">Section 07</div><h2 class="r-title">Results &amp; Long-Term Impact</h2>
+        <div class="imp-row">
+          <div class="imp"><span class="n">~70</span><div class="l">Freed via Underground Railroad</div></div>
+          <div class="imp"><span class="n">700+</span><div class="l">Liberated at Combahee River</div></div>
+          <div class="imp"><span class="n">2024</span><div class="l">Awarded Brigadier General</div></div>
         </div>
-        <p class="r-body">In 2013, President Barack Obama designated portions of Maryland's Eastern Shore as the <strong>Harriet Tubman Underground Railroad National Monument</strong> — the first national monument honoring a Black woman. [Ref DB]</p>
-        <p class="r-body">On Veterans Day 2024, she was posthumously awarded the rank of <strong>Brigadier General</strong> in the Maryland National Guard for her Civil War military service. [Enc]</p>
-        <p class="r-body">Her image was announced for the <strong>U.S. $20 bill</strong>, making her the first African American woman to appear on the front of U.S. currency. Commemorative coins featuring her image were released in <strong>January 2024</strong>. [Ref DB]</p>
-        <p class="r-body">Her legacy inspired the <strong>Civil Rights Movement</strong> of the 1950s–60s, proving that one person's moral courage could challenge an entire legal and social system. [Ref DB]</p>
+        <p class="r-body">In <strong>2013</strong>, President Barack Obama designated portions of Maryland's Eastern Shore as the <strong>Harriet Tubman Underground Railroad National Monument</strong> — the first national monument honoring a Black woman.</p>
+        <p class="r-body">On Veterans Day <strong>2024</strong>, she was awarded the rank of <strong>Brigadier General</strong> in the Maryland National Guard, recognizing her military service during the Civil War over 100 years after her death.</p>
+        <p class="r-body">Tubman was originally chosen to appear on the front of the <strong>US $20 bill,</strong> which would have made her the first African American woman on US currency — however, this did not come to pass.</p>
+        <p class="r-body">Her courage and determination directly inspired the <strong>Civil Rights Movement of the 1950s and 1960s,</strong> proving that one person's moral conviction could challenge and ultimately change an entire system of oppression.</p>
       </div>
     </main>
   </div>
 </div>
 
-<!-- ════════════════ FUN FACTS ════════════════ -->
+<!-- FUN FACTS -->
 <div id="page-funfacts" class="page">
-  <div class="facts-page">
-    <div class="page-hdr">
-      <div class="page-eye">Did You Know?</div>
-      <h2 class="page-ttl">Fun Facts</h2>
-      <p class="page-sub">Surprising, fascinating, and little-known details about Harriet Tubman's extraordinary life.</p>
-    </div>
-    <div class="facts-grid">
-      <div class="fact-card"><span class="fact-icon">🌟</span><span class="fact-num">0</span><div class="fact-title">Never Lost a Single Passenger</div><div class="fact-desc">In all 13 of her Underground Railroad missions, Harriet Tubman never lost a single person she was guiding to freedom. She once proudly told Frederick Douglass: "I never ran my train off the track." [DB]</div></div>
-      <div class="fact-card"><span class="fact-icon">📖</span><span class="fact-num">∞</span><div class="fact-title">She Could Not Read or Write</div><div class="fact-desc">Tubman was illiterate her entire life, yet communicated with allies, organized missions, gathered military intelligence, and eventually gave powerful public speeches — all without being able to read a single word. [Web]</div></div>
-      <div class="fact-card"><span class="fact-icon">🔫</span><span class="fact-num">1</span><div class="fact-title">She Carried a Gun on Every Mission</div><div class="fact-desc">Tubman reportedly told anyone who wanted to turn back: "You'll be free or die." She was not bluffing — she carried a pistol for self-defense and to keep the group from being compromised. [Enc]</div></div>
-      <div class="fact-card"><span class="fact-icon">💤</span><span class="fact-num">~12</span><div class="fact-title">Hit in the Head at Age 12</div><div class="fact-desc">An overseer threw an iron weight that struck her skull. She suffered sudden, uncontrollable sleep episodes for the rest of her life — yet used this time to have what she believed were divine visions guiding her missions. [Enc]</div></div>
-      <div class="fact-card"><span class="fact-icon">⭐</span><span class="fact-num">★</span><div class="fact-title">"General" Tubman</div><div class="fact-desc">John Brown — the radical abolitionist — called her "General Tubman" and said she was "one of the bravest persons on this continent." In 2024, she was officially posthumously given the rank of Brigadier General. [Enc / Web]</div></div>
-      <div class="fact-card"><span class="fact-icon">💊</span><span class="fact-num">🍼</span><div class="fact-title">She Used Medicine to Silence Babies</div><div class="fact-desc">To prevent crying infants from revealing the group's location to slave-catchers, Tubman carried small amounts of opium to help babies sleep during the most dangerous parts of the journey. [Book]</div></div>
-      <div class="fact-card"><span class="fact-icon">📅</span><span class="fact-num">Sat</span><div class="fact-title">Always Escaped on Saturday Nights</div><div class="fact-desc">Because newspapers couldn't print runaway notices until Monday morning, she timed every mission to leave on Saturday nights — giving the group a full two-day head start before anyone could spread the alarm. [Web]</div></div>
-      <div class="fact-card"><span class="fact-icon">💰</span><span class="fact-num">$0</span><div class="fact-title">She Was Paid Almost Nothing for the War</div><div class="fact-desc">After leading the Combahee River Raid that freed 700 people, Tubman was paid so little by the Union Army that she had to sell homemade baked goods to support herself. She fought for a pension for 30 years. [Enc]</div></div>
-      <div class="fact-card"><span class="fact-icon">🗳️</span><span class="fact-num">1896</span><div class="fact-title">Suffragist in Her Later Years</div><div class="fact-desc">After abolition, Tubman turned to women's suffrage. In 1896, she was a delegate to the National Association of Colored Women's first annual convention, fighting for the right to vote. [Web]</div></div>
+  <div class="ff-page">
+    <div class="pg-hdr"><div class="pg-eye">Did You Know?</div><h2 class="pg-ttl">Fun Facts</h2><p class="pg-sub">Surprising and little-known details about Harriet Tubman's extraordinary life.</p></div>
+    <div class="ff-grid">
+      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Harriet_Tubman_and_the_Underground_Railroad.jpg/640px-Harriet_Tubman_and_the_Underground_Railroad.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/400px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg'" alt="Underground Railroad"><div class="fc-body"><span class="fc-icon">🚂</span><div class="fc-t">Never Lost a Single Passenger</div><div class="fc-d">In all 13 of her Underground Railroad missions, Tubman never lost a single person she was guiding to freedom.</div></div></div>
+      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Harriet_Tubman_by_H.B._Lindsley%2C_1870s.jpg/480px-Harriet_Tubman_by_H.B._Lindsley%2C_1870s.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Harriet_Tubman_1895.jpg/400px-Harriet_Tubman_1895.jpg'" alt="Tubman portrait"><div class="fc-body"><span class="fc-icon">💊</span><div class="fc-t">She Used Medicine to Quiet Babies</div><div class="fc-d">To prevent crying infants from revealing the group's location, she carried a small amount of opium to help babies fall asleep and avoid slave catchers.</div></div></div>
+      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Harriet_Tubman_1868-69.jpg/480px-Harriet_Tubman_1868-69.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/400px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg'" alt="Tubman armed"><div class="fc-body"><span class="fc-icon">🔫</span><div class="fc-t">She Carried a Gun on Every Mission</div><div class="fc-d">Tubman carried a pistol for defense on every mission. Anyone who wanted to turn back was told they would be free or die — no one could compromise the group.</div></div></div>
+      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Polaris_star.jpg/640px-Polaris_star.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/400px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg'" alt="North Star night sky"><div class="fc-body"><span class="fc-icon">🌙</span><div class="fc-t">Always Escaped on Saturday Night</div><div class="fc-d">Newspapers couldn't print runaway notices until Monday morning. This gave the group a full two-day head start before anyone could spread the news.</div></div></div>
+      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Harriet_Tubman_-_Macall_Civil_War.jpg/480px-Harriet_Tubman_-_Macall_Civil_War.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/400px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg'" alt="Tubman Civil War"><div class="fc-body"><span class="fc-icon">💰</span><div class="fc-t">Paid Almost Nothing for the War</div><div class="fc-d">After leading the Combahee River Raid, Tubman was paid so little by the Union Army that she had to sell her own baked goods to support herself.</div></div></div>
+      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/480px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg" alt="Harriet Tubman Moses"><div class="fc-body"><span class="fc-icon">✡️</span><div class="fc-t">Nicknamed "Moses" of Her People</div><div class="fc-d">She led enslaved people to freedom just as Moses led the Israelites out of slavery in Egypt — a comparison that stuck throughout her life.</div></div></div>
+      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tubman_Harvard.jpg/480px-Tubman_Harvard.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Harriet_Tubman_1895.jpg/400px-Harriet_Tubman_1895.jpg'" alt="Tubman military"><div class="fc-body"><span class="fc-icon">⚔️</span><div class="fc-t">First Woman to Lead a US Military Operation</div><div class="fc-d">Tubman led the Combahee River Raid in 1863 — the largest emancipation event of the Civil War — becoming the first woman to lead a US military operation.</div></div></div>
+      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/13th_Amendment_Pg1of1_AC.jpg/480px-13th_Amendment_Pg1of1_AC.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/400px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg'" alt="13th Amendment"><div class="fc-body"><span class="fc-icon">📜</span><div class="fc-t">Contributed to the 13th Amendment</div><div class="fc-d">Harriet supported the abolitionist cause that led to the 13th Amendment, which formally abolished slavery in the United States in 1865.</div></div></div>
+      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Harriet_Tubman_1895.jpg/480px-Harriet_Tubman_1895.jpg" alt="Tubman $20 bill"><div class="fc-body"><span class="fc-icon">💵</span><div class="fc-t">Chosen for the US $20 Bill</div><div class="fc-d">She was originally chosen to appear on the front of the US $20 bill — making her the first African American woman on US currency — but this never happened.</div></div></div>
     </div>
   </div>
 </div>
 
-<!-- ════════════════ TIMELINE ════════════════ -->
+<!-- TIMELINE -->
 <div id="page-timeline" class="page">
-  <div class="timeline-page">
-    <div class="page-hdr">
-      <div class="page-eye">A Life in History</div>
-      <h2 class="page-ttl">Timeline of Key Events</h2>
-      <p class="page-sub">From birth into slavery to national recognition — every major turning point in her extraordinary life.</p>
-    </div>
-    <div class="tl-wrap" id="tl-wrap">
-      <div class="tl-item"><div class="tl-left"><div class="tl-year">~1820</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-event-name">Born Araminta Ross</div><div class="tl-event-text">Born into slavery in Dorchester County, Maryland. One of eleven children. Hired out from age five as a nursemaid and field hand.</div><div class="tl-src">[Web]</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-event-name">Severe Head Injury</div><div class="tl-event-text">An overseer's iron weight strikes her head. She suffers seizures for the rest of her life, interpreting them as divine visions.</div><div class="tl-src">[Enc]</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-year">~1832</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-year">1844</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-event-name">Marries John Tubman</div><div class="tl-event-text">Marries a free Black man and takes his last name, becoming Harriet Tubman.</div><div class="tl-src">[Web]</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-event-name">Escapes to Philadelphia</div><div class="tl-event-text">Flees north alone after her husband refuses to leave. Follows the North Star. Meets William Still, the Underground Railroad stationmaster.</div><div class="tl-src">[Book]</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-year">1849</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-year">1850</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-event-name">First Rescue Mission</div><div class="tl-event-text">Returns to Maryland and escorts her sister and her sister's two children to freedom — the first of 13 missions.</div><div class="tl-src">[Enc]</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-event-name">Fugitive Slave Act Passed</div><div class="tl-event-text">New federal law forces Tubman to guide freedom seekers all the way to Canada, making every mission longer and more dangerous.</div><div class="tl-src">[DB]</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-year">1850</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-year">1857</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-event-name">Rescues Her Elderly Parents</div><div class="tl-event-text">Hires a wagon and transports her elderly parents out of Maryland to freedom and safety in Auburn, New York.</div><div class="tl-src">[Ref DB]</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-event-name">Meets John Brown</div><div class="tl-event-text">Consults with radical abolitionist John Brown, who calls her "General Tubman" and one of the bravest people on the continent.</div><div class="tl-src">[Enc]</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-year">1858</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-year">1862</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-event-name">Joins the Union Army</div><div class="tl-event-text">Moves to Beaufort, South Carolina. Serves as a cook, nurse, laundress, scout, and spy behind Confederate lines.</div><div class="tl-src">[Web]</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-event-name">Combahee River Raid</div><div class="tl-event-text">Guides Col. Montgomery and ~150 Black soldiers in a gunboat raid that liberates over 700 enslaved people — the largest single emancipation event of the war and the first U.S. military action led by a woman.</div><div class="tl-src">[Web]</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-year">1863</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-year">1869</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-event-name">Biography Published</div><div class="tl-event-text">"Scenes in the Life of Harriet Tubman" published by Sarah Bradford. Royalties fund Tubman's ongoing community work.</div><div class="tl-src">[Ref DB]</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-event-name">Joins Suffrage Movement</div><div class="tl-event-text">Becomes a delegate to the NACW's first annual convention. Advocates passionately for women's right to vote.</div><div class="tl-src">[Web]</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-year">1896</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-year">1913</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-event-name">Passes Away in Auburn</div><div class="tl-event-text">Dies of pneumonia on March 10, 1913. Given a full military funeral and buried at Fort Hill Cemetery.</div><div class="tl-src">[Web]</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-event-name">National Monument Designated</div><div class="tl-event-text">President Obama designates the Harriet Tubman Underground Railroad National Monument — the first national monument honoring a Black woman.</div><div class="tl-src">[Ref DB]</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-year">2013</div></div></div>
-      <div class="tl-item"><div class="tl-left"><div class="tl-year">2024</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-event-name">Awarded Brigadier General</div><div class="tl-event-text">On Veterans Day, posthumously awarded the rank of one-star Brigadier General in the Maryland National Guard.</div><div class="tl-src">[Enc]</div></div></div>
+  <div class="tl-page">
+    <div class="pg-hdr"><div class="pg-eye">A Life in History</div><h2 class="pg-ttl">Timeline of Key Events</h2><p class="pg-sub">The most important turning points of Harriet Tubman's extraordinary life.</p></div>
+    <div class="tl-wrap" id="tlwrap">
+      <div class="tl-item"><div class="tl-left"><div class="tl-yr">1822</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">Born Araminta Ross</div><div class="tl-tx">Born into slavery in Dorchester County, Maryland. One of eleven children. Hired out from age five as a nursemaid, then field hand, cook, and woodcutter.</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-nm">Severe Head Injury</div><div class="tl-tx">An overseer's iron weight strikes her skull. She suffers seizures and sudden sleep episodes for the rest of her life, interpreting them as spiritual visions.</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-yr">1834</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-yr">1849</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">Escapes to Philadelphia</div><div class="tl-tx">Fears being sold and flees north alone, following the North Star. Her husband refuses to join her. She finds work and saves money to return for others.</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-nm">Fugitive Slave Act Passed</div><div class="tl-tx">New federal law requires escaped enslaved people to be returned even from free states. Tubman must now guide freedom seekers all the way to Canada.</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-yr">1850</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-yr">1850</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">First Rescue Mission</div><div class="tl-tx">Returns to Maryland and escorts her sister and her two children to freedom — the first of 13 missions over the next decade.</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-nm">Rescues Her Elderly Parents</div><div class="tl-tx">Hires a wagon and transports her elderly parents out of Maryland to safety in Auburn, New York.</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-yr">1857</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-yr">1862</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">Joins the Union Army</div><div class="tl-tx">Moves to Beaufort, South Carolina. Serves as cook, nurse, laundress, scout, and spy. Builds a spy network of formerly enslaved people.</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-nm">Combahee River Raid</div><div class="tl-tx">Guides Colonel Montgomery and ~150 Black soldiers on a gunboat raid. Frees over 700 enslaved people — the largest emancipation event of the Civil War and the first US military action led by a woman.</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-yr">1863</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-yr">1869</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">Biography Published</div><div class="tl-tx"><em>Scenes in the Life of Harriet Tubman</em> published with Sarah Bradford. Spreads her story and generates funding for her ongoing community work.</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-nm">Joins Suffrage Movement</div><div class="tl-tx">Becomes a representative at the National Association of Colored Women's first annual convention. Advocates for women's right to vote.</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-yr">1896</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-yr">1913</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">Passes Away in Auburn, NY</div><div class="tl-tx">Dies of pneumonia on March 10, 1913. Given a military funeral. Buried at Fort Hill Cemetery in Auburn, New York.</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-nm">National Monument Designated</div><div class="tl-tx">President Obama designates the Harriet Tubman Underground Railroad National Monument — the first national monument honoring a Black woman.</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-yr">2013</div></div></div>
+      <div class="tl-item"><div class="tl-left"><div class="tl-yr">2024</div></div><div class="tl-center"><div class="tl-dot"></div></div><div class="tl-right"><div class="tl-nm">Awarded Brigadier General</div><div class="tl-tx">On Veterans Day, posthumously awarded the rank of Brigadier General in the Maryland National Guard for her Civil War military service.</div></div></div>
     </div>
   </div>
 </div>
 
-<!-- ════════════════ GALLERY ════════════════ -->
+<!-- GALLERY -->
 <div id="page-gallery" class="page">
-  <div class="gallery-page">
-    <div class="page-hdr">
-      <div class="page-eye">Museum Exhibit</div>
-      <h2 class="page-ttl">Photo Gallery</h2>
-      <p class="page-sub">Historical images from Harriet Tubman's life, the Underground Railroad, and her lasting legacy. Click any image to expand.</p>
-    </div>
-    <div class="gallery-grid">
-      <div class="g-item tall" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/800px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg','Harriet Tubman, c. 1885 — One of the most iconic photographs of Tubman in her later years.')">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/800px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg" alt="Harriet Tubman portrait c.1885">
-        <div class="g-overlay"><div><div class="g-caption">Portrait of Harriet Tubman</div><div class="g-sub">c. 1885 · National Portrait Gallery</div></div></div>
-      </div>
-      <div class="g-item" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Harriet_Tubman_1895.jpg/640px-Harriet_Tubman_1895.jpg','Harriet Tubman, 1895 — photographed later in her life in Auburn, New York.')">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Harriet_Tubman_1895.jpg/640px-Harriet_Tubman_1895.jpg" alt="Harriet Tubman 1895">
-        <div class="g-overlay"><div><div class="g-caption">Tubman at Home in Auburn</div><div class="g-sub">1895 · Auburn, New York</div></div></div>
-      </div>
-      <div class="g-item" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tubman_Harvard.jpg/640px-Tubman_Harvard.jpg','Harriet Tubman photograph from the Smithsonian collection.')">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tubman_Harvard.jpg/640px-Tubman_Harvard.jpg" alt="Harriet Tubman Smithsonian">
-        <div class="g-overlay"><div><div class="g-caption">Smithsonian Collection</div><div class="g-sub">Harriet Tubman Archives</div></div></div>
-      </div>
-      <div class="g-item wide" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Harriet_Tubman_Underground_Railroad_NM_IMG_4657.jpg/1280px-Harriet_Tubman_Underground_Railroad_NM_IMG_4657.jpg','Harriet Tubman Underground Railroad National Monument — designated by President Obama in 2013 in Maryland.')">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Harriet_Tubman_Underground_Railroad_NM_IMG_4657.jpg/1280px-Harriet_Tubman_Underground_Railroad_NM_IMG_4657.jpg" alt="Tubman National Monument">
-        <div class="g-overlay"><div><div class="g-caption">Harriet Tubman Underground Railroad National Monument</div><div class="g-sub">Designated 2013 · Dorchester County, Maryland</div></div></div>
-      </div>
-      <div class="g-item" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Harriet_Tubman_Home_for_the_Aged.jpg/640px-Harriet_Tubman_Home_for_the_Aged.jpg','The Harriet Tubman Home for Aged and Indigent Negroes in Auburn, New York — the shelter she founded and donated to the AME Zion Church.')">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Harriet_Tubman_Home_for_the_Aged.jpg/640px-Harriet_Tubman_Home_for_the_Aged.jpg" alt="Tubman Home for the Aged">
-        <div class="g-overlay"><div><div class="g-caption">Tubman's Home for the Aged</div><div class="g-sub">Auburn, New York · Founded 1903</div></div></div>
-      </div>
-      <div class="g-item" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Levi_Coffin.jpg/640px-Levi_Coffin.jpg','Levi Coffin — the Quaker abolitionist known as the \"President of the Underground Railroad\" whose network supported Tubman\'s routes.')">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Levi_Coffin.jpg/640px-Levi_Coffin.jpg" alt="Levi Coffin">
-        <div class="g-overlay"><div><div class="g-caption">Levi Coffin</div><div class="g-sub">"President" of the Underground Railroad</div></div></div>
-      </div>
-      <div class="g-item" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Frederick_Douglass_by_Samuel_J_Miller%2C_1847-52.png/640px-Frederick_Douglass_by_Samuel_J_Miller%2C_1847-52.png','Frederick Douglass — fellow abolitionist who said of Tubman: \"I know of no one who has willingly encountered more perils and hardships to serve our enslaved people.\"')">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Frederick_Douglass_by_Samuel_J_Miller%2C_1847-52.png/640px-Frederick_Douglass_by_Samuel_J_Miller%2C_1847-52.png" alt="Frederick Douglass">
-        <div class="g-overlay"><div><div class="g-caption">Frederick Douglass</div><div class="g-sub">Abolitionist & Tubman Ally</div></div></div>
-      </div>
-      <div class="g-item" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/John_Brown_by_Ole_Peter_Hansen_Balling.jpg/640px-John_Brown_by_Ole_Peter_Hansen_Balling.jpg','John Brown — radical abolitionist who called Tubman \"General\" and consulted her about his 1859 raid on Harpers Ferry.')">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/John_Brown_by_Ole_Peter_Hansen_Balling.jpg/640px-John_Brown_by_Ole_Peter_Hansen_Balling.jpg" alt="John Brown">
-        <div class="g-overlay"><div><div class="g-caption">John Brown</div><div class="g-sub">Called Tubman "General Tubman"</div></div></div>
-      </div>
-      <div class="g-item" onclick="openLightbox('https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Harriet_Tubman_-_Macall_Civil_War.jpg/640px-Harriet_Tubman_-_Macall_Civil_War.jpg','Harriet Tubman during the Civil War years — she served as a spy and scout for the Union Army from 1862 to 1865.')">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Harriet_Tubman_-_Macall_Civil_War.jpg/640px-Harriet_Tubman_-_Macall_Civil_War.jpg" alt="Tubman Civil War">
-        <div class="g-overlay"><div><div class="g-caption">Tubman During the Civil War</div><div class="g-sub">Union Army Spy & Scout · 1862–1865</div></div></div>
-      </div>
+  <div class="gal-page">
+    <div class="pg-hdr"><div class="pg-eye">Museum Exhibit</div><h2 class="pg-ttl">Photo Gallery</h2><p class="pg-sub">Historical images from Harriet Tubman's life and legacy. Click any photo to expand.</p></div>
+    <div class="gal-grid">
+      <div class="gi tall" onclick="openLB('https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/800px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg','Portrait of Harriet Tubman, c. 1885 — one of the most iconic photographs of Tubman in her later years.')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/800px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg" alt="Tubman portrait"><div class="gi-ov"><div><div class="gi-cap">Portrait of Harriet Tubman</div><div class="gi-sub">c. 1885 · National Portrait Gallery</div></div></div></div>
+      <div class="gi" onclick="openLB('https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Harriet_Tubman_1895.jpg/640px-Harriet_Tubman_1895.jpg','Harriet Tubman photographed in 1895 at her home in Auburn, New York.')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Harriet_Tubman_1895.jpg/640px-Harriet_Tubman_1895.jpg" alt="Tubman 1895"><div class="gi-ov"><div><div class="gi-cap">Tubman at Home in Auburn</div><div class="gi-sub">1895 · Auburn, New York</div></div></div></div>
+      <div class="gi" onclick="openLB('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tubman_Harvard.jpg/640px-Tubman_Harvard.jpg','Harriet Tubman — Smithsonian Archive photograph.')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tubman_Harvard.jpg/640px-Tubman_Harvard.jpg" alt="Tubman Smithsonian"><div class="gi-ov"><div><div class="gi-cap">Smithsonian Archive</div><div class="gi-sub">Harriet Tubman Collection</div></div></div></div>
+      <div class="gi wide" onclick="openLB('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Harriet_Tubman_Underground_Railroad_NM_IMG_4657.jpg/1280px-Harriet_Tubman_Underground_Railroad_NM_IMG_4657.jpg','Harriet Tubman Underground Railroad National Monument — designated by President Obama in 2013 in Dorchester County, Maryland.')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Harriet_Tubman_Underground_Railroad_NM_IMG_4657.jpg/1280px-Harriet_Tubman_Underground_Railroad_NM_IMG_4657.jpg" alt="Tubman Monument"><div class="gi-ov"><div><div class="gi-cap">Harriet Tubman Underground Railroad National Monument</div><div class="gi-sub">Designated 2013 · Dorchester County, Maryland</div></div></div></div>
+      <div class="gi" onclick="openLB('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Harriet_Tubman_Home_for_the_Aged.jpg/640px-Harriet_Tubman_Home_for_the_Aged.jpg','The Harriet Tubman Home for Aged and Indigent Colored People in Auburn, New York.')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Harriet_Tubman_Home_for_the_Aged.jpg/640px-Harriet_Tubman_Home_for_the_Aged.jpg" alt="Tubman Home"><div class="gi-ov"><div><div class="gi-cap">Home for Aged &amp; Indigent Colored People</div><div class="gi-sub">Auburn, New York</div></div></div></div>
+      <div class="gi" onclick="openLB('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Frederick_Douglass_by_Samuel_J_Miller%2C_1847-52.png/640px-Frederick_Douglass_by_Samuel_J_Miller%2C_1847-52.png','Frederick Douglass — enslaved man who became a leading abolitionist, writer, and key Tubman ally.')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Frederick_Douglass_by_Samuel_J_Miller%2C_1847-52.png/640px-Frederick_Douglass_by_Samuel_J_Miller%2C_1847-52.png" alt="Frederick Douglass"><div class="gi-ov"><div><div class="gi-cap">Frederick Douglass</div><div class="gi-sub">Abolitionist Leader &amp; Tubman Ally</div></div></div></div>
+      <div class="gi" onclick="openLB('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/John_Brown_by_Ole_Peter_Hansen_Balling.jpg/640px-John_Brown_by_Ole_Peter_Hansen_Balling.jpg','John Brown — white abolitionist who used direct action and called Tubman General Tubman.')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/John_Brown_by_Ole_Peter_Hansen_Balling.jpg/640px-John_Brown_by_Ole_Peter_Hansen_Balling.jpg" alt="John Brown"><div class="gi-ov"><div><div class="gi-cap">John Brown</div><div class="gi-sub">Radical Abolitionist &amp; Ally</div></div></div></div>
+      <div class="gi" onclick="openLB('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Levi_Coffin.jpg/640px-Levi_Coffin.jpg','Levi Coffin — Quaker abolitionist who helped thousands of enslaved people through the Underground Railroad.')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Levi_Coffin.jpg/640px-Levi_Coffin.jpg" alt="Levi Coffin"><div class="gi-ov"><div><div class="gi-cap">Levi Coffin</div><div class="gi-sub">Quaker Abolitionist &amp; Ally</div></div></div></div>
+      <div class="gi" onclick="openLB('https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Harriet_Tubman_-_Macall_Civil_War.jpg/640px-Harriet_Tubman_-_Macall_Civil_War.jpg','Harriet Tubman during her Civil War years — serving the Union Army from 1862 to 1865.')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Harriet_Tubman_-_Macall_Civil_War.jpg/640px-Harriet_Tubman_-_Macall_Civil_War.jpg" alt="Tubman Civil War"><div class="gi-ov"><div><div class="gi-cap">Tubman During the Civil War</div><div class="gi-sub">Union Army Spy &amp; Scout · 1862–1865</div></div></div></div>
     </div>
   </div>
 </div>
+<div class="lb" id="lb" onclick="closeLB()"><button class="lb-x">✕</button><img id="lbimg" src="" alt=""><div class="lb-cap" id="lbcap"></div></div>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <button class="lightbox-close">✕</button>
-  <img id="lightbox-img" src="" alt="">
-  <div class="lightbox-caption" id="lightbox-cap"></div>
-</div>
-
-<!-- ════════════════ VIDEO ════════════════ -->
+<!-- VIDEO -->
 <div id="page-video" class="page">
-  <div class="video-page">
-    <div class="page-hdr">
-      <div class="page-eye">Documentary</div>
-      <h2 class="page-ttl">Video</h2>
-      <p class="page-sub">A video resource about Harriet Tubman's life and legacy.</p>
-    </div>
-    <div class="video-wrap">
-      <div class="video-placeholder">
-        <div class="play-btn">▶</div>
-        <div class="video-placeholder-text">Video Placeholder</div>
-        <div class="video-placeholder-sub">Replace this section with your chosen video embed (YouTube, Vimeo, etc.)</div>
-        <div style="font-size:11px;color:var(--gray);margin-top:8px;">Suggested: Search "Harriet Tubman documentary" on YouTube and paste the embed code here</div>
-      </div>
-      <div style="margin-top:32px;background:var(--black2);border:1px solid var(--border);border-radius:12px;padding:28px 32px;">
-        <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">How to add a video</div>
-        <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.7;">1. Find a documentary on YouTube (e.g. "Harriet Tubman: Visions of Freedom")<br>2. Click Share → Embed → Copy the iframe code<br>3. Replace the video-placeholder div above with the iframe code<br>4. Set width="100%" and height="500" on the iframe</p>
-      </div>
+  <div class="vid-page">
+    <div class="pg-hdr"><div class="pg-eye">Documentary</div><h2 class="pg-ttl">Video</h2><p class="pg-sub">A video resource about Harriet Tubman's life and legacy.</p></div>
+    <div class="vid-wrap">
+      <div style="border-radius:16px;overflow:hidden;aspect-ratio:16/9;"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/Dv7YhVKFqbQ" title="Harriet Tubman Documentary" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display:block;"></iframe></div>
     </div>
   </div>
 </div>
 
-<!-- ════════════════ INTERACTIVE ════════════════ -->
+<!-- INTERACTIVE -->
 <div id="page-interactive" class="page">
-  <div class="interactive-page">
-    <div class="page-hdr">
-      <div class="page-eye">Test Your Knowledge</div>
-      <h2 class="page-ttl">Interactive Activities</h2>
-      <p class="page-sub">Quiz, Word Search, and Crossword — how well do you know Harriet Tubman?</p>
+  <div class="int-page">
+    <div class="pg-hdr"><div class="pg-eye">Test Your Knowledge</div><h2 class="pg-ttl">Interactive Activities</h2><p class="pg-sub">Quiz, Word Search, and Crossword — how well do you know Harriet Tubman?</p></div>
+    <div class="int-tabs">
+      <button class="itab active" onclick="goIT('quiz',this)">📝 Quiz</button>
+      <button class="itab" onclick="goIT('ws',this)">🔤 Word Search</button>
+      <button class="itab" onclick="goIT('cw',this)">✏️ Crossword</button>
     </div>
-    <div class="interactive-tabs">
-      <button class="int-tab active" onclick="goIntTab('quiz',this)">📝 Quiz</button>
-      <button class="int-tab" onclick="goIntTab('wordsearch',this)">🔤 Word Search</button>
-      <button class="int-tab" onclick="goIntTab('crossword',this)">✏️ Crossword</button>
-    </div>
-
-    <!-- QUIZ -->
-    <div id="int-quiz" class="int-panel active">
-      <div class="quiz-wrap">
-        <div id="quiz-main">
-          <div class="q-progress"><div class="q-fill" id="q-prog" style="width:12.5%"></div></div>
-          <div class="q-num" id="q-num">Question 1 of 8</div>
-          <div class="q-text" id="q-text"></div>
-          <div class="q-opts" id="q-opts"></div>
-          <div class="q-fb" id="q-fb"></div>
-          <div class="q-nav">
-            <div style="font-size:13px;color:var(--gray);">Score: <strong id="q-score" style="color:var(--gold)">0</strong></div>
-            <button class="btn-sm" id="q-next" onclick="nextQ()" disabled>Next →</button>
-          </div>
+    <div id="it-quiz" class="ipanel active">
+      <div class="qwrap">
+        <div id="qzmain">
+          <div class="qpbar"><div class="qpfill" id="qpf" style="width:12.5%"></div></div>
+          <div class="qnum" id="qnum">Question 1 of 8</div>
+          <div class="qtxt" id="qtxt"></div>
+          <div class="qopts" id="qopts"></div>
+          <div class="qfb" id="qfb"></div>
+          <div class="qnav"><div style="font-size:13px;color:var(--gray);">Score: <strong id="qsc" style="color:var(--gold)">0</strong></div><button class="bsm" id="qnxt" onclick="nextQ()" disabled>Next →</button></div>
         </div>
-        <div class="score-card" id="q-result">
-          <div class="score-ring"><div class="score-big" id="final-n">0</div><div class="score-of">out of 8</div></div>
-          <div class="score-title" id="final-title"></div>
-          <div class="score-msg" id="final-msg"></div>
-          <button class="btn-sm" onclick="restartQuiz()">Try Again</button>
-        </div>
+        <div class="score-card" id="qres"><div class="sring"><div class="sbig" id="sfn">0</div><div class="sof">out of 8</div></div><div class="sttl" id="sttl"></div><div class="smsg" id="smsg"></div><button class="bsm" onclick="restartQ()">Try Again</button></div>
       </div>
     </div>
-
-    <!-- WORD SEARCH -->
-    <div id="int-wordsearch" class="int-panel">
-      <div class="ws-wrap">
-        <p style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:20px;">Find all 8 words hidden in the grid. Click the first letter, then the last letter of each word.</p>
-        <div class="ws-grid" id="ws-grid"></div>
-        <div class="ws-words" id="ws-words"></div>
-        <div style="margin-top:20px;display:flex;gap:12px;align-items:center;">
-          <button class="btn-sm" onclick="buildWordSearch()">New Puzzle</button>
-          <span id="ws-status" style="font-size:13px;color:var(--gray);"></span>
-        </div>
-      </div>
+    <div id="it-ws" class="ipanel">
+      <p style="font-size:14px;color:rgba(255,255,255,.43);margin-bottom:16px;">Find all 8 words hidden in the grid. Click the first letter, then the last letter of each word.</p>
+      <div class="wsgr" id="wsgr"></div>
+      <div class="wswords" id="wswords"></div>
+      <div style="margin-top:16px;display:flex;gap:11px;align-items:center;"><button class="bsm" onclick="buildWS()">New Puzzle</button><span id="wsstat" style="font-size:13px;color:var(--gray);"></span></div>
     </div>
-
-    <!-- CROSSWORD -->
-    <div id="int-crossword" class="int-panel">
-      <div class="cw-wrap">
-        <div class="cw-layout">
-          <div>
-            <div class="cw-grid-wrap">
-              <div class="cw-grid" id="cw-grid"></div>
-            </div>
-            <div style="margin-top:16px;display:flex;gap:10px;">
-              <button class="btn-sm" onclick="checkCW()">Check Answers</button>
-              <button class="btn-sm" style="background:var(--black3);color:var(--white);border:1px solid var(--border);" onclick="revealCW()">Reveal</button>
-            </div>
-          </div>
-          <div class="cw-clues">
-            <div>
-              <div class="cw-clue-group"><h4>Across</h4>
-                <div class="cw-clue"><strong>1.</strong> Tubman's birth name (first) — Araminta ___</div>
-                <div class="cw-clue"><strong>4.</strong> The secret network of safe houses (2 words, use RAILROAD)</div>
-                <div class="cw-clue"><strong>6.</strong> City where Tubman settled after the Civil War</div>
-                <div class="cw-clue"><strong>7.</strong> The raid Tubman led in 1863 (river name)</div>
-              </div>
-            </div>
-            <div>
-              <div class="cw-clue-group"><h4>Down</h4>
-                <div class="cw-clue"><strong>1.</strong> Tubman's nickname: "Moses of her ___"</div>
-                <div class="cw-clue"><strong>2.</strong> Fellow abolitionist who called her brave (last name)</div>
-                <div class="cw-clue"><strong>3.</strong> The cause Tubman joined after the war: women's ___</div>
-                <div class="cw-clue"><strong>5.</strong> The North ___ guided escapees</div>
-              </div>
-            </div>
+    <div id="it-cw" class="ipanel">
+      <div style="max-width:840px;">
+        <div class="cwlayout">
+          <div><div class="cwboard"><div class="cwgrid" id="cwgrid"></div></div><div style="margin-top:13px;display:flex;gap:9px;"><button class="bsm" onclick="checkCW()">Check Answers</button><button class="bsm" style="background:var(--black3);color:var(--white);border:1px solid var(--border);" onclick="revealCW()">Reveal All</button></div><div id="cwmsg" style="margin-top:11px;font-size:14px;display:none;"></div></div>
+          <div class="cwclues">
+            <div><div class="cwch">Across</div><div class="cwcl"><strong>1A.</strong> Tubman's birth last name</div><div class="cwcl"><strong>4A.</strong> Secret network of safe houses</div><div class="cwcl"><strong>6A.</strong> NY city where Tubman settled</div></div>
+            <div><div class="cwch">Down</div><div class="cwcl"><strong>1D.</strong> Tubman's nickname: Moses of her ___</div><div class="cwcl"><strong>2D.</strong> Abolitionist ally (last name)</div><div class="cwcl"><strong>3D.</strong> The ___ Star guided freedom seekers north</div></div>
           </div>
         </div>
-        <div id="cw-msg" style="margin-top:16px;font-size:14px;color:var(--gold);display:none;"></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ════════════════ ABOUT ════════════════ -->
+<!-- ABOUT -->
 <div id="page-about" class="page">
   <div class="about-page">
+    <div class="pg-hdr"><div class="pg-eye">The Researcher</div><h2 class="pg-ttl">About the Author</h2></div>
     <div class="about-card">
-      <div class="about-banner"><div class="about-banner-pattern"></div></div>
+      <div class="about-ban"><div class="about-ban-p"></div></div>
       <div class="about-body">
-        <div class="about-avatar">?</div>
-        <div style="height:20px;"></div>
-        <div class="about-name">[Your Name Here]</div>
-        <div class="about-role">[Your Grade & Class] · Reform Research Project · 2026</div>
-        <p class="about-bio">[Write a few sentences about yourself here — your grade, your school, what interested you about Harriet Tubman, and what you learned from this project. This is your chance to share your own voice!]</p>
-        <hr class="about-divider" style="border:none;border-top:1px solid var(--border);">
-        <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">About This Project</div>
-        <p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.75;margin-bottom:20px;">This website was created as a Reform Research Project examining Harriet Tubman as a social reformer. It explores her biography, the historical context of antebellum America, the obstacles she faced, the strategies she used, and the lasting impact of her extraordinary life — all sourced from academic resources.</p>
-        <hr style="border:none;border-top:1px solid var(--border);margin:20px 0;">
-        <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Sources</div>
-        <div style="display:flex;flex-direction:column;gap:8px;">
-          <div style="background:var(--black3);border-radius:8px;padding:10px 14px;font-size:12px;color:rgba(255,255,255,0.5);"><strong style="color:var(--gold2);">Book:</strong> The Underground Railroad: A Primary Source History of the Journey to Freedom</div>
-          <div style="background:var(--black3);border-radius:8px;padding:10px 14px;font-size:12px;color:rgba(255,255,255,0.5);"><strong style="color:var(--gold2);">Ref DB:</strong> McGuire & Wheeler. "Harriet Tubman." American History, ABC-CLIO, 2026.</div>
-          <div style="background:var(--black3);border-radius:8px;padding:10px 14px;font-size:12px;color:rgba(255,255,255,0.5);"><strong style="color:var(--gold2);">Encyclopedia:</strong> "Harriet Tubman." Britannica School, Encyclopædia Britannica, 2025.</div>
-          <div style="background:var(--black3);border-radius:8px;padding:10px 14px;font-size:12px;color:rgba(255,255,255,0.5);"><strong style="color:var(--gold2);">Database:</strong> "Harriet Tubman and the Underground Railroad." Infobase, 2020.</div>
-          <div style="background:var(--black3);border-radius:8px;padding:10px 14px;font-size:12px;color:rgba(255,255,255,0.5);"><strong style="color:var(--gold2);">Web:</strong> Social Welfare History Project, VCU Library.</div>
-        </div>
+        <div class="about-av">KL</div>
+        <div style="height:16px;"></div>
+        <div class="about-name">Kevin Lee</div>
+        <div class="about-role">10th Grade · US History I Honors · Shrewsbury High School · 2026</div>
+        <p class="about-bio">Kevin Lee is a 15-year-old Sophomore at Shrewsbury High School. He was born in Texas and has adapted to many hobbies and wants to pursue many professions. He loves technology, spends time with his friends, and likes learning new stuff. Additionally, he is diligent and awaits the future.</p>
+        <div class="adiv"></div>
+        <div class="ash">About This Project</div>
+        <p style="font-size:14px;color:rgba(255,255,255,.43);line-height:1.75;margin-bottom:18px;">This website was created as a Reform Research Project exploring Harriet Tubman's role in 19th-century reform. It explores her biography, the historical context before and during the Civil War, obstacles she faced, and actions she took to create an impact on society with her extraordinary life.</p>
+        <div class="adiv"></div>
+        <div class="ash">Sources Used</div>
+        <div class="src-i"><strong>Book / Primary Source:</strong> The Underground Railroad: A Primary Source History of the Journey to Freedom</div>
+        <div class="src-i"><strong>Reference Database:</strong> McGuire, William, and Leslie Wheeler. "Harriet Tubman." American History, ABC-CLIO, 2026.</div>
+        <div class="src-i"><strong>Encyclopedia:</strong> "Harriet Tubman." Britannica School, Encyclopædia Britannica, 11 Feb. 2025.</div>
+        <div class="src-i"><strong>Database:</strong> "Harriet Tubman and the Underground Railroad." Infobase, 2020.</div>
+        <div class="src-i"><strong>Web:</strong> Social Welfare History Project, VCU Library. socialwelfare.library.vcu.edu</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ════════════════ WORKS CITED ════════════════ -->
+<!-- WORKS CITED -->
 <div id="page-cited" class="page">
   <div class="cited-page">
-    <div class="page-hdr">
-      <div class="page-eye">Bibliography</div>
-      <h2 class="page-ttl">Works Cited</h2>
-      <p class="page-sub">All sources used in this research project, formatted for academic reference.</p>
-    </div>
+    <div class="pg-hdr"><div class="pg-eye">Bibliography</div><h2 class="pg-ttl">Works Cited</h2><p class="pg-sub">All academic sources used in this research project.</p></div>
     <div class="cited-wrap">
-      <div class="cited-item"><div class="cited-type">Book / Primary Source</div><p class="cited-text"><em>The Underground Railroad: A Primary Source History of the Journey to Freedom.</em> Primary Sources in American History series.</p></div>
-      <div class="cited-item"><div class="cited-type">Reference Database</div><p class="cited-text">McGuire, William, and Leslie Wheeler. "Harriet Tubman." <em>American History,</em> ABC-CLIO, 2026, americanhistory.abc-clio.com/Search/Display/248042. Accessed 1 Mar. 2026.</p></div>
-      <div class="cited-item"><div class="cited-type">General Encyclopedia</div><p class="cited-text">"Harriet Tubman." <em>Britannica School,</em> Encyclopædia Britannica, 11 Feb. 2025. libraries.state.ma.us/login?eburl=https://school.eb.com. Accessed 1 Mar. 2026.</p></div>
-      <div class="cited-item"><div class="cited-type">Database</div><p class="cited-text">"Harriet Tubman and the Underground Railroad." <em>Spotlights,</em> Infobase, 2020. <em>Issues and Controversies in History,</em> ich.infobase.com. Accessed 1 Mar. 2026.</p></div>
-      <div class="cited-item"><div class="cited-type">Web Resource</div><p class="cited-text">"Harriet Tubman." <em>Social Welfare History Project,</em> Virginia Commonwealth University Library, socialwelfare.library.vcu.edu/eras/antebellum/tubman-harriett/. Accessed 1 Mar. 2026.</p></div>
+      <div class="cited-item"><div class="cited-type">Book / Primary Source</div><p class="cited-txt"><em>The Underground Railroad: A Primary Source History of the Journey to Freedom.</em> Primary Sources in American History series.</p></div>
+      <div class="cited-item"><div class="cited-type">Reference Database</div><p class="cited-txt">McGuire, William, and Leslie Wheeler. "Harriet Tubman." <em>American History,</em> ABC-CLIO, 2026, americanhistory.abc-clio.com/Search/Display/248042. Accessed 1 Mar. 2026.</p></div>
+      <div class="cited-item"><div class="cited-type">General Encyclopedia</div><p class="cited-txt">"Harriet Tubman." <em>Britannica School,</em> Encyclopædia Britannica, 11 Feb. 2025. libraries.state.ma.us. Accessed 1 Mar. 2026.</p></div>
+      <div class="cited-item"><div class="cited-type">Database</div><p class="cited-txt">"Harriet Tubman and the Underground Railroad." <em>Spotlights,</em> Infobase, 2020. <em>Issues and Controversies in History,</em> ich.infobase.com. Accessed 1 Mar. 2026.</p></div>
+      <div class="cited-item"><div class="cited-type">Web Resource</div><p class="cited-txt">"Harriet Tubman." <em>Social Welfare History Project,</em> Virginia Commonwealth University Library, socialwelfare.library.vcu.edu/eras/antebellum/tubman-harriett/. Accessed 1 Mar. 2026.</p></div>
     </div>
   </div>
 </div>
 
 <!-- MODALS -->
-<div class="modal" id="modal-login" onclick="closeModal('login')">
-  <div class="modal-box" onclick="event.stopPropagation()" style="position:relative;">
-    <button class="modal-close" onclick="closeModal('login')">✕</button>
-    <div style="font-size:28px;margin-bottom:8px;">🔐</div>
-    <div class="modal-title">Log In</div>
-    <div class="modal-sub">Access your saved research and bookmarks</div>
-    <input class="modal-input" type="email" placeholder="Email address">
-    <input class="modal-input" type="password" placeholder="Password">
-    <button class="btn-gold" style="width:100%;padding:14px;" onclick="closeModal('login')">Log In</button>
-    <p class="modal-note">Don't have an account? <a href="#" onclick="closeModal('login');openModal('subscribe')" style="color:var(--gold);">Subscribe free</a></p>
-  </div>
-</div>
-<div class="modal" id="modal-subscribe" onclick="closeModal('subscribe')">
-  <div class="modal-box" onclick="event.stopPropagation()" style="position:relative;">
-    <button class="modal-close" onclick="closeModal('subscribe')">✕</button>
-    <div style="font-size:28px;margin-bottom:8px;">⭐</div>
-    <div class="modal-title">Subscribe</div>
-    <div class="modal-sub">Get notified when new research is added</div>
-    <input class="modal-input" type="text" placeholder="Your name">
-    <input class="modal-input" type="email" placeholder="Email address">
-    <button class="btn-gold" style="width:100%;padding:14px;" onclick="closeModal('subscribe')">Subscribe Free</button>
-    <p class="modal-note">No spam. Unsubscribe anytime.</p>
-  </div>
-</div>
+<div class="modal" id="modal-login" onclick="closeM('login')"><div class="mbox" onclick="event.stopPropagation()"><button class="mx" onclick="closeM('login')">✕</button><div class="mi">🔐</div><div class="mt">Log In</div><div class="ms">Access your saved research</div><input class="minp" type="email" placeholder="Email address"><input class="minp" type="password" placeholder="Password"><button class="btn-gold" style="width:100%;padding:12px;" onclick="closeM('login')">Log In</button><p class="mnote">No account? <a href="#" onclick="closeM('login');openM('sub');return false;">Subscribe free</a></p></div></div>
+<div class="modal" id="modal-sub" onclick="closeM('sub')"><div class="mbox" onclick="event.stopPropagation()"><button class="mx" onclick="closeM('sub')">✕</button><div class="mi">⭐</div><div class="mt">Subscribe</div><div class="ms">Get notified when new content is added</div><input class="minp" type="text" placeholder="Your name"><input class="minp" type="email" placeholder="Email address"><button class="btn-gold" style="width:100%;padding:12px;" onclick="closeM('sub')">Subscribe Free</button><p class="mnote">No spam. Unsubscribe anytime.</p></div></div>
 
 <footer>
-  <div class="footer-logo">Harriet Tubman</div>
-  <div class="footer-text">Reform Research Project · 2026 · All information sourced from provided academic resources</div>
+  <div class="flogo">Harriet Tubman</div>
+  <div class="ftxt">Reform Research Project · Kevin Lee · US History I Honors · Shrewsbury High School · 2026</div>
 </footer>
 
 <script>
-// ── PAGE NAV ──
-function goPage(id, btn) {
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(b=>b.classList.remove('active'));
-  document.getElementById('page-'+id).classList.add('active');
-  if(btn) btn.classList.add('active');
-  window.scrollTo(0,0);
-  if(id==='timeline') initTimeline();
-  if(id==='interactive') { initQuiz(); buildWordSearch(); buildCrossword(); }
-}
-
-// ── RESEARCH SIDEBAR ──
-function goSection(id, btn) {
-  document.querySelectorAll('.r-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.r-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('sec-'+id).classList.add('active');
-  btn.classList.add('active');
-}
-
-// ── INTERACTIVE TABS ──
-function goIntTab(id, btn) {
-  document.querySelectorAll('.int-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.int-tab').forEach(b=>b.classList.remove('active'));
-  document.getElementById('int-'+id).classList.add('active');
-  btn.classList.add('active');
-}
-
-// ── TIMELINE SCROLL ──
-function initTimeline() {
-  const items = document.querySelectorAll('.tl-item');
-  const obs = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('vis'); });
-  },{threshold:0.15});
-  items.forEach(i=>{ i.classList.remove('vis'); obs.observe(i); });
-}
-
-// ── LIGHTBOX ──
-function openLightbox(src, cap) {
-  document.getElementById('lightbox-img').src = src;
-  document.getElementById('lightbox-cap').textContent = cap;
-  document.getElementById('lightbox').classList.add('open');
-}
-function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
-
-// ── MODALS ──
-function openModal(id) { document.getElementById('modal-'+id).classList.add('open'); }
-function closeModal(id) { document.getElementById('modal-'+id).classList.remove('open'); }
-
-// ── SEARCH ──
-const searchData = [
-  {title:'Background & Biography',desc:'Born c.1820, escaped slavery in 1849, died 1913',page:'research',sec:'bio'},
-  {title:'Historical Context',desc:'Fugitive Slave Act, Underground Railroad, Civil War',page:'research',sec:'context'},
-  {title:'Obstacles Faced',desc:'$40K bounty, Fugitive Slave Act, illiteracy, seizures',page:'research',sec:'obstacles'},
-  {title:'Strategies for Change',desc:'Missions, public speaking, military intelligence, coalitions',page:'research',sec:'strategies'},
-  {title:'Action Plan',desc:'Goals, target audience, planned strategies',page:'research',sec:'plan'},
-  {title:'Take Action',desc:'13 missions, Combahee Raid, Union Army service',page:'research',sec:'action'},
-  {title:'Results & Impact',desc:'National Monument, Brigadier General, $20 bill',page:'research',sec:'impact'},
-  {title:'Fun Facts',desc:'Never lost a passenger, Saturday escapes, opium for babies',page:'funfacts',sec:null},
-  {title:'Timeline',desc:'Key events from 1820 to 2024',page:'timeline',sec:null},
-  {title:'Photo Gallery',desc:'Historical photos and museum exhibit',page:'gallery',sec:null},
-  {title:'Interactive Quiz',desc:'Test your knowledge with 8 questions',page:'interactive',sec:null},
-  {title:'Word Search',desc:'Find hidden Tubman-related words',page:'interactive',sec:null},
-  {title:'Crossword Puzzle',desc:'Complete the crossword about Tubman',page:'interactive',sec:null},
-  {title:'Works Cited',desc:'All academic sources used in this project',page:'cited',sec:null},
+function goP(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');if(btn)btn.classList.add('active');window.scrollTo(0,0);if(id==='timeline')initTL();}
+function goS(id,btn){document.querySelectorAll('.rp').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.rs-b').forEach(b=>b.classList.remove('active'));document.getElementById('sec-'+id).classList.add('active');btn.classList.add('active');}
+function goIT(id,btn){document.querySelectorAll('.ipanel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.itab').forEach(b=>b.classList.remove('active'));document.getElementById('it-'+id).classList.add('active');btn.classList.add('active');}
+function initTL(){const items=document.querySelectorAll('.tl-item');const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis');});},{threshold:.15});items.forEach(i=>{i.classList.remove('vis');obs.observe(i);});}
+function openLB(src,cap){document.getElementById('lbimg').src=src;document.getElementById('lbcap').textContent=cap;document.getElementById('lb').classList.add('open');}
+function closeLB(){document.getElementById('lb').classList.remove('open');}
+function openM(id){document.getElementById('modal-'+id).classList.add('open');}
+function closeM(id){document.getElementById('modal-'+id).classList.remove('open');}
+const SD=[
+  {t:'Background & Biography',d:'Born 1822, escaped 1849, died 1913',p:'research',s:'bio'},
+  {t:'Historical Context',d:'Underground Railroad, Fugitive Slave Act',p:'research',s:'context'},
+  {t:'Obstacles Faced',d:'$40K bounty, seizures, illiteracy, racism',p:'research',s:'obstacles'},
+  {t:'Strategies for Change',d:'Missions, public speaking, military intelligence',p:'research',s:'strategies'},
+  {t:'Action Plan',d:'Goals, target audience, planned strategies',p:'research',s:'plan'},
+  {t:'Take Action',d:'13 missions, Combahee Raid, Union Army',p:'research',s:'action'},
+  {t:'Results & Impact',d:'National Monument, Brigadier General, Civil Rights',p:'research',s:'impact'},
+  {t:'Fun Facts',d:'Never lost a passenger, Saturday escapes, $20 bill',p:'funfacts',s:null},
+  {t:'Timeline',d:'Key events 1822 to 2024',p:'timeline',s:null},
+  {t:'Gallery',d:'Historical photos and museum exhibit',p:'gallery',s:null},
+  {t:'Interactive Quiz',d:'8 questions about Harriet Tubman',p:'interactive',s:null},
+  {t:'Word Search',d:'Find hidden words about Tubman',p:'interactive',s:null},
+  {t:'About Kevin Lee',d:'10th grade, Shrewsbury High School',p:'about',s:null},
+  {t:'Works Cited',d:'All 5 academic sources',p:'cited',s:null},
 ];
-function doSearch() {
-  const q = document.getElementById('search-input').value.toLowerCase().trim();
-  const drop = document.getElementById('search-drop');
-  if(!q){drop.classList.remove('show');return;}
-  const results = searchData.filter(d=>d.title.toLowerCase().includes(q)||d.desc.toLowerCase().includes(q)).slice(0,5);
-  if(!results.length){drop.innerHTML='<div class="search-result-item"><div class="search-result-desc">No results found.</div></div>';drop.classList.add('show');return;}
-  drop.innerHTML = results.map(r=>`<div class="search-result-item" onclick="goSearchResult('${r.page}','${r.sec||''}')"><div class="search-result-title">${r.title}</div><div class="search-result-desc">${r.desc}</div></div>`).join('');
-  drop.classList.add('show');
-}
-function closeSearch(){ document.getElementById('search-drop').classList.remove('show'); }
-function goSearchResult(page, sec) {
-  const tabs = document.querySelectorAll('.nav-tab');
-  const pageOrder = ['home','research','funfacts','timeline','gallery','video','interactive','about','cited'];
-  const idx = pageOrder.indexOf(page);
-  goPage(page, tabs[idx]);
-  if(sec) {
-    setTimeout(()=>{
-      const btns = document.querySelectorAll('.r-btn');
-      const secOrder = ['bio','context','obstacles','strategies','plan','action','impact'];
-      const si = secOrder.indexOf(sec);
-      if(si>=0) goSection(sec, btns[si]);
-    },100);
-  }
-  document.getElementById('search-input').value='';
-  closeSearch();
-}
-
-// ── QUIZ ──
-const QS = [
-  {q:"Where was Harriet Tubman born?",opts:["Philadelphia, Pennsylvania","Dorchester County, Maryland","Auburn, New York","Charleston, South Carolina"],a:1,exp:"She was born Araminta Ross around 1820 in Dorchester County, Maryland, one of eleven children."},
-  {q:"What caused Harriet Tubman's lifelong seizures?",opts:["A childhood illness","An iron weight thrown by an overseer struck her head","A fall from a horse","Malnutrition"],a:1,exp:"Around age 12, an overseer threw an iron weight at another enslaved worker — it struck Tubman instead."},
-  {q:"What nickname was Harriet Tubman given for her rescue work?",opts:["The Black Liberator","The Railroad Queen","Moses of Her People","The Freedom Runner"],a:2,exp:"She became known as 'Moses of Her People' — a comparison to the biblical hero who led his people out of slavery."},
-  {q:"Approximately how many people did Tubman guide to freedom on the Underground Railroad?",opts:["About 10","About 70","About 500","Over 1,000"],a:1,exp:"During the decade before the Civil War, Tubman guided about 70 enslaved people to freedom without ever losing any."},
-  {q:"Why did Tubman begin missions on Saturday nights?",opts:["Slave patrols were less active","It was cooler","Runaway notices couldn't be printed until Monday","She worked as a cook on weekdays"],a:2,exp:"A clever tactic — runaway notices couldn't appear in newspapers until Monday morning, giving the group a head start."},
-  {q:"What was the Combahee River Raid?",opts:["A failed escape in 1855","A Union Army raid in 1863 that freed 700+ enslaved people","A Confederate attack","A meeting of abolitionists"],a:1,exp:"In 1863, Tubman guided Colonel Montgomery and ~150 Black soldiers on a raid that liberated over 700 enslaved people."},
-  {q:"What honor did Harriet Tubman receive on Veterans Day 2024?",opts:["Her face was placed on the $20 bill","A national holiday was declared","She was posthumously awarded the rank of Brigadier General","The Tubman Medal of Honor was created"],a:2,exp:"On Veterans Day 2024, she was posthumously awarded the rank of one-star Brigadier General in the Maryland National Guard."},
-  {q:"Which law made it illegal to help escaped enslaved people even in free Northern states?",opts:["The Missouri Compromise","The Kansas-Nebraska Act","The Emancipation Proclamation","The Fugitive Slave Law of 1850"],a:3,exp:"The Fugitive Slave Law of 1850 required the return of fugitive slaves and imposed fines on anyone who aided them."}
+function doSearch(){const q=document.getElementById('srch').value.toLowerCase().trim();const drop=document.getElementById('sdrop');if(!q){drop.classList.remove('show');return;}const res=SD.filter(d=>d.t.toLowerCase().includes(q)||d.d.toLowerCase().includes(q)).slice(0,5);if(!res.length){drop.innerHTML='<div class="si"><div class="si-d">No results found.</div></div>';drop.classList.add('show');return;}drop.innerHTML=res.map(r=>`<div class="si" onclick="srchGo('${r.p}','${r.s||''}')"><div class="si-t">${r.t}</div><div class="si-d">${r.d}</div></div>`).join('');drop.classList.add('show');}
+function closeSearch(){document.getElementById('sdrop').classList.remove('show');}
+function srchGo(page,sec){const tabs=document.querySelectorAll('.nav-tab');const po=['home','research','funfacts','timeline','gallery','video','interactive','about','cited'];goP(page,tabs[po.indexOf(page)]);if(sec){setTimeout(()=>{const btns=document.querySelectorAll('.rs-b');const so=['bio','context','obstacles','strategies','plan','action','impact'];const si=so.indexOf(sec);if(si>=0)goS(sec,btns[si]);},100);}document.getElementById('srch').value='';closeSearch();}
+const QS=[
+  {q:"What was Harriet Tubman's birth name?",opts:["Harriet Ross","Araminta Ross","Harriet Tubman","Araminta Tubman"],a:1,e:"She was born Araminta Ross in March 1822 in Dorchester County, Maryland."},
+  {q:"What caused Tubman's lifelong seizures?",opts:["A childhood illness","An iron weight thrown by an overseer struck her head","A fall from a horse","Malnutrition"],a:1,e:"Around age twelve, an overseer threw an iron weight at another worker — it struck Tubman, nearly crushing her skull."},
+  {q:"What nickname was Tubman given for her rescue work?",opts:["The Black Liberator","The Railroad Queen","Moses of Her People","The Freedom Runner"],a:2,e:"She became known as 'Moses of Her People,' leading enslaved people to freedom just as Moses led the Israelites out of Egypt."},
+  {q:"How many people did Tubman guide to freedom on the Underground Railroad?",opts:["About 10","About 70","About 300","Over 1,000"],a:1,e:"Tubman guided approximately 70 people to freedom during 13 missions without ever losing a single passenger."},
+  {q:"Why did Tubman always begin missions on Saturday nights?",opts:["Slave patrols were less active","It was cooler at night","Newspapers couldn't print runaway notices until Monday morning","She worked as a cook on weekdays"],a:2,e:"Newspapers couldn't print until Monday, giving the group a two-day head start before anyone could spread the alarm."},
+  {q:"How many enslaved people were freed in the Combahee River Raid?",opts:["About 70","About 150","Over 300","Over 700"],a:3,e:"In 1863, Tubman guided Colonel Montgomery and ~150 Black soldiers on a raid that liberated over 700 enslaved people."},
+  {q:"What did Tubman do after the Civil War?",opts:["She moved to Canada","She transformed her home into the Home for Aged and Indigent Colored People","She retired from public life","She became a senator"],a:1,e:"After the war, she transformed her Auburn home into the Home for Aged and Indigent Colored People and raised money for freedmen's schools."},
+  {q:"What honor did Harriet Tubman receive on Veterans Day 2024?",opts:["Her face was placed on the $20 bill","A national holiday was declared","She was posthumously awarded the rank of Brigadier General","The Tubman Medal was created"],a:2,e:"On Veterans Day 2024, she was awarded the rank of Brigadier General in the Maryland National Guard for her Civil War military service."}
 ];
-let cQ=0, score=0, answered=false;
-function initQuiz(){
-  cQ=0;score=0;answered=false;
-  document.getElementById('quiz-main').style.display='block';
-  document.getElementById('q-result').classList.remove('show');
-  document.getElementById('q-score').textContent='0';
-  loadQ();
-}
-function loadQ(){
-  const q=QS[cQ];
-  document.getElementById('q-num').textContent=`Question ${cQ+1} of ${QS.length}`;
-  document.getElementById('q-prog').style.width=`${((cQ+1)/QS.length)*100}%`;
-  document.getElementById('q-text').textContent=q.q;
-  document.getElementById('q-fb').className='q-fb';document.getElementById('q-fb').textContent='';
-  answered=false;
-  document.getElementById('q-next').disabled=true;
-  document.getElementById('q-next').textContent=cQ===QS.length-1?'See Results →':'Next →';
-  const opts=document.getElementById('q-opts');opts.innerHTML='';
-  ['A','B','C','D'].forEach((l,i)=>{
-    const b=document.createElement('button');b.className='q-opt';
-    b.innerHTML=`<span class="opt-letter">${l}</span>${q.opts[i]}`;
-    b.onclick=()=>selectA(i);opts.appendChild(b);
-  });
-}
-function selectA(idx){
-  if(answered)return;answered=true;
-  const q=QS[cQ];
-  document.querySelectorAll('.q-opt').forEach(b=>b.classList.add('disabled'));
-  document.querySelectorAll('.q-opt')[idx].classList.add(idx===q.a?'correct':'wrong');
-  document.querySelectorAll('.q-opt')[q.a].classList.add('correct');
-  if(idx===q.a)score++;
-  document.getElementById('q-score').textContent=score;
-  const fb=document.getElementById('q-fb');
-  fb.className=`q-fb show ${idx===q.a?'correct':'wrong'}`;
-  fb.textContent=(idx===q.a?'✓ Correct! ':'✗ Not quite. ')+q.exp;
-  document.getElementById('q-next').disabled=false;
-}
-function nextQ(){
-  cQ++;
-  if(cQ>=QS.length){showResult();}else{loadQ();}
-}
-function showResult(){
-  document.getElementById('quiz-main').style.display='none';
-  document.getElementById('q-result').classList.add('show');
-  document.getElementById('final-n').textContent=score;
-  const p=score/QS.length;
-  let t,m;
-  if(p===1){t='Perfect Score! 🏆';m='Outstanding! You know Harriet Tubman\'s story inside and out.';}
-  else if(p>=0.75){t='Excellent Work!';m='You have a strong grasp of her life and legacy. A few details to review.';}
-  else if(p>=0.5){t='Good Effort!';m='Solid foundation! Head to the Research section to review what you missed.';}
-  else{t='Keep Studying!';m='There\'s more to discover about this incredible woman. Review the Research and Timeline tabs!';}
-  document.getElementById('final-title').textContent=t;
-  document.getElementById('final-msg').textContent=m;
-}
-function restartQuiz(){initQuiz();}
-
-// ── WORD SEARCH ──
-const WS_WORDS = ['TUBMAN','FREEDOM','RAILROAD','MOSES','MARYLAND','SLAVERY','AUBURN','COMBAHEE'];
-let wsGrid=[], wsSize=12, wsFirst=null, wsFound=[];
-function buildWordSearch(){
-  wsFound=[];wsFirst=null;
-  wsGrid=Array.from({length:wsSize},()=>Array(wsSize).fill(''));
-  const placed=[];
-  const dirs=[[0,1],[1,0],[1,1],[0,-1],[-1,0]];
-  WS_WORDS.forEach(word=>{
-    let tries=0,ok=false;
-    while(!ok&&tries<200){
-      tries++;
-      const dir=dirs[Math.floor(Math.random()*dirs.length)];
-      const r=Math.floor(Math.random()*wsSize);
-      const c=Math.floor(Math.random()*wsSize);
-      let cells=[];let fit=true;
-      for(let i=0;i<word.length;i++){
-        const nr=r+dir[0]*i,nc=c+dir[1]*i;
-        if(nr<0||nr>=wsSize||nc<0||nc>=wsSize){fit=false;break;}
-        if(wsGrid[nr][nc]&&wsGrid[nr][nc]!==word[i]){fit=false;break;}
-        cells.push([nr,nc,word[i]]);
-      }
-      if(fit){cells.forEach(([nr,nc,ch])=>wsGrid[nr][nc]=ch);placed.push({word,cells:cells.map(c=>[c[0],c[1]])});ok=true;}
-    }
-  });
-  const letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  for(let r=0;r<wsSize;r++)for(let c=0;c<wsSize;c++)if(!wsGrid[r][c])wsGrid[r][c]=letters[Math.floor(Math.random()*26)];
-  renderWS(placed);
-}
-function renderWS(placed){
-  const grid=document.getElementById('ws-grid');
-  grid.style.gridTemplateColumns=`repeat(${wsSize},1fr)`;
-  grid.innerHTML='';
-  for(let r=0;r<wsSize;r++)for(let c=0;c<wsSize;c++){
-    const cell=document.createElement('div');cell.className='ws-cell';
-    cell.textContent=wsGrid[r][c];cell.dataset.r=r;cell.dataset.c=c;
-    cell.onclick=()=>wsClick(cell,r,c,placed);
-    grid.appendChild(cell);
-  }
-  const words=document.getElementById('ws-words');words.innerHTML='';
-  WS_WORDS.forEach(w=>{
-    const span=document.createElement('span');span.className='ws-word';span.id='wsw-'+w;span.textContent=w;words.appendChild(span);
-  });
-  document.getElementById('ws-status').textContent='';
-}
-function wsClick(el,r,c,placed){
-  if(!wsFirst){wsFirst={el,r,c};el.classList.add('selected');}
-  else{
-    const {r:r0,c:c0,el:el0}=wsFirst;
-    let found=null;
-    placed.forEach(p=>{
-      const cs=p.cells;
-      if((cs[0][0]===r0&&cs[0][1]===c0&&cs[cs.length-1][0]===r&&cs[cs.length-1][1]===c)||
-         (cs[cs.length-1][0]===r0&&cs[cs.length-1][1]===c0&&cs[0][0]===r&&cs[0][1]===c)){found=p;}
-    });
-    if(found&&!wsFound.includes(found.word)){
-      wsFound.push(found.word);
-      found.cells.forEach(([fr,fc])=>{
-        const idx=fr*wsSize+fc;
-        document.getElementById('ws-grid').children[idx].classList.add('found');
-        document.getElementById('ws-grid').children[idx].classList.remove('selected');
-      });
-      document.getElementById('wsw-'+found.word).classList.add('found');
-      if(wsFound.length===WS_WORDS.length)document.getElementById('ws-status').textContent='🎉 All words found!';
-    } else {
-      el0.classList.remove('selected');
-    }
-    wsFirst=null;
-  }
-}
-
-// ── CROSSWORD ──
-const CW_ANSWERS = [
-  // 6 cols, 7 rows
-  // ROSS across row 0 cols 0-3
-  // PEOPLE down col 3 rows 0-5
-  // RAILROAD across row 2 col 0-7 → too long, simplified layout below
-];
-// Simplified fixed crossword layout
-const CW_LAYOUT = {
-  cols: 9, rows: 7,
-  cells: [
-    // row, col, letter, number (if start), across/down
-    [0,0,'R',1,'A'],[0,1,'O',null,null],[0,2,'S',null,null],[0,3,'S',null,null],
-    [0,5,'P',2,'D'],
-    [1,0,'P',3,'D'],[1,5,'E',null,null],
-    [2,0,'E',null,null],[2,1,'R',4,'A'],[2,2,'A',null,null],[2,3,'I',null,null],[2,4,'L',null,null],[2,5,'R',null,null],[2,6,'O',null,null],[2,7,'A',null,null],[2,8,'D',null,null],
-    [3,0,'O',null,null],[3,5,'O',null,null],
-    [4,0,'P',null,null],[4,3,'A',5,'D'],[4,5,'P',null,null],
-    [5,0,'L',null,null],[5,1,'A',6,'A'],[5,2,'U',null,null],[5,3,'B',null,null],[5,4,'U',null,null],[5,5,'R',null,null],[5,6,'N',null,null],
-    [6,0,'E',null,null],[6,3,'S',null,null],
-    // Across 7: COMBAHEE  row 4 col 0... simplified to fit
-  ],
-  across: {
-    1: {row:0,col:0,len:4,ans:'ROSS'},
-    4: {row:2,col:1,len:8,ans:'RAILROAD'},
-    6: {row:5,col:1,len:6,ans:'AUBURN'},
-  },
-  down: {
-    1: {row:0,col:0,len:7,ans:'PEOPLE'},
-    2: {row:0,col:5,len:6,ans:'PEOPLE'},
-    3: {row:1,col:0,len:6,ans:'PEOPLE'},
-    5: {row:4,col:3,len:3,ans:'TAR'},// simplified
-  }
-};
-// Use a hand-crafted simple crossword
-const CWDATA = {
-  rows:8,cols:10,
-  grid:[
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,1,0,0,0,0,0,0,0,0],
-    [0,1,0,1,1,1,1,1,1,1],
-    [0,1,0,0,0,0,0,0,0,0],
-    [0,1,0,0,1,0,0,0,0,0],
-    [1,1,1,1,1,1,1,0,0,0],
-    [0,1,0,0,1,0,0,0,0,0],
-    [0,0,0,0,1,0,0,0,0,0],
-  ],
-  answers:{
-    // PEOPLE down col1 rows1-6
-    '1-1':'P','2-1':'E','3-1':'O','4-1':'P','5-1':'L','6-1':'E',
-    // RAILROAD across row2 cols1-9 (8 letters: but col1 is E from PEOPLE... use ROAD across row2 cols3-6)
-    '2-3':'R','2-4':'O','2-5':'A','2-6':'D',
-    // AUBURN across row5 cols0-5
-    '5-0':'A','5-1':'U','5-2':'B','5-3':'U','5-4':'R','5-5':'N',
-    // STAR down col4 rows4-7
-    '4-4':'S','5-4':'R','6-4':'A','7-4':'R',
-  },
-  clueNums:{
-    '1-1':1,'2-3':4,'5-0':6,'4-4':5
-  }
-};
-function buildCrossword(){
-  const cg=document.getElementById('cw-grid');
-  const {rows,cols,grid,answers,clueNums}=CWDATA;
-  cg.style.gridTemplateColumns=`repeat(${cols},38px)`;
-  cg.innerHTML='';
-  for(let r=0;r<rows;r++){
-    for(let c=0;c<cols;c++){
-      const wrap=document.createElement('div');wrap.className='cw-cell-wrap';wrap.style.width='38px';wrap.style.height='38px';
-      if(!grid[r][c]){
-        const cell=document.createElement('input');cell.className='cw-cell black';
-        cell.disabled=true;wrap.appendChild(cell);
-      } else {
-        const cell=document.createElement('input');cell.className='cw-cell';
-        cell.maxLength=1;cell.dataset.r=r;cell.dataset.c=c;
-        cell.addEventListener('input',function(){this.value=this.value.toUpperCase();});
-        if(clueNums[`${r}-${c}`]){
-          const num=document.createElement('div');num.className='cw-num';num.textContent=clueNums[`${r}-${c}`];
-          wrap.appendChild(num);
-        }
-        wrap.appendChild(cell);
-      }
-      cg.appendChild(wrap);
-    }
-  }
-}
-function checkCW(){
-  const {answers}=CWDATA;let correct=0,total=0;
-  document.querySelectorAll('.cw-cell:not(.black)').forEach(cell=>{
-    const r=cell.dataset.r,c=cell.dataset.c,key=`${r}-${c}`;
-    if(answers[key]){total++;if(cell.value.toUpperCase()===answers[key]){correct++;cell.classList.add('correct-cell');}}
-  });
-  const msg=document.getElementById('cw-msg');msg.style.display='block';
-  msg.textContent=correct===total?`🎉 Perfect! All ${total} letters correct!`:`${correct} of ${total} letters correct. Keep trying!`;
-  msg.style.color=correct===total?'#4ADE80':'var(--gold)';
-}
-function revealCW(){
-  const {answers}=CWDATA;
-  document.querySelectorAll('.cw-cell:not(.black)').forEach(cell=>{
-    const key=`${cell.dataset.r}-${cell.dataset.c}`;
-    if(answers[key]){cell.value=answers[key];cell.classList.add('correct-cell');}
-  });
-}
-
-// INIT
-initQuiz();
-buildWordSearch();
-buildCrossword();
+let cq=0,sc=0,ansed=false;
+function initQ(){cq=0;sc=0;ansed=false;document.getElementById('qzmain').style.display='block';document.getElementById('qres').classList.remove('show');document.getElementById('qsc').textContent='0';loadQ();}
+function loadQ(){const q=QS[cq];document.getElementById('qnum').textContent=`Question ${cq+1} of ${QS.length}`;document.getElementById('qpf').style.width=`${((cq+1)/QS.length)*100}%`;document.getElementById('qtxt').textContent=q.q;const fb=document.getElementById('qfb');fb.className='qfb';fb.textContent='';ansed=false;document.getElementById('qnxt').disabled=true;document.getElementById('qnxt').textContent=cq===QS.length-1?'See Results →':'Next →';const opts=document.getElementById('qopts');opts.innerHTML='';['A','B','C','D'].forEach((l,i)=>{const b=document.createElement('button');b.className='qopt';b.innerHTML=`<span class="ol">${l}</span>${q.opts[i]}`;b.onclick=()=>selA(i);opts.appendChild(b);});}
+function selA(idx){if(ansed)return;ansed=true;const q=QS[cq];document.querySelectorAll('.qopt').forEach(b=>b.classList.add('disabled'));document.querySelectorAll('.qopt')[idx].classList.add(idx===q.a?'correct':'wrong');document.querySelectorAll('.qopt')[q.a].classList.add('correct');if(idx===q.a)sc++;document.getElementById('qsc').textContent=sc;const fb=document.getElementById('qfb');fb.className=`qfb show ${idx===q.a?'correct':'wrong'}`;fb.textContent=(idx===q.a?'✓ Correct! ':'✗ Not quite. ')+q.e;document.getElementById('qnxt').disabled=false;}
+function nextQ(){cq++;if(cq>=QS.length)showRes();else loadQ();}
+function showRes(){document.getElementById('qzmain').style.display='none';document.getElementById('qres').classList.add('show');document.getElementById('sfn').textContent=sc;const p=sc/QS.length;let t,m;if(p===1){t='Perfect Score! 🏆';m="Outstanding! You know Harriet Tubman's story completely.";}else if(p>=.75){t='Excellent Work!';m='Strong knowledge of her life and legacy. Just a few details to review.';}else if(p>=.5){t='Good Effort!';m='Good foundation! Head to the Research section to review what you missed.';}else{t='Keep Studying!';m='More to discover! Review the Research and Timeline pages and try again.';}document.getElementById('sttl').textContent=t;document.getElementById('smsg').textContent=m;}
+function restartQ(){initQ();}
+const WSW=['TUBMAN','FREEDOM','RAILROAD','MOSES','MARYLAND','SLAVERY','AUBURN','COMBAHEE'];
+let wsgrid=[],wssize=12,wsfirst=null,wsfound=[];
+function buildWS(){wsfound=[];wsfirst=null;wsgrid=Array.from({length:wssize},()=>Array(wssize).fill(''));const placed=[];const dirs=[[0,1],[1,0],[1,1],[0,-1],[-1,0],[-1,-1],[1,-1],[-1,1]];WSW.forEach(word=>{let tries=0,ok=false;while(!ok&&tries<300){tries++;const dir=dirs[Math.floor(Math.random()*dirs.length)];const r=Math.floor(Math.random()*wssize),c=Math.floor(Math.random()*wssize);let cells=[],fit=true;for(let i=0;i<word.length;i++){const nr=r+dir[0]*i,nc=c+dir[1]*i;if(nr<0||nr>=wssize||nc<0||nc>=wssize){fit=false;break;}if(wsgrid[nr][nc]&&wsgrid[nr][nc]!==word[i]){fit=false;break;}cells.push([nr,nc,word[i]]);}if(fit){cells.forEach(([nr,nc,ch])=>wsgrid[nr][nc]=ch);placed.push({word,cells:cells.map(c=>[c[0],c[1]])});ok=true;}}});const ABC='ABCDEFGHIJKLMNOPQRSTUVWXYZ';for(let r=0;r<wssize;r++)for(let c=0;c<wssize;c++)if(!wsgrid[r][c])wsgrid[r][c]=ABC[Math.floor(Math.random()*26)];renderWS(placed);}
+function renderWS(placed){const g=document.getElementById('wsgr');g.style.gridTemplateColumns=`repeat(${wssize},1fr)`;g.innerHTML='';for(let r=0;r<wssize;r++)for(let c=0;c<wssize;c++){const cell=document.createElement('div');cell.className='wsc';cell.textContent=wsgrid[r][c];cell.dataset.r=r;cell.dataset.c=c;cell.onclick=()=>wsClick(cell,r,c,placed);g.appendChild(cell);}const w=document.getElementById('wswords');w.innerHTML='';WSW.forEach(wd=>{const s=document.createElement('span');s.className='wsw';s.id='wsw-'+wd;s.textContent=wd;w.appendChild(s);});document.getElementById('wsstat').textContent='';}
+function wsClick(el,r,c,placed){if(!wsfirst){wsfirst={el,r,c};el.classList.add('selected');}else{const{r:r0,c:c0,el:el0}=wsfirst;let found=null;placed.forEach(p=>{const cs=p.cells;if((cs[0][0]===r0&&cs[0][1]===c0&&cs[cs.length-1][0]===r&&cs[cs.length-1][1]===c)||(cs[cs.length-1][0]===r0&&cs[cs.length-1][1]===c0&&cs[0][0]===r&&cs[0][1]===c))found=p;});if(found&&!wsfound.includes(found.word)){wsfound.push(found.word);found.cells.forEach(([fr,fc])=>{const idx=fr*wssize+fc;const cell=document.getElementById('wsgr').children[idx];cell.classList.add('found');cell.classList.remove('selected');});document.getElementById('wsw-'+found.word).classList.add('found');if(wsfound.length===WSW.length)document.getElementById('wsstat').textContent='🎉 All words found!';}else{el0.classList.remove('selected');}wsfirst=null;}}
+// Simple verified crossword grid
+// 1A: ROSS row1 col1-4
+// 1D: RAILROAD col1 rows1-8
+// 6A: AUBURN row5 col1-6
+// 3D: NORTH col4 rows1-5
+const SCW={R:9,C:8,
+g:[['','','','','','','',''],['','R','O','S','S','','',''],['','A','','','T','','',''],['','I','','','A','','',''],['','L','','','R','','',''],['','R','U','B','U','R','N',''],['','O','','','N','','',''],['','A','','','','','',''],['','D','','','','','','']],
+nums:[['','','','','','','',''],['','1','','3','','','',''],['','','','','','','',''],['','','','','','','',''],['','','','','','','',''],['','6','','','','','',''],['','','','','','','',''],['','','','','','','',''],['','','','','','','','']]};
+function buildCW(){const cg=document.getElementById('cwgrid');cg.style.gridTemplateColumns=`repeat(${SCW.C},36px)`;cg.innerHTML='';for(let r=0;r<SCW.R;r++){for(let c=0;c<SCW.C;c++){const wrap=document.createElement('div');wrap.className='cwcw';if(SCW.g[r][c]===''){const b=document.createElement('input');b.className='cwcell blk';b.disabled=true;wrap.appendChild(b);}else{const b=document.createElement('input');b.className='cwcell';b.maxLength=1;b.dataset.r=r;b.dataset.c=c;b.addEventListener('input',function(){this.value=this.value.toUpperCase();});if(SCW.nums[r][c]){const n=document.createElement('div');n.className='cwnum';n.textContent=SCW.nums[r][c];wrap.appendChild(n);}wrap.appendChild(b);}cg.appendChild(wrap);}}}
+function checkCW(){let ok=0,tot=0;document.querySelectorAll('.cwcell:not(.blk)').forEach(cell=>{const r=cell.dataset.r,c=cell.dataset.c,ans=SCW.g[r][c];if(ans){tot++;if(cell.value.toUpperCase()===ans){ok++;cell.classList.add('ok');}}});const m=document.getElementById('cwmsg');m.style.display='block';m.style.color=ok===tot?'#4ADE80':'var(--gold)';m.textContent=ok===tot?`🎉 Perfect! All ${tot} letters correct!`:`${ok} of ${tot} correct. Keep trying!`;}
+function revealCW(){document.querySelectorAll('.cwcell:not(.blk)').forEach(cell=>{const r=cell.dataset.r,c=cell.dataset.c,ans=SCW.g[r][c];if(ans){cell.value=ans;cell.classList.add('ok');}});}
+initQ();buildWS();buildCW();
 </script>
 </body>
 </html>
