@@ -69,7 +69,6 @@ nav{position:sticky;top:0;z-index:999;background:rgba(250,247,242,.97);backdrop-
 .hero-right{position:absolute;right:0;top:0;bottom:0;width:42%;overflow:hidden;}
 .hero-img-wrap{position:absolute;inset:40px 0 40px 40px;border-radius:120px 0 0 120px;overflow:hidden;background:var(--cream2);box-shadow:-12px 12px 48px rgba(44,36,22,.15);}
 .hero-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center;opacity:.9;}
-
 .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--cream4);}
 .sc{padding:32px 36px;border-right:1px solid var(--border);transition:background .25s;cursor:default;}
 .sc:last-child{border-right:none;}.sc:hover{background:var(--cream2);}
@@ -115,17 +114,16 @@ nav{position:sticky;top:0;z-index:999;background:rgba(250,247,242,.97);backdrop-
 .imp{background:var(--dark);border-radius:12px;padding:24px 16px;text-align:center;}
 .imp .n{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:var(--gold3);display:block;line-height:1;}
 .imp .l{font-size:11px;color:rgba(250,247,242,.55);font-weight:600;margin-top:4px;}
-/* FUN FACTS */
+/* FUN FACTS — images removed */
 .ff-page{padding:0 52px 76px;background:var(--cream4);}
 .ff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;max-width:1080px;margin:0 auto;}
 .fc{background:var(--white);border:1px solid var(--border);border-radius:13px;overflow:hidden;transition:all .3s;position:relative;cursor:default;}
 .fc:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 18px 48px rgba(44,36,22,.1);}
-.fc-img{width:100%;height:160px;object-fit:cover;display:block;filter:grayscale(20%);transition:filter .3s;}
-.fc:hover .fc-img{filter:grayscale(0%);}
-.fc-body{padding:18px 20px;}
+.fc-img{display:none;}
+.fc-body{padding:28px 24px;}
 .fc-icon{font-size:22px;margin-bottom:9px;display:block;}
 .fc-t{font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px;}
-.fc-d{font-size:12.5px;color:var(--text2);line-height:1.65;}
+.fc-d{font-size:13px;color:var(--text2);line-height:1.65;}
 /* TIMELINE */
 .tl-page{padding:0 0 76px;background:var(--cream4);}
 .tl-wrap{max-width:840px;margin:0 auto;padding:0 52px;position:relative;}
@@ -160,13 +158,6 @@ nav{position:sticky;top:0;z-index:999;background:rgba(250,247,242,.97);backdrop-
 .lb-cap{color:var(--cream4);font-size:14px;margin-top:14px;text-align:center;max-width:580px;line-height:1.5;}
 .lb-x{position:absolute;top:20px;right:28px;background:none;border:none;color:var(--cream4);font-size:25px;cursor:pointer;opacity:.6;}
 .lb-x:hover{opacity:1;}
-/* VIDEO */
-.vid-page{padding:0 52px 76px;background:var(--cream4);}
-.vid-wrap{max-width:860px;margin:0 auto;}
-.vid-ph{background:var(--black3);border:2px dashed var(--border);border-radius:16px;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;}
-.play-btn{width:72px;height:72px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer;transition:all .2s;}
-.play-btn:hover{transform:scale(1.1);box-shadow:0 0 34px rgba(201,150,58,.4);}
-.vid-how{margin-top:26px;background:var(--black2);border:1px solid var(--border);border-radius:12px;padding:24px 28px;}
 /* INTERACTIVE */
 .int-page{padding:0 52px 76px;background:var(--cream4);display:flex;flex-direction:column;align-items:center;}
 .int-tabs{display:flex;gap:5px;margin-bottom:34px;border-bottom:1px solid var(--border);width:100%;max-width:700px;justify-content:center;}
@@ -286,7 +277,6 @@ footer{border-top:1px solid var(--border);padding:26px 52px;display:flex;justify
     <button class="nav-tab" onclick="goP('funfacts',this)">Fun Facts</button>
     <button class="nav-tab" onclick="goP('timeline',this)">Timeline</button>
     <button class="nav-tab" onclick="goP('gallery',this)">Gallery</button>
-    <button class="nav-tab" onclick="goP('video',this)">Video</button>
     <button class="nav-tab" onclick="goP('interactive',this)">Interactive</button>
     <button class="nav-tab" onclick="goP('about',this)">About</button>
     <button class="nav-tab" onclick="goP('cited',this)">Works Consulted</button>
@@ -317,11 +307,9 @@ footer{border-top:1px solid var(--border);padding:26px 52px;display:flex;justify
     <div class="hero-right">
       <div class="hero-img-wrap">
         <img src="Cover/MV5BYWQ1ZDhlOTAtNTMxZC00OTg1LWE5YmUtMDNiNmQ3ZTMwMjY2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Harriet Tubman">
-
       </div>
     </div>
   </div>
-</div>
 </div>
 
 <!-- RESEARCH -->
@@ -376,7 +364,6 @@ footer{border-top:1px solid var(--border);padding:26px 52px;display:flex;justify
           <img class="r-intro-img" src="Research Sections/Screenshot 2026-03-12 192911.jpg" alt="Harriet Tubman 1870s">
         </div>
       </div>
-
       <div id="sec-plan" class="rp">
         <div class="r-eye">Section 04</div><h2 class="r-title">Action Plan</h2>
         <div class="r-intro">
@@ -438,15 +425,15 @@ footer{border-top:1px solid var(--border);padding:26px 52px;display:flex;justify
   <div class="ff-page">
     <div class="pg-hdr"><div class="pg-eye">Did You Know?</div><h2 class="pg-ttl">Fun Facts</h2><p class="pg-sub">Surprising details about Harriet Tubman's extraordinary life.</p></div>
     <div class="ff-grid">
-      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/480px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg" alt="Harriet Tubman"><div class="fc-body"><div class="fc-t">Never Lost a Single Passenger</div><div class="fc-d">In all 13 of her Underground Railroad missions, Tubman never lost a single person who was led to freedom.</div></div></div>
-      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Harriet_Tubman_by_H.B._Lindsley%2C_1870s.jpg/480px-Harriet_Tubman_by_H.B._Lindsley%2C_1870s.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Harriet_Tubman_1895.jpg/400px-Harriet_Tubman_1895.jpg'" alt="Tubman portrait"><div class="fc-body"><div class="fc-t">She Used Medicine to Quiet Babies</div><div class="fc-d">To prevent crying infants from revealing the group's location, she carried a small amount of opium. This would help the babies fall asleep and not get caught by slave catchers.</div></div></div>
-      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Harriet_Tubman_1868-69.jpg/480px-Harriet_Tubman_1868-69.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/400px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg'" alt="Tubman 1868"><div class="fc-body"><div class="fc-t">She Carried a Gun on Every Mission</div><div class="fc-d">Tubman told anyone who wanted to turn back that she carried a pistol for defense, ensuring safety and courage for people who wanted to back down.</div></div></div>
-      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Harriet_Tubman_1895.jpg/480px-Harriet_Tubman_1895.jpg" alt="Harriet Tubman 1895"><div class="fc-body"><div class="fc-t">Always Escaped on Saturday Night</div><div class="fc-d">Newspapers could not be printed for those who escaped until Monday morning. This gave the group two days to escape and prevent anyone from spreading the news about the escaping people.</div></div></div>
-      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Harriet_Tubman_-_Macall_Civil_War.jpg/480px-Harriet_Tubman_-_Macall_Civil_War.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/400px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg'" alt="Tubman Civil War"><div class="fc-body"><div class="fc-t">Paid Almost Nothing for the War</div><div class="fc-d">After leading the Combahee River Raid, Tubman was paid so little by the Union Army that she had to sell her own baked goods to support herself.</div></div></div>
-      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/480px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg" alt="Harriet Tubman Moses"><div class="fc-body"><div class="fc-t">Nicknamed "Moses" of Her People</div><div class="fc-d">Led enslaved people to freedom, similar to how Moses led Israelites out of slavery in Egypt.</div></div></div>
-      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tubman_Harvard.jpg/480px-Tubman_Harvard.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Harriet_Tubman_1895.jpg/400px-Harriet_Tubman_1895.jpg'" alt="Tubman military"><div class="fc-body"><div class="fc-t">First Woman to Lead a US Military Operation</div><div class="fc-d">Tubman led the largest emancipation event of the Civil War and became the first woman to lead the military.</div></div></div>
-      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/13th_Amendment_Pg1of1_AC.jpg/480px-13th_Amendment_Pg1of1_AC.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg/400px-Harriet_Tubman_by_Squyer%2C_NPG%2C_c1885.jpg'" alt="13th Amendment"><div class="fc-body"><div class="fc-t">Contributed to the 13th Amendment</div><div class="fc-d">Harriet supported the cause that led to the 13th Amendment, which abolished slavery in the US.</div></div></div>
-      <div class="fc"><img class="fc-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Harriet_Tubman_1895.jpg/480px-Harriet_Tubman_1895.jpg" alt="Harriet Tubman"><div class="fc-body"><div class="fc-t">Front of US $20</div><div class="fc-d">Originally chosen to appear on the front of the US $20 bill. This would make her the first African American woman, but this never happened due to security reasons.</div></div></div>
+      <div class="fc"><div class="fc-body"><div class="fc-t">Never Lost a Single Passenger</div><div class="fc-d">In all 13 of her Underground Railroad missions, Tubman never lost a single person who was led to freedom.</div></div></div>
+      <div class="fc"><div class="fc-body"><div class="fc-t">She Used Medicine to Quiet Babies</div><div class="fc-d">To prevent crying infants from revealing the group's location, she carried a small amount of opium. This would help the babies fall asleep and not get caught by slave catchers.</div></div></div>
+      <div class="fc"><div class="fc-body"><div class="fc-t">She Carried a Gun on Every Mission</div><div class="fc-d">Tubman told anyone who wanted to turn back that she carried a pistol for defense, ensuring safety and courage for people who wanted to back down.</div></div></div>
+      <div class="fc"><div class="fc-body"><div class="fc-t">Always Escaped on Saturday Night</div><div class="fc-d">Newspapers could not be printed for those who escaped until Monday morning. This gave the group two days to escape and prevent anyone from spreading the news about the escaping people.</div></div></div>
+      <div class="fc"><div class="fc-body"><div class="fc-t">Paid Almost Nothing for the War</div><div class="fc-d">After leading the Combahee River Raid, Tubman was paid so little by the Union Army that she had to sell her own baked goods to support herself.</div></div></div>
+      <div class="fc"><div class="fc-body"><div class="fc-t">Nicknamed "Moses" of Her People</div><div class="fc-d">Led enslaved people to freedom, similar to how Moses led Israelites out of slavery in Egypt.</div></div></div>
+      <div class="fc"><div class="fc-body"><div class="fc-t">First Woman to Lead a US Military Operation</div><div class="fc-d">Tubman led the largest emancipation event of the Civil War and became the first woman to lead the military.</div></div></div>
+      <div class="fc"><div class="fc-body"><div class="fc-t">Contributed to the 13th Amendment</div><div class="fc-d">Harriet supported the cause that led to the 13th Amendment, which abolished slavery in the US.</div></div></div>
+      <div class="fc"><div class="fc-body"><div class="fc-t">Front of US $20</div><div class="fc-d">Originally chosen to appear on the front of the US $20 bill. This would make her the first African American woman, but this never happened due to security reasons.</div></div></div>
     </div>
   </div>
 </div>
@@ -482,28 +469,21 @@ footer{border-top:1px solid var(--border);padding:26px 52px;display:flex;justify
 <!-- GALLERY -->
 <div id="page-gallery" class="page">
   <div class="gal-page">
-    <div class="pg-hdr"><div class="pg-eye">Museum Exhibit</div><h2 class="pg-ttl">Photo Gallery</h2><p class="pg-sub">Paintings, prints, sculptures, and murals of Harriet Tubman's life. Click any artwork to learn more</p></div>
+    <div class="pg-hdr"><div class="pg-eye">Museum Exhibit</div><h2 class="pg-ttl">Photo Gallery</h2><p class="pg-sub">Paintings, prints, sculptures, and murals of Harriet Tubman's life. Click any artwork to learn more.</p></div>
     <div class="gal-grid">
-      <!-- Row 1: 2+1=3 -->
       <div class="gi s2" onclick="openLB('Forward.jpg','Tubman leads four freedom seekers through the night, revolver in hand, urging them forward.')"><img src="Gallery/Forward .jpg" alt="Forward by Jacob Lawrence"><div class="gi-ov"><div><div class="gi-cap">Forward</div><div class="gi-sub">Jacob Lawrence · 1967</div></div></div></div>
       <div class="gi s1" onclick="openLB('Harriet_Tubman_Douglas.jpg','Tubman breaks the shackles of bondage, standing between the past of slavery and a future of freedom.')"><img src="Gallery/Harriet Tubman Douglas .jpg" alt="Harriet Tubman by Aaron Douglas"><div class="gi-ov"><div><div class="gi-cap">Harriet Tubman</div><div class="gi-sub">Aaron Douglas · 1931</div></div></div></div>
-      <!-- Row 2: 1+1+1=3 -->
       <div class="gi s1" onclick="openLB('Harriet_Tubman_Steve_Simon.jpg','Tubman peers vigilantly into the darkness, guiding freedom seekers along the Underground Railroad.')"><img src="Gallery/Harriet Tubman Steve Simon.jpg" alt="Harriet Tubman by Steve Simon"><div class="gi-ov"><div><div class="gi-cap">Harriet Tubman</div><div class="gi-sub">Steve Simon · Contemporary</div></div></div></div>
       <div class="gi s1" onclick="openLB('In_Harriet_Tubman_I_Helped_Hundreds.jpg','Tubman points the way ahead while glancing back over her shoulder at those following behind her.')"><img src="Gallery/In Harriet Tubman I Helped Hundreds to Freedom.jpg" alt="In Harriet Tubman I Helped Hundreds to Freedom by Elizabeth Catlett"><div class="gi-ov"><div><div class="gi-cap">In Harriet Tubman I Helped Hundreds to Freedom</div><div class="gi-sub">Elizabeth Catlett · 1946</div></div></div></div>
       <div class="gi s1" onclick="openLB('Swing_Low.jpg','Tubman strides forward like a locomotive, roots of slavery trailing her skirt, faces of freedom seekers etched into her dress.')"><img src="Gallery/Swing Low Harriet Tubman Memorial .jpg" alt="Swing Low: Harriet Tubman Memorial by Alison Saar"><div class="gi-ov"><div><div class="gi-cap">Swing Low: Harriet Tubman Memorial</div><div class="gi-sub">Alison Saar · 2007</div></div></div></div>
-      <!-- Row 3: 2+1=3 -->
       <div class="gi s2" onclick="openLB('Sunflower_Quilting_Bee.jpg','Eight iconic Black women — including Tubman — hold a sunflower quilt together in a field in Arles, France.')"><img src="Gallery/The Sunflower Quilting Bee at Arles.jpg" alt="The Sunflower Quilting Bee at Arles by Faith Ringgold"><div class="gi-ov"><div><div class="gi-cap">The Sunflower Quilting Bee at Arles</div><div class="gi-sub">Faith Ringgold · 1996</div></div></div></div>
       <div class="gi s1" onclick="openLB('Journey_to_Freedom.jpg','Tubman leads a young enslaved girl to freedom, leaning into the wind with fierce determination.')"><img src="Gallery/he Journey to Freedom.jpg" alt="The Journey to Freedom by Wesley Wofford"><div class="gi-ov"><div><div class="gi-cap">The Journey to Freedom</div><div class="gi-sub">Wesley Wofford · 2020</div></div></div></div>
-      <!-- Row 4: 3=3 -->
       <div class="gi s3" onclick="openLB('Take_My_Hand.jpg','Tubman reaches her hand toward the viewer, inviting them to join her journey to freedom.')"><img src="Gallery/Take My Hand.jpg" alt="Take My Hand mural by Michael Rosato"><div class="gi-ov"><div><div class="gi-cap">Take My Hand</div><div class="gi-sub">Michael Rosato · 2019 · Mural</div></div></div></div>
-      <!-- Row 5: 1+2=3 -->
       <div class="gi s1" onclick="openLB('Panel_4.jpg','One of 31 bold, geometric panels documenting the full arc of Tubman\'s courageous life and legacy.')"><img src="Gallery/Harriet Tubman Series, Panel #4.jpg" alt="Harriet Tubman Series Panel 4 by Jacob Lawrence"><div class="gi-ov"><div><div class="gi-cap">Harriet Tubman Series, Panel #4</div><div class="gi-sub">Jacob Lawrence · 1940</div></div></div></div>
       <div class="gi s2" onclick="openLB('Underground_Railroad_Mural.jpg','A North Philadelphia tribute mural honoring Tubman and the abolitionists who risked everything for freedom.')"><img src="Gallery/Harriet Tubman & the Underground Railroad  (2).jpg" alt="Harriet Tubman and the Underground Railroad mural by Sam Donovan"><div class="gi-ov"><div><div class="gi-cap">Harriet Tubman &amp; the Underground Railroad</div><div class="gi-sub">Sam Donovan · Contemporary · Mural</div></div></div></div>
-      <!-- Row 6: 1+1+1=3 -->
       <div class="gi s1" onclick="openLB('Pencil_Drawing.jpg','A preparatory pencil sketch of Tubman, part of Johnson\'s Fighters for Freedom series.')"><img src="Gallery/Harriet Tubman (pencil drawing).jpg" alt="Harriet Tubman pencil drawing by William H. Johnson"><div class="gi-ov"><div><div class="gi-cap">Harriet Tubman (Pencil Drawing)</div><div class="gi-sub">William H. Johnson · c. 1945</div></div></div></div>
       <div class="gi s1" onclick="openLB('I_Go_To_Prepare.jpg','A vibrant quilted portrait of Tubman in blues, reds, and African-inspired fabrics, symbolizing strength, concealment, and faith.')"><img src="Gallery/i go to prepare a place for you.jpg" alt="I Go To Prepare A Place For You by Bisa Butler"><div class="gi-ov"><div><div class="gi-cap">I Go To Prepare A Place For You</div><div class="gi-sub">Bisa Butler · 2021</div></div></div></div>
       <div class="gi s1" onclick="openLB('Oil_on_Paperboard.jpg','A bold folk-art style portrait showing Tubman from youth to old age, wearing the shawl gifted by Queen Victoria.')"><img src="Gallery/Harriet Tubman (oil on paperboard) .jpg" alt="Harriet Tubman oil on paperboard by William H. Johnson"><div class="gi-ov"><div><div class="gi-cap">Harriet Tubman</div><div class="gi-sub">William H. Johnson · c. 1945</div></div></div></div>
-      <!-- Row 7: 1+1+1=3 — Stephen Towns triptych -->
       <div class="gi s1" onclick="openLB('And_I_Shall_Smite_Thee.jpg','A young Tubman rests on a riverbank after an overseer\'s attack, surrounded by symbols of spiritual resilience.')"><img src="Gallery/And I Shall Smite Thee .jpg" alt="And I Shall Smite Thee by Stephen Towns"><div class="gi-ov"><div><div class="gi-cap">And I Shall Smite Thee</div><div class="gi-sub">Stephen Towns · 2018</div></div></div></div>
       <div class="gi s1" onclick="openLB('We_Will_Part_Ways.jpg','Depicts the wrenching moment Tubman chose freedom over the life she knew, making her fateful decision to flee.')"><img src="Gallery/We Will Part Ways .jpg" alt="We Will Part Ways by Stephen Towns"><div class="gi-ov"><div><div class="gi-cap">We Will Part Ways</div><div class="gi-sub">Stephen Towns · 2019</div></div></div></div>
       <div class="gi s1" onclick="openLB('We_Shall_Pass_Through_Combahee.jpg','Modeled after Washington Crossing the Delaware, Tubman leads Union gunboats on the Combahee River Raid, freeing over 700 people.')"><img src="Gallery/We Shall Pass Through the Combahee .jpg" alt="We Shall Pass Through the Combahee by Stephen Towns"><div class="gi-ov"><div><div class="gi-cap">We Shall Pass Through the Combahee</div><div class="gi-sub">Stephen Towns · 2019</div></div></div></div>
@@ -511,16 +491,6 @@ footer{border-top:1px solid var(--border);padding:26px 52px;display:flex;justify
   </div>
 </div>
 <div class="lb" id="lb" onclick="closeLB()"><button class="lb-x">✕</button><img id="lbimg" src="" alt=""><div class="lb-cap" id="lbcap"></div></div>
-
-<!-- VIDEO -->
-<div id="page-video" class="page">
-  <div class="vid-page">
-    <div class="pg-hdr"><div class="pg-eye"></div><h2 class="pg-ttl">Video</h2><p class="pg-sub">A video resource about Harriet Tubman's life and legacy.</p></div>
-    <div class="vid-wrap">
-      <div style="border-radius:16px;overflow:hidden;aspect-ratio:16/9;"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/Dv7YhVKFqbQ" title="Harriet Tubman Documentary" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display:block;"></iframe></div>
-    </div>
-  </div>
-</div>
 
 <!-- INTERACTIVE -->
 <div id="page-interactive" class="page">
@@ -585,10 +555,11 @@ footer{border-top:1px solid var(--border);padding:26px 52px;display:flex;justify
     <div class="about-card">
       <div class="about-ban"><div class="about-ban-p"></div></div>
       <div class="about-body">
-       <div class="about-av">
-  <img id="av-img" src="About the Author/Screenshot 2026-03-11 194010.jpg" alt="Kevin Lee" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" onerror="this.style.display='none';document.getElementById('av-init').style.display='flex';">
-  <span id="av-init" style="display:none;align-items:center;justify-content:center;width:100%;height:100%;">KL</span>
-      </div>
+        <div class="about-av">
+          <img id="av-img" src="About the Author/Screenshot 2026-03-11 194010.jpg" alt="Kevin Lee" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" onerror="this.style.display='none';document.getElementById('av-init').style.display='flex';">
+          <span id="av-init" style="display:none;align-items:center;justify-content:center;width:100%;height:100%;">KL</span>
+        </div>
+        <div style="height:16px;"></div>
         <div class="about-name">Kevin Lee</div>
         <div class="about-role">10th Grade · US History I Honors · Shrewsbury High School · 2026</div>
         <p class="about-bio">Kevin Lee is a 15-year-old Sophomore at Shrewsbury High School. He was born in Texas and has adapted to many hobbies and wants to pursue many professions. He loves technology, spends time with his friends, and likes learning new stuff. Additionally, he is diligent and awaits the future.</p>
@@ -692,7 +663,7 @@ const SD=[
 ];
 function doSearch(){const q=document.getElementById('srch').value.toLowerCase().trim();const drop=document.getElementById('sdrop');if(!q){drop.classList.remove('show');return;}const res=SD.filter(d=>d.t.toLowerCase().includes(q)||d.d.toLowerCase().includes(q)).slice(0,5);if(!res.length){drop.innerHTML='<div class="si"><div class="si-d">No results found.</div></div>';drop.classList.add('show');return;}drop.innerHTML=res.map(r=>`<div class="si" onclick="srchGo('${r.p}','${r.s||''}')"><div class="si-t">${r.t}</div><div class="si-d">${r.d}</div></div>`).join('');drop.classList.add('show');}
 function closeSearch(){document.getElementById('sdrop').classList.remove('show');}
-function srchGo(page,sec){const tabs=document.querySelectorAll('.nav-tab');const po=['home','research','funfacts','timeline','gallery','video','interactive','about','cited'];goP(page,tabs[po.indexOf(page)]);if(sec){setTimeout(()=>{const btns=document.querySelectorAll('.rs-b');const so=['bio','context','obstacles','plan','action','impact'];const si=so.indexOf(sec);if(si>=0)goS(sec,btns[si]);},100);}document.getElementById('srch').value='';closeSearch();}
+function srchGo(page,sec){const tabs=document.querySelectorAll('.nav-tab');const po=['home','research','funfacts','timeline','gallery','interactive','about','cited'];goP(page,tabs[po.indexOf(page)]);if(sec){setTimeout(()=>{const btns=document.querySelectorAll('.rs-b');const so=['bio','context','obstacles','plan','action','impact'];const si=so.indexOf(sec);if(si>=0)goS(sec,btns[si]);},100);}document.getElementById('srch').value='';closeSearch();}
 const QS=[
   {q:"What was Harriet Tubman's birth name?",opts:["Harriet Ross","Araminta Ross","Harriet Tubman","Araminta Tubman"],a:1,e:"She was born Araminta Ross in March 1822 in Dorchester County, Maryland."},
   {q:"What caused Tubman's lifelong seizures?",opts:["A childhood illness","An iron weight thrown by an overseer struck her head","A fall from a horse","Malnutrition"],a:1,e:"Around age twelve, an overseer threw an iron weight at another worker — it struck Tubman, nearly crushing her skull."},
@@ -745,7 +716,6 @@ function showRes(){
   document.getElementById('qzmain').style.display='none';
   const card=document.getElementById('qres');
   card.classList.add('show');
-  // Animate score count up
   let displayed=0;
   const scoreEl=document.getElementById('sfn');
   scoreEl.textContent='0';
@@ -754,7 +724,6 @@ function showRes(){
     displayed++;
     scoreEl.textContent=displayed;
   },120);
-  // Animate SVG arc
   const arc=document.getElementById('sring-arc');
   if(arc){
     const full=364;
@@ -777,11 +746,6 @@ let wsgrid=[],wssize=12,wsfirst=null,wsfound=[];
 function buildWS(){wsfound=[];wsfirst=null;wsgrid=Array.from({length:wssize},()=>Array(wssize).fill(''));const placed=[];const dirs=[[0,1],[1,0],[1,1],[0,-1],[-1,0],[-1,-1],[1,-1],[-1,1]];WSW.forEach(word=>{let tries=0,ok=false;while(!ok&&tries<300){tries++;const dir=dirs[Math.floor(Math.random()*dirs.length)];const r=Math.floor(Math.random()*wssize),c=Math.floor(Math.random()*wssize);let cells=[],fit=true;for(let i=0;i<word.length;i++){const nr=r+dir[0]*i,nc=c+dir[1]*i;if(nr<0||nr>=wssize||nc<0||nc>=wssize){fit=false;break;}if(wsgrid[nr][nc]&&wsgrid[nr][nc]!==word[i]){fit=false;break;}cells.push([nr,nc,word[i]]);}if(fit){cells.forEach(([nr,nc,ch])=>wsgrid[nr][nc]=ch);placed.push({word,cells:cells.map(c=>[c[0],c[1]])});ok=true;}}});const ABC='ABCDEFGHIJKLMNOPQRSTUVWXYZ';for(let r=0;r<wssize;r++)for(let c=0;c<wssize;c++)if(!wsgrid[r][c])wsgrid[r][c]=ABC[Math.floor(Math.random()*26)];renderWS(placed);}
 function renderWS(placed){const g=document.getElementById('wsgr');g.style.gridTemplateColumns=`repeat(${wssize},1fr)`;g.innerHTML='';for(let r=0;r<wssize;r++)for(let c=0;c<wssize;c++){const cell=document.createElement('div');cell.className='wsc';cell.textContent=wsgrid[r][c];cell.dataset.r=r;cell.dataset.c=c;cell.onclick=()=>wsClick(cell,r,c,placed);g.appendChild(cell);}const w=document.getElementById('wswords');w.innerHTML='';WSW.forEach(wd=>{const s=document.createElement('span');s.className='wsw';s.id='wsw-'+wd;s.textContent=wd;w.appendChild(s);});document.getElementById('wsstat').textContent='';}
 function wsClick(el,r,c,placed){if(!wsfirst){wsfirst={el,r,c};el.classList.add('selected');}else{const{r:r0,c:c0,el:el0}=wsfirst;let found=null;placed.forEach(p=>{const cs=p.cells;if((cs[0][0]===r0&&cs[0][1]===c0&&cs[cs.length-1][0]===r&&cs[cs.length-1][1]===c)||(cs[cs.length-1][0]===r0&&cs[cs.length-1][1]===c0&&cs[0][0]===r&&cs[0][1]===c))found=p;});if(found&&!wsfound.includes(found.word)){wsfound.push(found.word);found.cells.forEach(([fr,fc])=>{const idx=fr*wssize+fc;const cell=document.getElementById('wsgr').children[idx];cell.classList.add('found');cell.classList.remove('selected');});document.getElementById('wsw-'+found.word).classList.add('found');if(wsfound.length===WSW.length)document.getElementById('wsstat').textContent='🎉 All words found!';}else{el0.classList.remove('selected');}wsfirst=null;}}
-// Simple verified crossword grid
-// 1A: ROSS row1 col1-4
-// 1D: RAILROAD col1 rows1-8
-// 6A: AUBURN row5 col1-6
-// 3D: NORTH col4 rows1-5
 const SCW={R:9,C:8,
 g:[['','','','','','','',''],['','R','O','S','S','','',''],['','A','','','T','','',''],['','I','','','A','','',''],['','L','','','R','','',''],['','R','U','B','U','R','N',''],['','O','','','N','','',''],['','A','','','','','',''],['','D','','','','','','']],
 nums:[['','','','','','','',''],['','1','','3','','','',''],['','','','','','','',''],['','','','','','','',''],['','','','','','','',''],['','6','','','','','',''],['','','','','','','',''],['','','','','','','',''],['','','','','','','','']]};
